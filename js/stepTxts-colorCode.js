@@ -10,6 +10,7 @@ and comment out and see sidebar hidden difference
 /** Page is SO CLOSE, the problem now is imgs-container switching enlarge on side 
  by side .img-container > .step-img > .img
  */
+import { nxtLesson } from "./inject-content.js";
 import { mainTargetDiv } from "./letterFocus-sidebar.js";
 import { sidebar } from "./toggle-sidebar.js"
 import { parts } from "./letterFocus-sidebar.js"
@@ -35,7 +36,7 @@ export function stepTxtsFocus() {
     const allImgs = document.querySelectorAll('.step-img > img')
     const sectionLessonTitle = document.querySelector('nav.section-lesson-title > h1')
     const hiddenH3 = document.querySelector('.header-codeColor-lesson h3')
-    const endNxtLesson = document.querySelector('#endNxtLesson')
+    
 
     let currentWidth
     let partsFocused = false
@@ -261,7 +262,6 @@ export function stepTxtsFocus() {
                 if (intLet <= steps.length) {
                     steps[intLet - 1].focus()
                 } else {
-
                     endNxtLesson.focus()
                 }
             }

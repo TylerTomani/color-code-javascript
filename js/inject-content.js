@@ -8,7 +8,7 @@ import { sidebar } from "./toggle-sidebar.js";
 import { sidebarBtn } from "./toggle-sidebar.js";
 
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
-export const endNxtLessonBtn = document.querySelector('#endNxtLesson')
+export const nxtLesson = document.querySelector('#nxtLesson')
 
 export let lastFocusedLink = null;
 export let lastClickedLink = null;
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mainTargetDiv.addEventListener('focusin', e => {
         mainTargetDivFocused = true;
     });
-
     function injectContent(href) {
         fetch(href)
             .then(response => response.text())
@@ -54,14 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to load content:', err);
             });
     }
-
     function getParts(el) {
         while (el && el.tagName !== 'A') {
             el = el.parentElement;
         }
         return el;
     }
-
     parts.forEach((el, index) => {
         
         if (el.hasAttribute('autofocus')) {
@@ -70,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lastClickedLink = el;
         } else {
             lastFocusedLink = parts[0];
-            lastClickedLink = parts[0];
+            // lastClickedLink = parts[0];
         }
 
         el.addEventListener('focus', (e) => {
@@ -103,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 injectContent(el.href);
 
-                if (el === lastFocusedLink) {
+                if (el === lastClickedLink) {
                     if (currentWidth < 600) {
                         const sidebar = document.querySelector('.side-bar');
                         sidebar.classList.add('deactive');
@@ -145,8 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
-
     // Letter Num focus
     addEventListener('keydown', e => {
         let letter = e.key.toLowerCase();
@@ -167,6 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('body').style.overflowX = 'none'
         }
     });
+    nxtLesson.addEventListener('keydown', e => {
+        let key = e.keyCode
+        if(key === 13){
+            if(!lastClickedLink){
+                lastFocusedLink.focus()
+            }
+        }
+    })
 });
 letterFocus()
 stepTxtsFocus()

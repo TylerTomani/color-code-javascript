@@ -6,14 +6,19 @@ export let enterConsoleFocus = false
 import { lastClickedLink } from "./inject-content.js";
 import { lastStep, stepFocused } from "./stepTxts-colorCode.js";
 import { sidebar } from "./toggle-sidebar.js";
-import { endNxtLessonBtn } from "./inject-content.js";
+import { nxtLesson } from "./inject-content.js";
 let partsFocused = false
 const header = document.querySelector('body > header')
 // async variables
 let enterConsole
 const sideBarBtn = document.querySelector('#sideBarBtn')
 export function letterFocus(){
-    
+    navBar.addEventListener('keydown',  e => {
+        let key = e.key.toLowerCase()
+        if(key === 's'){
+            sideBarBtn.focus()
+        }
+    })
     header.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         if (letter == 'a') {    
@@ -76,8 +81,9 @@ export function letterFocus(){
             }
         }
         if(letter == 'e'){
-            if(endNxtLessonBtn){
-                endNxtLessonBtn.focus()
+            console.log(nxtLesson)
+            if(nxtLesson){
+                nxtLesson.focus()
             }
             
         }
@@ -143,11 +149,7 @@ export function letterFocus(){
             resolve(document.querySelector('#enterConsole'))
         })
     }
-    // function getEndNxtLessonBtn(){
-    //     return new Promise(function(resolve,reject){
-    //         resolve(document.querySelector('#endNxtLesson'))
-    //     })
-    // }
+    
     
 }
 
