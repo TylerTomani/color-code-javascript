@@ -11,7 +11,7 @@ and comment out and see sidebar hidden difference
  by side .img-container > .step-img > .img
  */
 import { mainTargetDiv } from "./letterFocus-sidebar.js";
-import { sideBar } from "./toggle-sidebar.js"
+import { sidebar } from "./toggle-sidebar.js"
 import { parts } from "./letterFocus-sidebar.js"
 import { enterConsoleFocus } from "./letterFocus-sidebar.js";
 import { toggleBar } from "./toggle-sidebar.js";
@@ -33,7 +33,7 @@ export function stepTxtsFocus() {
     const sectionLessonTitle = document.querySelector('nav.section-lesson-title > h1')
     const hiddenH3 = document.querySelector('.header-codeColor-lesson h3')
     const endNxtLesson = document.querySelector('#endNxtLesson')
-    const sideBar = document.querySelector('main > .side-bar')
+
     let currentWidth
     let partsFocused = false
     sectionLessonTitle.innerText = hiddenH3.innerText
@@ -174,14 +174,14 @@ export function stepTxtsFocus() {
         if (img) {
             img.classList.toggle('enlarge');
             if (currentWidth <= 721) {
-                sideBar.classList.toggle('deactive', img.classList.contains('enlarge'));
+                sidebar.classList.toggle('deactive', img.classList.contains('enlarge'));
             }
         }
 
         if (vid) {
             vid.classList.toggle('enlarge-vid');
             if (currentWidth <= 721 && currentWidth >= 601) {
-                sideBar.classList.toggle('deactive', vid.classList.contains('enlarge-vid'));
+                sidebar.classList.toggle('deactive', vid.classList.contains('enlarge-vid'));
             }
         }
     }
@@ -233,7 +233,7 @@ export function stepTxtsFocus() {
             //     chagGpt.scrollIntoView({behavior: 'smooth', block: 'center'})
             // }
         }
-        if (sideBar.classList.contains('deactive')) {
+        if (sidebar.classList.contains('deactive')) {
             mainTargetDivFocused = true
         }
         if (!isNaN(letter) && !enterConsoleFocus && mainTargetDivFocused) {
@@ -248,7 +248,7 @@ export function stepTxtsFocus() {
             }
         }
         if (letter == 'enter') {
-            if (sideBar.classList.contains('deactive')) {
+            if (sidebar.classList.contains('deactive')) {
                 mainTargetDiv.classList.add('overflowX-none')
             }
         }
@@ -274,9 +274,9 @@ export function stepTxtsFocus() {
 
         }
         if (letter == 'enter') {
-            if (sideBar.classList.contains('deactive')) {
-                sideBar.classList.remove('deactive')
-                sideBar.classList.add('active')
+            if (sidebar.classList.contains('deactive')) {
+                sidebar.classList.remove('deactive')
+                sidebar.classList.add('active')
             }
             let iParts = [...parts].indexOf(lastClickedLink)
             iParts = (iParts + 1) % parts.length
@@ -288,9 +288,9 @@ export function stepTxtsFocus() {
         }
     })
     endNxtLesson.addEventListener('click', e => {
-        if (sideBar.classList.contains('deactive')) {
-            sideBar.classList.remove('deactive')
-            sideBar.classList.add('active')
+        if (sidebar.classList.contains('deactive')) {
+            sidebar.classList.remove('deactive')
+            sidebar.classList.add('active')
         }
         let iParts = [...parts].indexOf(lastClickedLink)
         iParts = (iParts + 1) % parts.length

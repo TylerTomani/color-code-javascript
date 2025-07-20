@@ -1,7 +1,7 @@
 import { getStep } from "./stepTxts-colorCode.js"
 import { currentWidth } from "./inject-content.js"
 import { toggleBar } from "./toggle-sidebar.js"
-import { sideBar } from "./toggle-sidebar.js"
+import { sidebar } from "./toggle-sidebar.js"
 let playing = false
 
 export function togglePlayVidSize(e) {

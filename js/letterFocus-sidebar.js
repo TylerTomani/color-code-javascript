@@ -3,7 +3,7 @@ export const parts = document.querySelectorAll('.parts ul > li > a')
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { lastClickedLink } from "./inject-content.js";
 import { lastStep } from "./stepTxts-colorCode.js";
-import { sideBar } from "./toggle-sidebar.js";
+import { sidebar } from "./toggle-sidebar.js";
 export const navBar = document.querySelector('nav.section-lesson-title')
 let partsFocused = false
 export let enterConsoleFocus = false

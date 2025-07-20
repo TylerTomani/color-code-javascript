@@ -1,4 +1,4 @@
-import { sideBar } from "./toggle-sidebar.js";
+import { sidebar } from "./toggle-sidebar.js";
 
 let startX = 0;
 let endX = 0;

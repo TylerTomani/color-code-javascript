@@ -4,7 +4,7 @@ import { addCopyCodes } from "./copy-code-colorCode.js";
 import { letterFocus } from "./letterFocus-sidebar.js";
 import { parts } from "./letterFocus-sidebar.js";
 import { mainTargetDiv } from "./letterFocus-sidebar.js";
-import { sideBar } from "./toggle-sidebar.js";
+import { sidebar } from "./toggle-sidebar.js";
 import { sidebarBtn } from "./toggle-sidebar.js";
 
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (el === lastFocusedLink) {
                     if (currentWidth < 600) {
-                        const sideBar = document.querySelector('.side-bar');
-                        sideBar.classList.add('deactive');
+                        const sidebar = document.querySelector('.side-bar');
+                        sidebar.classList.add('deactive');
                     }
                     mainTargetDiv.focus();
                     scrollTo(0, 0);
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     parts[currentLinkIndex].focus();
                     parts[currentLinkIndex].focus();
                 } else if ( letter === 's' && partsFocused && e.shiftKey) {
-                    if(!sideBar.classList.contains('deactive')){
+                    if(!sidebar.classList.contains('deactive')){
                         scrollTo(0,0)
                     }
                     partsFocused = false
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTo(0, 0);
             }
         }
-        if(sideBar.classList.contains('deactive')){
+        if(sidebar.classList.contains('deactive')){
             document.querySelector('body').style.overflowX = 'none'
         }
     });

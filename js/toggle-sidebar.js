@@ -1,7 +1,7 @@
 const header = document.querySelector('body > header')
 export const sidebarBtn = document.querySelector('#sideBarBtn')
 const sideBarContainer = document.querySelector(".sideBarBtn-container")
-export const sideBar = document.querySelector('.side-bar')
+export const sidebar = document.querySelector('.side-bar')
 import { parts } from "./letterFocus-sidebar.js"
 import { lastClickedLink, lastFocusedLink } from "./inject-content.js"
 import { mainTargetDiv } from "./letterFocus-sidebar.js"
@@ -9,8 +9,8 @@ import { navBar } from "./letterFocus-sidebar.js"
 mainTargetDiv.addEventListener('keydown', e =>{
     let letter = e.key.toLowerCase()
     if(letter == 's' || letter == 'a'){
-        if(sideBar.classList.contains('deactive')){
-            sideBar.classList.remove('deactive')
+        if(sidebar.classList.contains('deactive')){
+            sidebar.classList.remove('deactive')
         }
         
     }
@@ -25,8 +25,8 @@ sidebarBtn.addEventListener('keydown', e =>{
     if(letter == 'enter'){ 
         toggleBar()
     }
-    if(letter == 'a' && sideBar.classList.contains('deactive')){
-        sideBar.classList.remove('deactive')
+    if(letter == 'a' && sidebar.classList.contains('deactive')){
+        sidebar.classList.remove('deactive')
         
     }    
     if(letter == 'a'){
@@ -60,7 +60,7 @@ navBar.addEventListener('click', e => {
     toggleBar()
 })
 
-sideBar.addEventListener('click', e => {
+sidebar.addEventListener('click', e => {
     e.preventDefault()
     if (e.target.tagName == 'ASIDE'){
         toggleBar()
@@ -70,7 +70,7 @@ sideBar.addEventListener('click', e => {
 })
 export function toggleBar(){
     sidebarBtn.classList.toggle('drop')
-    sideBar.classList.toggle('deactive')
+    sidebar.classList.toggle('deactive')
     
 }
 
