@@ -57,7 +57,7 @@ navBar.addEventListener('keydown', e => {
 })
 navBar.addEventListener('click', e => {
     e.preventDefault()
-    sideBar.classList.toggle('deactive')
+    toggleBar()
 })
 
 sideBar.addEventListener('click', e => {
