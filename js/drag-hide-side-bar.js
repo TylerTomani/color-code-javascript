@@ -13,7 +13,7 @@ document.addEventListener('touchend', (e) => {
 
     if (swipeDistance < -50 && !sidebar.classList.contains('deactive')) {
         sidebar.classList.toggle('deactive');
-        sidebarBtn.classList.toggle('drop');
+        sidebarBtn.classList.add('drop');
     }
 });
 
@@ -29,7 +29,7 @@ document.addEventListener('mouseup', (e) => {
     
     if (swipeDistance < -50 && !sidebar.classList.contains('deactive')) {
         sidebar.classList.toggle('deactive');
-        sidebarBtn.classList.toggle('drop');
+        sidebarBtn.classList.add('drop');
     }
     isMouseDown = false
 });
