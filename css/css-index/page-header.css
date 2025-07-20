@@ -5,6 +5,7 @@
 
 .page-wrapper > .page-header > img{
     max-height: 100px;
+
 }
 .page-wrapper > .page-header > .page-title-logo{
     flex-basis: 50%;

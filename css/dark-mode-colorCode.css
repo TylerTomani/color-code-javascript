@@ -8,9 +8,9 @@
 }
 .dark-mode .step:active, .dark-mode .step:focus,
 .dark-mode .step-float:active, .step-float:focus {
-    font-style: bold;
+    /* font-style: bold; */
     /* background-color: blue; */
-    font-weight: 800;
+    /* font-weight: 800; */
     /* color: white; */
 }
 .dark-mode #mainLinksContainer{

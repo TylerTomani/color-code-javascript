@@ -10,6 +10,7 @@ export let enterConsoleFocus = false
 const header = document.querySelector('body > header')
 // async variables
 let enterConsole
+const sideBarBtn = document.querySelector('#sideBarBtn')
 export function letterFocus(){
     const endNxtLessonBtn = document.querySelector('#endNxtLesson')
     header.addEventListener('keydown', e => {
@@ -139,9 +140,17 @@ export function letterFocus(){
             tutorialLink.focus()
         }
         if(letter == 's'){
-            const sideBarBtn = document.querySelector('#sideBarBtn')
-            sideBarBtn.focus()
-            scrollTo(0,0)
+            console.log(sideBarBtn)
+            // sideBarBtn.focus()
+            if(lastClickedLink){
+                lastClickedLink?.focus()
+            } else if(lastFocusedLink){
+                lastFocusedLink.focus()
+            } else {
+                sideBarBtn.focus()
+            }
+
+            // scrollTo(0,0)
         }        
         if (letter == 'v') {
             const vsCodeShortRegex = document.querySelector('#vsCodeShortRegex')
