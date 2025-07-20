@@ -111,18 +111,14 @@ ul li a:visited {
     z-index: 10;
     /* bottom: 0; */
     /* font-size: 20px; */
-    border: 2px solid blue;
     color: magenta;
-
+    
 }
-#sideBarBtn:active,#sideBarBtn:focus{
-    /* position: fixed; */
-    /* top: 0; */
-    /* color: white; */
-}
-
 .deactive #sideBarBtn {
+    border: 1px solid var(--bg-primary-db);
     transform: scale(2);
+    left: 2%;
+    bottom: 2%;
 }
 @media screen and (min-width:960px){    
     main> .side-bar.deactive  {
