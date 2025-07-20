@@ -1,3 +1,4 @@
+
 import { stepTxtsFocus } from "./stepTxts-colorCode.js";
 import { addCopyCodes } from "./copy-code-colorCode.js";
 import { letterFocus } from "./letterFocus-sidebar.js";
@@ -16,7 +17,15 @@ let currentLinkIndex = 0;
 export let currentWidth = innerWidth;
 document.addEventListener('DOMContentLoaded', () => {
     let mainTargetDivFocused = false;
-
+    let partsFocused
+    parts.forEach(el => {
+        el.addEventListener('focus', e => {
+            partsFocused = true 
+        })
+        el.addEventListener('focusout', e => {
+            partsFocused = false
+        })
+    })
     addEventListener('resize', e => {
         currentWidth = innerWidth;
     });
@@ -102,10 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (!mainTargetDivFocused) {
-                if (letter === 'a' && !e.shiftKey) {
+                if (letter === 'a' || letter === 's' && partsFocused  && !e.shiftKey) {
                     currentLinkIndex = (currentLinkIndex + 1) % parts.length;
                     parts[currentLinkIndex].focus();
-                } else if (letter === 'a' && e.shiftKey) {
+                } else if (letter === 'a' || letter === 's' && partsFocused && e.shiftKey) {
                     currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
                     parts[currentLinkIndex].focus();
                 }

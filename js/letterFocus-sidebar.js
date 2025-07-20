@@ -70,9 +70,7 @@ export function letterFocus(){
         } else {
             elsFocus(e, letter)
         }
-        if(sideBar){
-            // 
-        }
+        
     });
     function elsFocus(e,letter) {
         if(e.metaKey && letter == 'c'){
@@ -139,8 +137,8 @@ export function letterFocus(){
             const tutorialLink = document.querySelector('#tutorialLink')
             tutorialLink.focus()
         }
-        if(letter == 's'){
-            console.log(sideBarBtn)
+        if(letter == 's' && !partsFocused){
+            
             // sideBarBtn.focus()
             if(lastClickedLink){
                 lastClickedLink?.focus()
