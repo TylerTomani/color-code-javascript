@@ -1,4 +1,4 @@
-import { getStep } from "./stepTxts-codeColor.js"
+import { getStep } from "./stepTxts-colorCode.js"
 import { currentWidth } from "./inject-content.js"
 import { toggleBar } from "./toggle-sidebar.js"
 import { sideBar } from "./toggle-sidebar.js"

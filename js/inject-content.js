@@ -1,5 +1,5 @@
-import { stepTxtsFocus } from "./stepTxts-codeColor.js";
-import { addCopyCodes } from "../../../js/copy-code.js";
+import { stepTxtsFocus } from "./stepTxts-colorCode.js";
+import { addCopyCodes } from "./copy-code-colorCode.js";
 import { letterFocus } from "./letterFocus-sidebar.js";
 import { parts } from "./letterFocus-sidebar.js";
 import { mainTargetDiv } from "./letterFocus-sidebar.js";
