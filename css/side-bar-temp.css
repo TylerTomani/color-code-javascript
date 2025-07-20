@@ -58,7 +58,7 @@ main> .main-landing-page > #mainTargetDiv {
 }
 
 main > .side-bar{
-    flex-basis: 10%;
+    flex-basis: 15%;
     flex-direction: column;
     position: sticky;
     height: 100%;
@@ -68,11 +68,20 @@ main > .side-bar{
     box-shadow: 0 0 1px 1px white;
     /* text-wrap: wrap; */
     /* text-wrap: none; */
-    white-space: none;
+    /* white-space: none; */
     padding-left: .5%;
     border-right: 1px solid black;
     padding-right: 2;
     z-index: 10;
+}
+main > .side-bar {
+  overflow-y: auto;
+  /* optional for nice scroll: */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+main > .side-bar::-webkit-scrollbar {
+  display: none;
 }
 main > .side-bar.deactive {
     flex-basis: 2%;
