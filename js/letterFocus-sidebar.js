@@ -138,17 +138,15 @@ export function letterFocus(){
             tutorialLink.focus()
         }
         if(letter == 's' && !partsFocused){
-            
-            // sideBarBtn.focus()
             if(lastClickedLink){
                 lastClickedLink?.focus()
             } else if(lastFocusedLink){
                 lastFocusedLink.focus()
             } else {
                 sideBarBtn.focus()
+                // scrollTo(0,0)
             }
 
-            // scrollTo(0,0)
         }        
         if (letter == 'v') {
             const vsCodeShortRegex = document.querySelector('#vsCodeShortRegex')

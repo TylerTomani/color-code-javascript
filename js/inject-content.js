@@ -5,7 +5,7 @@ import { letterFocus } from "./letterFocus-sidebar.js";
 import { parts } from "./letterFocus-sidebar.js";
 import { mainTargetDiv } from "./letterFocus-sidebar.js";
 import { sideBar } from "./toggle-sidebar.js";
-
+import { sidebarBtn } from "./toggle-sidebar.js";
 
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
 export let lastFocusedLink = null;
@@ -18,6 +18,7 @@ export let currentWidth = innerWidth;
 document.addEventListener('DOMContentLoaded', () => {
     let mainTargetDivFocused = false;
     let partsFocused
+
     parts.forEach(el => {
         el.addEventListener('focus', e => {
             partsFocused = true 
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     parts.forEach((el, index) => {
+        
         if (el.hasAttribute('autofocus')) {
             injectContent(el.href);
             lastFocusedLink = el;
@@ -113,18 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!mainTargetDivFocused) {
                 if (letter === 'a' || letter === 's' && partsFocused  && !e.shiftKey) {
                     currentLinkIndex = (currentLinkIndex + 1) % parts.length;
-                    parts[currentLinkIndex].focus();
-                } else if (letter === 'a' || letter === 's' && partsFocused && e.shiftKey) {
+                    if(currentLinkIndex == parts.length ){
+                        partsFocused = false
+                        sidebarBtn.focus()
+                        return
+                    } else{
+
+                        parts[currentLinkIndex].focus();
+                    }
+                } else if (letter === 'a' && partsFocused && e.shiftKey) {
                     currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
                     parts[currentLinkIndex].focus();
+                    parts[currentLinkIndex].focus();
+                } else if ( letter === 's' && partsFocused && e.shiftKey) {
+                    if(!sideBar.classList.contains('deactive')){
+                        scrollTo(0,0)
+                    }
+                    partsFocused = false
+                    sidebarBtn.focus()
                 }
-
                 if (letter === 'm') {
                     mainTargetDiv.focus();
                 }
             }
         });
     });
+    
 
     // Letter Num focus
     addEventListener('keydown', e => {

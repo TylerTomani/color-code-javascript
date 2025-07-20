@@ -1,9 +1,9 @@
 const header = document.querySelector('body > header')
-const sidebarBtn = document.querySelector('#sideBarBtn')
+export const sidebarBtn = document.querySelector('#sideBarBtn')
 const sideBarContainer = document.querySelector(".sideBarBtn-container")
 export const sideBar = document.querySelector('.side-bar')
 import { parts } from "./letterFocus-sidebar.js"
-import { lastClickedLink } from "./inject-content.js"
+import { lastClickedLink, lastFocusedLink } from "./inject-content.js"
 import { mainTargetDiv } from "./letterFocus-sidebar.js"
 import { navBar } from "./letterFocus-sidebar.js"
 mainTargetDiv.addEventListener('keydown', e =>{
@@ -29,11 +29,14 @@ sidebarBtn.addEventListener('keydown', e =>{
         sideBar.classList.remove('deactive')
         
     }    
-    if(letter == 'a' && lastClickedLink){
-        lastClickedLink.focus()
-        
-    } else if(letter == 'a' && !lastClickedLink){
-        parts[0].focus()
+    if(letter == 'a'){
+        if(lastClickedLink){
+            lastClickedLink.focus()
+        } else if(lastFocusedLink){
+            lastFocusedLink.focus()
+        } else {
+            parts[0].focus()
+        }
     }
     
 })
