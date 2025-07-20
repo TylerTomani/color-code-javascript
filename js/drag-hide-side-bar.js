@@ -1,34 +1,37 @@
 import { sidebar } from "./toggle-sidebar.js";
-
+import { sidebarBtn } from "./toggle-sidebar.js";
 let startX = 0;
-let endX = 0;
-let startMouseX = 0;
-let endMouseX = 0;
+let isMouseDown = false
 
 document.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
     console.log(startX)
 });
 document.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX;
+    const endX = e.changedTouches[0].clientX;
     const swipeDistance = endX - startX;
 
-    if (swipeDistance < -20 && !sidebar.classList.contains('deactive')) {
+    if (swipeDistance < -50 && !sidebar.classList.contains('deactive')) {
         sidebar.classList.toggle('deactive');
+        sidebarBtn.classList.toggle('drop');
     }
 });
 
 document.addEventListener('mousedown', (e) => {
-    startMouseX = e.clientX;
-    console.log(startX)
+    isMouseDown = true
+    startX = e.clientX;
+
 });
 document.addEventListener('mouseup', (e) => {
-    endMouseX = e.clientX;
-    const swipeDistance = endMouseX - startMouseX;
-
-    if (swipeDistance < -20 && !sidebar.classList.contains('deactive')) {
+    if(!isMouseDown) return
+    const endX = e.clientX;
+    const swipeDistance = endX - startX;
+    
+    if (swipeDistance < -50 && !sidebar.classList.contains('deactive')) {
         sidebar.classList.toggle('deactive');
+        sidebarBtn.classList.toggle('drop');
     }
+    isMouseDown = false
 });
 
 
