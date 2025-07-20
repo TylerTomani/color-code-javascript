@@ -262,7 +262,7 @@ export function stepTxtsFocus() {
                 if (intLet <= steps.length) {
                     steps[intLet - 1].focus()
                 } else {
-                    endNxtLesson.focus()
+                    nxtLesson.focus()
                 }
             }
         }
