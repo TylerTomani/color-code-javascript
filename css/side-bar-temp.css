@@ -48,7 +48,7 @@ main> .main-landing-page > #mainTargetDiv {
 }
 .main-landing-page > nav#nxtPrevLessonsBtns {
     position: sticky;
-    bottom: 14%;
+    bottom: 0;
     /* border: 2px solid magenta; */
     z-index: 10;
 }
