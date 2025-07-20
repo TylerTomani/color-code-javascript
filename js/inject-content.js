@@ -9,6 +9,7 @@ import { sidebarBtn } from "./toggle-sidebar.js";
 
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
 export const nxtLesson = document.querySelector('#nxtLesson')
+const prevLesson = document.querySelector("#prevLesson")
 
 export let lastFocusedLink = null;
 export let lastClickedLink = null;
@@ -115,26 +116,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (!mainTargetDivFocused) {
-                if (letter === 'a' || letter === 's' && partsFocused  && !e.shiftKey) {
-                    currentLinkIndex = (currentLinkIndex + 1) % parts.length;
-                    if(currentLinkIndex == parts.length ){
+                console.log(currentLinkIndex)
+                if(partsFocused){
+                    
+                    if ((letter === 'a' || letter === 's')&& !e.shiftKey) {
+                        currentLinkIndex = (currentLinkIndex + 1) % parts.length;
+                        if(currentLinkIndex == parts.length ){
+                            partsFocused = false
+                            sidebarBtn.focus()
+                            return
+                        } else{
+    
+                            parts[currentLinkIndex].focus();
+                        }
+                    } else if (letter === 'a' &&  e.shiftKey) {
+                        currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
+                        parts[currentLinkIndex].focus();
+                        // parts[currentLinkIndex].focus();
+                    } else if ( letter === 's' && e.shiftKey) {
+                        if(!sidebar.classList.contains('deactive')){
+                            scrollTo(0,0)
+                        }
                         partsFocused = false
                         sidebarBtn.focus()
-                        return
-                    } else{
-
-                        parts[currentLinkIndex].focus();
                     }
-                } else if (letter === 'a' && partsFocused && e.shiftKey) {
-                    currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
-                    parts[currentLinkIndex].focus();
-                    parts[currentLinkIndex].focus();
-                } else if ( letter === 's' && partsFocused && e.shiftKey) {
-                    if(!sidebar.classList.contains('deactive')){
-                        scrollTo(0,0)
-                    }
-                    partsFocused = false
-                    sidebarBtn.focus()
                 }
                 if (letter === 'm') {
                     mainTargetDiv.focus();
@@ -167,6 +172,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if(key === 13){
             if(!lastClickedLink){
                 lastFocusedLink.focus()
+            } else {
+                let index = [...parts].indexOf(lastClickedLink)
+                index += 1
+                parts[index].focus()
+                parts[index].click()
+            }
+        }
+    })
+    prevLesson.addEventListener('keydown', e => {
+        let key = e.keyCode
+        if(key === 13){
+            if(!lastClickedLink){
+                lastFocusedLink.focus()
+            } else {
+                let index = [...parts].indexOf(lastClickedLink)
+                index = (index + parts.length - 1) % parts.length
+                parts[index].focus()
+                parts[index].click()
             }
         }
     })

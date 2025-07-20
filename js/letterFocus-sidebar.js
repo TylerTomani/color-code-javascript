@@ -71,7 +71,7 @@ export function letterFocus(){
             e.preventDefault()
             return
         }
-        if(letter == 'a'){
+        if(letter == 'a' ){
             if(!partsFocused){
                 if(lastClickedLink){
                     lastClickedLink.focus()
