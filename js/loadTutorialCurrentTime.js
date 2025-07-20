@@ -7,7 +7,10 @@ export function loadTutorialCurrentTime(){
             if(!currentTimeLink){
                 return 
             }
-            tutorialLink.href = currentTimeLink
+            if(currentTimeLink){
+
+                tutorialLink.href = currentTimeLink
+            }
         })
         el.addEventListener('keydown', e => {
             let letter = e.key.toLowerCase()
@@ -17,7 +20,9 @@ export function loadTutorialCurrentTime(){
                 if(!currentTimeLink){
                     return 
                 }
+                if(currentTimeLink){
                 tutorialLink.href = currentTimeLink
+                }
             }
         })
     })

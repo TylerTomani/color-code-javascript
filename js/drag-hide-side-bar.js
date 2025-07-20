@@ -1,18 +1,19 @@
-const sidebar = document.querySelector('.side-bar');
+import { sideBar } from "./toggle-sidebar.js";
 
 let startX = 0;
 let endX = 0;
 
 document.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
+    console.log(startX)
 });
 
 document.addEventListener('touchend', (e) => {
     endX = e.changedTouches[0].clientX;
     const swipeDistance = endX - startX;
 
-    if (swipeDistance < -50 && !sidebar.classList.contains('hidden')) {
-        sidebar.classList.toggle('hidden');
+    if (swipeDistance < -50 && !sidebar.classList.contains('deactive')) {
+        sidebar.classList.toggle('deactive');
     }
 });
 function getSideBar(parent) {
