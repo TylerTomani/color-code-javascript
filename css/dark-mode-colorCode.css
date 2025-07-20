@@ -7,7 +7,7 @@
     color: var(--font-primary-db)
 }
 .dark-mode .step:active, .dark-mode .step:focus,
-.dark-mode .step-float:active, .step-float:focus {
+.dark-mode .step-float:active, .dark-mode .step-float:focus {
     /* font-style: bold; */
     /* background-color: blue; */
     /* font-weight: 800; */

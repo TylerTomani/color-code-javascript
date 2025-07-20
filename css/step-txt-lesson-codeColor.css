@@ -17,7 +17,6 @@
 
 /* .step, */
 .step-float:focus,.step-float:focus{
-    background-color: var(--bg-primary-db);
     z-index: 100;
 }
 .step-float{

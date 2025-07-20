@@ -2,7 +2,7 @@ import { lastFocusedLink } from "./inject-content.js";
 export const parts = document.querySelectorAll('.parts ul > li > a')
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { lastClickedLink } from "./inject-content.js";
-import { lastStep } from "./stepTxts-colorCode.js";
+import { lastStep, stepFocused } from "./stepTxts-colorCode.js";
 import { sidebar } from "./toggle-sidebar.js";
 export const navBar = document.querySelector('nav.section-lesson-title')
 let partsFocused = false
@@ -101,7 +101,8 @@ export function letterFocus(){
             }
         }
         //  This is very sloppy handling of letterFocus
-        if (letter == 'c') {
+        console.log(stepFocused)
+        if (letter == 'c' && !stepFocused) {
             const chatGpt = document.querySelector('#chatGpt')
             const codeComandShortcuts = document.querySelector('#codeComandShortcuts')
             
@@ -111,11 +112,13 @@ export function letterFocus(){
                 codeComandShortcuts.focus()
             }
         } 
-        if (letter == 'c') {
-            // const enterConsole = getEnterConsole()
-            enterConsole.scrollIntoView({behavior: 'smooth', block:'center'})
+        // if (letter == 'c') {
+        //     // const enterConsole = getEnterConsole()
+        //     if(enterConsole){
+        //         enterConsole.scrollIntoView({behavior: 'smooth', block:'center'})
+        //     }
             
-        }
+        // }
         if(letter == 'd'){
             const darkmodeBtn = document.querySelector('#darkmodeBtn')
             darkmodeBtn.focus()

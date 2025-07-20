@@ -17,7 +17,7 @@ import { enterConsoleFocus } from "./letterFocus-sidebar.js";
 import { toggleBar } from "./toggle-sidebar.js";
 import { lastClickedLink } from "./inject-content.js";
 export let lastStep = null
-export let stepFocused
+export let stepFocused = false
 export function stepTxtsFocus() {
     // const videos = document.querySelectorAll('video');
     const allVideos = document.querySelectorAll('video')
@@ -28,6 +28,7 @@ export function stepTxtsFocus() {
 
     // Maybe just keep text area with focus
     const copyCodes = document.querySelectorAll('.copy-code')
+    const copyCodesStepTxts = document.querySelectorAll('.step-txt > .copy-code')
     const imgVids = document.querySelectorAll('.step-img > img, .step-vid > video')
     const allImgs = document.querySelectorAll('.step-img > img')
     const sectionLessonTitle = document.querySelector('nav.section-lesson-title > h1')
@@ -113,11 +114,18 @@ export function stepTxtsFocus() {
         })
     })
     steps.forEach(el => {
-        el.addEventListener('focus', e => {
+        el.addEventListener('focusin', e => {
+            stepFocused = true
+            console.log('focus')
             pauseAllVideos()
             removeAllTabIndexes()
             denlargeAllImages()
             lastStep = e.target
+        })
+        
+        el.addEventListener('focusout', e => {
+            stepFocused = false
+
         })
         el.addEventListener('click', e => {
             const step = getStep(e.target)
@@ -140,9 +148,18 @@ export function stepTxtsFocus() {
                 addTabIndexes(e)
                 togglePlayVidSize(e)
             }
+            if(letter == 'c' && stepFocused){
+                const copyCode = e.target.querySelector('.copy-code')
+                console.log(copyCode)
+                if(copyCode){
+                    copyCode.focus()
+                }
+                // stepFocused = false
+            }
 
         })
     })
+    
     const stepImageIndexes = new WeakMap();
 
     function toggleImg(e) {
