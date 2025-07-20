@@ -77,7 +77,7 @@ video.enlarge-vid {
 }
 .step:active,.step:focus, 
 .step-float:active,.step-float:focus{
-    font-style: bold;
+    /* font-style: bold; */
 }
 
 .step > .step-txt{

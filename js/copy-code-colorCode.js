@@ -34,6 +34,9 @@ export function addCopyCodes(){
         }
         el.classList.add('copied')
         setTimeout(() =>{
+            el.parentElement.style.position= 'static'
+            const body = document.querySelector('body')
+            body.style.position = 'abosolute'
             el.classList.remove('copied')
             el.classList.add('decopied')
 
