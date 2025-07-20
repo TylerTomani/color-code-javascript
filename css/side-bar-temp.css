@@ -115,9 +115,9 @@ ul li a:visited {
     
 }
 .deactive #sideBarBtn {
+    left: 2%;
     border: 1px solid var(--bg-primary-db);
     transform: scale(2);
-    left: 2%;
     bottom: 2%;
 }
 @media screen and (min-width:960px){    
@@ -129,7 +129,6 @@ ul li a:visited {
         margin-left: -3px;
     }
 }
-
 @media screen and (max-width:600px){
     .side-bar{
         width: 20%;
@@ -170,10 +169,15 @@ ul li a:visited {
         display: none;
         /* Chrome, Safari, Opera */
     }
-        main>.side-bar.deactive {
-            flex-basis: 5%;
-        }
-                .parts>ul li {
-                    margin-left: 2%;
-                }
+    main>.side-bar.deactive {
+        flex-basis: 5%;
+    }
+    .parts>ul li {
+        margin-left: 2%;
+    }
+}
+@media screen and (max-width:420px){
+    .deactive #sideBarBtn {
+        left: 4%;
+    }
 }
