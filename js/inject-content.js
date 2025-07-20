@@ -8,6 +8,8 @@ import { sidebar } from "./toggle-sidebar.js";
 import { sidebarBtn } from "./toggle-sidebar.js";
 
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
+export const endNxtLessonBtn = document.querySelector('#endNxtLesson')
+
 export let lastFocusedLink = null;
 export let lastClickedLink = null;
 const sectionLessonTitle = document.querySelector('nav.section-lesson-title');
@@ -66,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
             injectContent(el.href);
             lastFocusedLink = el;
             lastClickedLink = el;
+        } else {
+            lastFocusedLink = parts[0];
+            lastClickedLink = parts[0];
         }
 
         el.addEventListener('focus', (e) => {

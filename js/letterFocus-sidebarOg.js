@@ -1,19 +1,18 @@
 import { lastFocusedLink } from "./inject-content.js";
 export const parts = document.querySelectorAll('.parts ul > li > a')
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
-export const navBar = document.querySelector('nav.section-lesson-title')
-export let enterConsoleFocus = false
 import { lastClickedLink } from "./inject-content.js";
 import { lastStep, stepFocused } from "./stepTxts-colorCode.js";
 import { sidebar } from "./toggle-sidebar.js";
-import { endNxtLessonBtn } from "./inject-content.js";
+export const navBar = document.querySelector('nav.section-lesson-title')
 let partsFocused = false
+export let enterConsoleFocus = false
 const header = document.querySelector('body > header')
 // async variables
 let enterConsole
 const sideBarBtn = document.querySelector('#sideBarBtn')
 export function letterFocus(){
-    
+    const endNxtLessonBtn = document.querySelector('#endNxtLesson')
     header.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         if (letter == 'a') {    
@@ -51,7 +50,27 @@ export function letterFocus(){
     mainTargetDiv.addEventListener('focusout', e => {
     })
     
-    
+    endNxtLessonBtn.addEventListener('keydown', e => {
+        let letter = e.key.toLowerCase()
+        if(letter == 'enter'){
+            if(lastClickedLink){
+                if(sidebar.classList.contains('deactive')){
+                    sidebar.classList.remove('deactive')
+                    lastClickedLink.focus()
+                }
+            }
+            
+        }
+        
+    })
+    endNxtLessonBtn.addEventListener('click', e => {
+        if(lastClickedLink){
+            lastClickedLink.focus()
+            if(sidebar.classList.contains('deactive')){
+                sidebar.classList.remove('deactive')
+            }
+        }
+    })
     document.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase();
         if (enterConsoleFocus) {

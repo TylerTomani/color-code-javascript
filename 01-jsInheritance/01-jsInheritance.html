@@ -22,8 +22,8 @@
     <!-- <link rel="icon" href="favicon.ico"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<!-- <body class="dark-mode"> -->
-<body class="">
+<body class="dark-mode">
+<!-- <body class=""> -->
     <header class="">
         <nav id="mainLinksContainer">
             <div id="mainLinks">
@@ -100,63 +100,70 @@
                 </ul>
             </div>
         </aside>
-        <div tabindex="0" id="mainTargetDiv" class="">
-            <header class="header-codeColor-lesson">
-                <h3 class="">Javascript Inheritance</h3>
-            </header>
-            <div class="main-container-codeColor">
-                <div class="steps-container">
-                    
-                    <div tabindex="0" class="step-float">
-                        <div class="step-img">
-                            <!-- <img src="images/01.png" alt=""> -->
-                            <img src="images/01.png" alt="">
-                        </div>
-                        <div class="step-txt">
-                            <h4>01</h4>
-                            <p>
-                           Re-do this home page
-                            </p>
-                            <div class="code-container txt85">
-                                <pre class="copy-code">
-class Dog {
-    bark(){
-        return 'barking'
-    }
-}
-const fido = new Dog()
-fido</pre>
+        <div class="main-landing-page">
+            <div tabindex="0" id="mainTargetDiv" class="">
+                <header class="header-codeColor-lesson">
+                    <h3 class="">Javascript Inheritance</h3>
+                </header>
+                <div class="main-container-codeColor">
+                    <div class="steps-container">
+                        
+                        <div tabindex="0" class="step-float">
+                            <div class="step-img">
+                                <!-- <img src="images/01.png" alt=""> -->
+                                <img src="images/01.png" alt="">
                             </div>
-                            <ul>
-                                <li>fido doesn't have a bark method directly on it.</li>
-                                <li>Instead, fido.__proto__ (or Object.getPrototypeOf(fido)) points to
-                                     Dog.prototype, where bark lives.</li>
-                                <li>So fido.bark() works because JavaScript looks up the prototype chain and finds it there.
-                                </li>
-                            </ul>
+                            <div class="step-txt">
+                                <!-- <h4>01</h4> -->
+                                <p>
+                               Re-do this home page
+                                </p>
+                                <div class="code-container txt85">
+                                    <pre class="copy-code">
+    class Dog {
+        bark(){
+            return 'barking'
+        }
+    }
+    const fido = new Dog()
+    fido</pre>
+                                </div>
+                                <ul>
+                                    <li>fido doesn't have a bark method directly on it.</li>
+                                    <li>Instead, fido.__proto__ (or Object.getPrototypeOf(fido)) points to
+                                         Dog.prototype, where bark lives.</li>
+                                    <li>So fido.bark() works because JavaScript looks up the prototype chain and finds it there.
+                                    </li>
+                                </ul>
+                                <p>
+                                    ⛓️ Think of It Like a Chain
+                                    When you call a method on an object:
+                                </p>
+                                <ul>
+                                    <li>JS looks on the object itself.</li>
+                                    <li>If it doesn't find it, it goes to the object's prototype.</li>
+                                    <li>If still not found, it keeps going up the chain until it hits null.</li>
+                                </ul>
+                                <p>
+                                    So you're not seeing methods directly on instances because they're not there — they're on the prototype.
+    
+                                </p>
+                        
+                            </div>
                             <p>
-                                ⛓️ Think of It Like a Chain
-                                When you call a method on an object:
+                                We use promises when we need to wait for information or data
                             </p>
-                            <ul>
-                                <li>JS looks on the object itself.</li>
-                                <li>If it doesn't find it, it goes to the object's prototype.</li>
-                                <li>If still not found, it keeps going up the chain until it hits null.</li>
-                            </ul>
-                            <p>
-                                So you're not seeing methods directly on instances because they're not there — they're on the prototype.
-
-                            </p>
-                    
                         </div>
-                        <p>
-                            We use promises when we need to wait for information or data
-                        </p>
+                        
+                        <button tabindex="0" id="endNxtLesson">next lesson</button>
                     </div>
-                    
-                    <button tabindex="0" id="endNxtLesson">next lesson</button>
                 </div>
+    
             </div>
+            <nav id="nxtPrevLessonsBtns">
+                <button tabindex="0" id="nxtLesson">next lesson</button>
+                <button tabindex="0" id="prevLesson">previous lesson</button>
+            </nav>
         </div>
     </main>
 </body>

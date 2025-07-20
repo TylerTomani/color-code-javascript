@@ -15,8 +15,10 @@ import { sidebar } from "./toggle-sidebar.js"
 import { parts } from "./letterFocus-sidebar.js"
 import { enterConsoleFocus } from "./letterFocus-sidebar.js";
 import { toggleBar } from "./toggle-sidebar.js";
-import { lastClickedLink } from "./inject-content.js";
+import { lastClickedLink, lastFocusedLink } from "./inject-content.js";
 export let lastStep = null
+// import { lastClickedLink } from "./inject-content.js";
+// import { lastFocusedLink } from "./inject-content.js";
 export let stepFocused = false
 export function stepTxtsFocus() {
     // const videos = document.querySelectorAll('video');
@@ -283,40 +285,56 @@ export function stepTxtsFocus() {
             el.classList.remove('enlarge-vid')
         })
     }
-    endNxtLesson.addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        if (letter == 'm') {
-            mainTargetDiv.focus()
-            scrollTo(0, 0)
+    // Add open next lesson and previous here 
+    // endNxtLesson.addEventListener('keydown', e => {
+    //     let letter = e.key.toLowerCase()
+    //     if (letter == 'm') {
+    //         mainTargetDiv.focus()
+    //         scrollTo(0, 0)
 
-        }
-        if (letter == 'enter') {
-            if (sidebar.classList.contains('deactive')) {
-                sidebar.classList.remove('deactive')
-                sidebar.classList.add('active')
-            }
-            let iParts = [...parts].indexOf(lastClickedLink)
-            iParts = (iParts + 1) % parts.length
-            parts[iParts].focus()
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth" // makes it animate on mobile too
-            });
-        }
-    })
-    endNxtLesson.addEventListener('click', e => {
-        if (sidebar.classList.contains('deactive')) {
-            sidebar.classList.remove('deactive')
-            sidebar.classList.add('active')
-        }
-        let iParts = [...parts].indexOf(lastClickedLink)
-        iParts = (iParts + 1) % parts.length
-        parts[iParts].focus()
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth" // makes it animate on mobile too
-        });
-    })
+    //     }
+    //     if (letter == 'enter') {
+    //         if (sidebar.classList.contains('deactive')) {
+    //             sidebar.classList.remove('deactive')
+    //             sidebar.classList.add('active')
+    //         }
+    //         let iParts = [...parts].indexOf(lastClickedLink)
+    //         iParts = (iParts + 1) % parts.length
+    //         parts[iParts].focus()
+            
+    //         window.scrollTo({
+    //             top: 0,
+    //             behavior: "smooth" // makes it animate on mobile too
+    //         });
+    //         if(lastClickedLink){
+    //             parts[iParts].click()
+    //         } else if(lastFocusedLink){
+    //             lastFocusedLink.focus()
+    //         }
+    //     }
+    // })
+    // endNxtLesson.addEventListener('click', e => {
+    //     if (sidebar.classList.contains('deactive')) {
+    //         sidebar.classList.remove('deactive')
+    //         sidebar.classList.add('active')
+    //     }
+    //     let iParts = [...parts].indexOf(lastClickedLink)
+    //     iParts = (iParts + 1) % parts.length
+    //     parts[iParts].focus()
+    //     console.log(parts[iParts])
+    //     parts[iParts].click()
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: "smooth" // makes it animate on mobile too
+    //     });
+    //     if(lastClickedLink){
+    //         parts[iParts].click()
+    //     } else if(lastFocusedLink){
+    //         // parts[iParts].click()
+    //         lastFocusedLink.focus()
+    //         lastFocusedLink.click()
+    //     }
+    // })
 }
 export function getStep(parent) {
     // if(parent.classList.contains('step')){
