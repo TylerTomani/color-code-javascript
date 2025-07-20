@@ -1,0 +1,12 @@
+.page-wrapper main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 2.5%;
+    padding: 0 2.5%;
+    padding-left: 0;
+    scrollbar-width: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 70vh;
+}
