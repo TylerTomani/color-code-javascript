@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 .page-wrapper main#mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     height: 70vh;
     margin: 0 2.5%;
     padding: 0 2.5%;
