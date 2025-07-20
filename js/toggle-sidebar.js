@@ -18,8 +18,9 @@ mainTargetDiv.addEventListener('keydown', e =>{
 })
 sidebarBtn.addEventListener('focus', e =>{
     if(!sideBar.classList.contains("deactive")){
+
         // e.target.style.position = 'fixed'
-        // e.target.style.top = '10%'
+        // e.target.style.top = '12%'
         // e.target.style.zIndex = '40'
     }
 })
