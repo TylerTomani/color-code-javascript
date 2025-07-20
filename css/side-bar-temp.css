@@ -16,6 +16,7 @@ main {
 }
 body>nav.section-lesson-title {
     /* background-color: var(--font-primary-db); */
+    background-color: white;
     position: sticky;
     z-index: 50;
     top: 0;
@@ -111,7 +112,7 @@ ul li a:visited {
     z-index: 10;
     /* bottom: 0; */
     /* font-size: 20px; */
-    color: magenta;
+    color: black;
     
 }
 .deactive #sideBarBtn {

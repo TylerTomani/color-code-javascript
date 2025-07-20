@@ -52,7 +52,7 @@ header.addEventListener('keydown', e => {
 navBar.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if (letter == 'enter') {
-        sideBar.classList.toggle('deactive')
+        toggleBar()
     }
 })
 navBar.addEventListener('click', e => {
