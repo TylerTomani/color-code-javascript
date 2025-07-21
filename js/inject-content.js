@@ -1,198 +1,192 @@
-
 import { stepTxtsFocus } from "./stepTxts-colorCode.js";
 import { addCopyCodes } from "./copy-code-colorCode.js";
 import { letterFocus } from "./letterFocus-sidebar.js";
-import { parts } from "./letterFocus-sidebar.js";
-import { mainTargetDiv } from "./letterFocus-sidebar.js";
-import { sidebar } from "./toggle-sidebar.js";
-import { sidebarBtn } from "./toggle-sidebar.js";
-
+import { parts, mainTargetDiv } from "./letterFocus-sidebar.js";
+import { sidebar, sidebarBtn } from "./toggle-sidebar.js";
 import { loadTutorialCurrentTime } from "./loadTutorialCurrentTime.js";
-export const nxtLesson = document.querySelector('#nxtLesson')
-const prevLesson = document.querySelector("#prevLesson")
+
+export const nxtLesson = document.querySelector('#nxtLesson');
+const prevLesson = document.querySelector("#prevLesson");
 
 export let lastFocusedLink = null;
 export let lastClickedLink = null;
-const sectionLessonTitle = document.querySelector('nav.section-lesson-title');
+export let currentWidth = innerWidth;
+
 let sidebarLinksFocused = false;
 let currentLinkIndex = 0;
+let partsFocused = false;
+let mainTargetDivFocused = false;
 
-export let currentWidth = innerWidth;
 document.addEventListener('DOMContentLoaded', () => {
-    let mainTargetDivFocused = false;
-    let partsFocused
-
-    parts.forEach(el => {
-        el.addEventListener('focus', e => {
-            partsFocused = true 
-        })
-        el.addEventListener('focusout', e => {
-            partsFocused = false
-        })
-    })
-    addEventListener('resize', e => {
-        currentWidth = innerWidth;
-    });
-
-    mainTargetDiv.addEventListener('focusout', e => {
-        mainTargetDivFocused = false;
-    });
-    mainTargetDiv.addEventListener('focusin', e => {
-        mainTargetDivFocused = true;
-    });
+    // Inject content from the given href and re-run setup scripts
     function injectContent(href) {
         fetch(href)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+                return response.text();
+            })
             .then(html => {
                 mainTargetDiv.innerHTML = html;
                 addCopyCodes();
                 letterFocus();
                 stepTxtsFocus();
-                loadTutorialCurrentTime()
+                loadTutorialCurrentTime();
             })
             .catch(err => {
                 console.error('Failed to load content:', err);
             });
     }
-    function getParts(el) {
+
+    // Helper: Find the closest anchor element
+    function getAnchorFromEventTarget(el) {
         while (el && el.tagName !== 'A') {
             el = el.parentElement;
         }
         return el;
     }
+
+    // Initialize parts behavior
+    let autoFocused = false;
+
     parts.forEach((el, index) => {
-        
         if (el.hasAttribute('autofocus')) {
             injectContent(el.href);
             lastFocusedLink = el;
             lastClickedLink = el;
-        } else {
-            lastFocusedLink = parts[0];
-            // lastClickedLink = parts[0];
+            autoFocused = true;
         }
 
-        el.addEventListener('focus', (e) => {
+        el.addEventListener('focus', () => {
+            partsFocused = true;
             mainTargetDivFocused = false;
+            currentLinkIndex = index;
         });
 
-        // ✅ Updated CLICK HANDLER
-        el.addEventListener('focus', (e) => {
-            currentLinkIndex = [...parts].indexOf(el)
-        })
+        el.addEventListener('focusout', () => {
+            partsFocused = false;
+        });
+
         el.addEventListener('click', (e) => {
-            const anchor = getParts(e.target);
+            const anchor = getAnchorFromEventTarget(e.target);
             if (anchor && anchor.href) {
                 e.preventDefault();
                 injectContent(anchor.href);
-                
-                if (anchor === lastFocusedLink) {
-                    lastClickedLink = anchor;
-                }
-
+                lastClickedLink = anchor;
                 lastFocusedLink = anchor;
                 currentLinkIndex = index;
             }
         });
 
         el.addEventListener('keydown', (e) => {
-            let letter = e.key.toLowerCase();
-            if (letter === 'enter') {
+            const key = e.key.toLowerCase();
+            if (key === 'enter') {
                 e.preventDefault();
-                e.stopPropagation();
                 injectContent(el.href);
 
-                if (el === lastClickedLink) {
-                    if (currentWidth < 600) {
-                        const sidebar = document.querySelector('.side-bar');
-                        sidebar.classList.add('deactive');
-                    }
-                    mainTargetDiv.focus();
+                if (el === lastClickedLink && currentWidth < 600) {
+                    sidebar.classList.add('deactive');
                     scrollTo(0, 0);
+                    mainTargetDiv.focus();
                 }
 
                 lastClickedLink = el;
                 lastFocusedLink = el;
-                currentLinkIndex = index;
             }
 
-            if (!mainTargetDivFocused) {
-                console.log(currentLinkIndex)
-                if(partsFocused){
-                    
-                    if ((letter === 'a' || letter === 's')&& !e.shiftKey) {
-                        currentLinkIndex = (currentLinkIndex + 1) % parts.length;
-                        if(currentLinkIndex == parts.length ){
-                            partsFocused = false
-                            sidebarBtn.focus()
-                            return
-                        } else{
-    
-                            parts[currentLinkIndex].focus();
-                        }
-                    } else if (letter === 'a' &&  e.shiftKey) {
-                        currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
-                        parts[currentLinkIndex].focus();
-                        // parts[currentLinkIndex].focus();
-                    } else if ( letter === 's' && e.shiftKey) {
-                        if(!sidebar.classList.contains('deactive')){
-                            scrollTo(0,0)
-                        }
-                        partsFocused = false
-                        sidebarBtn.focus()
-                    }
+            // Keyboard navigation (a/s)
+            if (!mainTargetDivFocused && partsFocused) {
+                if ((key === 'a' || key === 's') && !e.shiftKey) {
+                    currentLinkIndex = (currentLinkIndex + 1) % parts.length;
+                    parts[currentLinkIndex].focus();
+                } else if (key === 'a' && e.shiftKey) {
+                    currentLinkIndex = (currentLinkIndex - 1 + parts.length) % parts.length;
+                    parts[currentLinkIndex].focus();
+                } else if (key === 's' && e.shiftKey) {
+                    scrollTo(0, 0);
+                    partsFocused = false;
+                    sidebarBtn.focus();
                 }
-                if (letter === 'm') {
-                    mainTargetDiv.focus();
-                }
+            }
+
+            if (!mainTargetDivFocused && key === 'm') {
+                mainTargetDiv.focus();
             }
         });
     });
-    // Letter Num focus
-    addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase();
-        if (!mainTargetDivFocused) {
-            if (!isNaN(letter)) {
-                const intLet = parseInt(letter);
-                if (intLet <= parts.length) {
-                    parts[intLet - 1].focus();
-                }
-            }
 
-            if (letter === 'm') {
-                mainTargetDiv.focus();
-                scrollTo(0, 0);
+    // Fallback inject if no element had autofocus
+    if (!autoFocused) {
+        const fallbackHref = mainTargetDiv.getAttribute('data-href');
+        if (fallbackHref) {
+            injectContent(fallbackHref);
+        } else {
+            console.warn('No autofocus element found, and no data-href fallback present.');
+        }
+    }
+
+    // Resize listener
+    addEventListener('resize', () => {
+        currentWidth = innerWidth;
+    });
+
+    // Global key navigation
+    addEventListener('keydown', (e) => {
+        const key = e.key.toLowerCase();
+
+        if (!mainTargetDivFocused && !isNaN(key)) {
+            const index = parseInt(key) - 1;
+            if (index >= 0 && index < parts.length) {
+                parts[index].focus();
             }
         }
-        if(sidebar.classList.contains('deactive')){
-            document.querySelector('body').style.overflowX = 'none'
+
+        if (!mainTargetDivFocused && key === 'm') {
+            mainTargetDiv.focus();
+            scrollTo(0, 0);
+        }
+
+        if (sidebar.classList.contains('deactive')) {
+            document.body.style.overflowX = 'none';
         }
     });
-    nxtLesson.addEventListener('keydown', e => {
-        let key = e.keyCode
-        if(key === 13){
-            if(!lastClickedLink){
-                lastFocusedLink.focus()
+
+    // Focus tracking
+    mainTargetDiv.addEventListener('focusin', () => {
+        mainTargetDivFocused = true;
+    });
+
+    mainTargetDiv.addEventListener('focusout', () => {
+        mainTargetDivFocused = false;
+    });
+
+    // Next/Prev buttons
+    nxtLesson?.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+            if (!lastClickedLink) {
+                lastFocusedLink?.focus();
             } else {
-                let index = [...parts].indexOf(lastClickedLink)
-                index += 1
-                parts[index].focus()
-                parts[index].click()
+                let index = parts.indexOf(lastClickedLink);
+                if (index < parts.length - 1) {
+                    parts[index + 1].focus();
+                    parts[index + 1].click();
+                }
             }
         }
-    })
-    prevLesson.addEventListener('keydown', e => {
-        let key = e.keyCode
-        if(key === 13){
-            if(!lastClickedLink){
-                lastFocusedLink.focus()
+    });
+
+    prevLesson?.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+            if (!lastClickedLink) {
+                lastFocusedLink?.focus();
             } else {
-                let index = [...parts].indexOf(lastClickedLink)
-                index = (index + parts.length - 1) % parts.length
-                parts[index].focus()
-                parts[index].click()
+                let index = parts.indexOf(lastClickedLink);
+                parts[(index - 1 + parts.length) % parts.length].focus();
+                parts[(index - 1 + parts.length) % parts.length].click();
             }
         }
-    })
+    });
 });
-letterFocus()
-stepTxtsFocus()
+
+// Run these once on load
+letterFocus();
+stepTxtsFocus();

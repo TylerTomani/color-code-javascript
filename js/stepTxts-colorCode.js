@@ -11,7 +11,7 @@ and comment out and see sidebar hidden difference
  by side .img-container > .step-img > .img
  */
 import { nxtLesson } from "./inject-content.js";
-import { mainTargetDiv } from "./letterFocus-sidebar.js";
+import { letterFocus, mainTargetDiv } from "./letterFocus-sidebar.js";
 import { sidebar } from "./toggle-sidebar.js"
 import { parts } from "./letterFocus-sidebar.js"
 import { enterConsoleFocus } from "./letterFocus-sidebar.js";
@@ -152,11 +152,9 @@ export function stepTxtsFocus() {
                 togglePlayVidSize(e)
             }
             if(letter == 'c' && stepFocused){
-                const copyCode = e.target.querySelector('.copy-code')
-                console.log(copyCode)
-                if(copyCode){
-                    copyCode.focus()
-                }
+                const copyCodes = e.target.querySelectorAll('.copy-code')
+                copyCodes = addTabIndex(copyCodes)
+                console.log(copyCodes[0])
                 // stepFocused = false
             }
 
@@ -170,8 +168,8 @@ export function stepTxtsFocus() {
         if(!step) return;
         const img = step.querySelector('.step-img > img');
         const vid = step.querySelector('.step-vid > video');
+        if(!img || !vid) return
         const images = Array.from(step.querySelectorAll('.imgs-container img'));
-        
 
         if (images.length > 0) {
             let currentIndex = stepImageIndexes.get(step) || 0;
@@ -204,8 +202,15 @@ export function stepTxtsFocus() {
                 sidebar.classList.toggle('deactive', vid.classList.contains('enlarge-vid'));
             }
         }
-    }
 
+    }
+    // function 
+    function addTabIndex(els){
+        els.forEach(el => {
+            return el.setAttribute('tabindex','0')
+        })
+    }
+    // I need To adapt return to below
     function addTabIndexes(e) {
         const tabEls = e.target.querySelectorAll('.copy-code, textarea')
         tabEls.forEach(el => {
