@@ -34,13 +34,15 @@ export function stepTxtsFocus() {
     const copyCodesStepTxts = document.querySelectorAll('.step-txt > .copy-code')
     const imgVids = document.querySelectorAll('.step-img > img, .step-vid > video')
     const allImgs = document.querySelectorAll('.step-img > img')
-    const sectionLessonTitle = document.querySelector('nav.section-lesson-title > h1')
-    const hiddenH3 = document.querySelector('.header-codeColor-lesson h3')
+    const sectionLessonTitle = document.querySelector('.section-lesson-title > #navTitle')
+    const lessonTitle = document.querySelector('.header-colorCode-lesson > #lessonTitle')
     
 
     let currentWidth
     let partsFocused = false
-    sectionLessonTitle.innerText = hiddenH3.innerText
+    if (sectionLessonTitle && lessonTitle) {
+        sectionLessonTitle.innerHTML = lessonTitle.innerText;
+    }
     currentWidth = innerWidth
     let mainTargetDivFocused = false
     allVideos.forEach(vid => {

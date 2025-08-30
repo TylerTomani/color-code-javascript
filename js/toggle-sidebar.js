@@ -61,13 +61,14 @@ navBar.addEventListener('click', e => {
 })
 
 sidebar.addEventListener('click', e => {
-    e.preventDefault()
-    if (e.target.tagName == 'ASIDE'){
-        toggleBar()
-    } else {
-        return
+    if (window.innerWidth < 420) {  // ✅ Only toggle if small screen
+        if (e.target.tagName == 'ASIDE'){
+            e.preventDefault()
+            toggleBar()
+        }
     }
 })
+
 export function toggleBar(){
     sidebarBtn.classList.toggle('drop')
     sidebar.classList.toggle('deactive')

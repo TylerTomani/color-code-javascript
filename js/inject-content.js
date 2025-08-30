@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         el.addEventListener('click', (e) => {
+                currentWidth = window.innerWidth; // ✅ add this line at the start
+
             const anchor = getAnchorFromEventTarget(e.target);
             if (anchor && anchor.href) {
                 e.preventDefault();
@@ -74,6 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 lastClickedLink = anchor;
                 lastFocusedLink = anchor;
                 currentLinkIndex = index;
+
+                // ✅ Prevent shrinking on large screens
+                if (currentWidth < 420) {
+                    sidebar.classList.add('deactive');
+                } else {
+                    sidebar.classList.remove('deactive');
+                }
             }
         });
 
@@ -83,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 injectContent(el.href);
 
-                if (el === lastClickedLink && currentWidth < 600) {
+                if (el === lastClickedLink && currentWidth < 420) {
                     sidebar.classList.add('deactive');
                     scrollTo(0, 0);
                     mainTargetDiv.focus();
