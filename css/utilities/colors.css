@@ -1,0 +1,24 @@
+body>header {
+    color: black;
+}
+body>nav.section-lesson-title {
+    background-color: white;
+    box-shadow: 0 0 1px 1px white;
+}
+body>nav.section-lesson-title>h1#title {
+    color: black;
+    box-shadow: 0 0 1px 1px white;
+    border: 1px solid black;
+}
+main>.side-bar {
+    background-color: var(--font-primary-db);
+    color: black;
+    box-shadow: 0 0 1px 1px white;
+}
+#sideBarBtn {
+    color: black;
+}
+
+.side-bar ul li a {
+    color: black;
+}

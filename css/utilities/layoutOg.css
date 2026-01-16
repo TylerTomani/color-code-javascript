@@ -1,0 +1,52 @@
+.page-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.page-wrapper >.page-header {
+    nav#mainLinksContainer{
+        /* display: flex;     */
+        /* flex-direction: column; */
+    }
+    nav#mainLinksContainer>#mainLinks {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+    #mainLinks>a {
+        display: inline-flex;
+        flex-basis: 40%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.page-wraper > nav.section-lesson-title {
+    display: flex;
+    background-color: blue;
+    align-items: center;
+}
+main {
+    display: flex;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+main>.main-landing-page>#mainTargetDiv {
+    overflow-x: hidden;
+}
+main>.side-bar {
+    flex-basis: 15%;
+    flex-direction: column;
+    overflow-y: auto;
+    /* optional for nice scroll: */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.side-bar>.parts ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-wrap: wrap;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

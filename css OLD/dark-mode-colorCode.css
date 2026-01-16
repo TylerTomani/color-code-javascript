@@ -52,7 +52,3 @@ h4 .dark-mode p {
     background-color: var(--bg-primary);
     color: white;
 }
-
-.dark-mode #sideBarBtn {
-    color: white;
-}

@@ -1,0 +1,8 @@
+body>header a:focus,
+body>header a:active {
+    box-shadow: 0 0 10px 6px rgb(143, 194, 192);
+}
+ul li a:visited {
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,11 @@
+:root{
+    /* --bg-header: rgb(143, 194, 192); */
+}
+body>header {   
+    /* background-color: var(--bg-primary); */
+}
+body>header>nav#mainLinksContainer {
+    /* background-color: var(--bg-primary); */
+}
+
+
