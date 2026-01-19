@@ -1,5 +1,5 @@
 // toggle-sidebar.js
-const sideBar = document.querySelector('.page-wrapper .side-bar')
+export const sideBar = document.querySelector('.page-wrapper .side-bar')
 export const mainContentContainer = document.querySelector('.main-content-container')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
 export const navSectionLessonTitle = document.querySelector('.section-lesson-title')
@@ -11,8 +11,13 @@ export function initToggleSideBar() {
     navSectionLessonTitle.addEventListener('keydown', toggleSidebar)
     function toggleSidebar(e) {
         if (e.type == 'click') {
-
+            console.log(e.target)
+            e.stopPropagation()
+            if(e.target.tagName === 'A') {
+                return
+            }
             mainContentContainer.classList.toggle('collapsed')
+            
         }
         if (e.type == 'keydown') {
             if (e.key === 'Enter') {

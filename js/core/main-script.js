@@ -3,10 +3,11 @@ import { initDarkMode } from "../dark-mode.js";
 import { keyboardNav } from "../nav/keyboard-nav.js";
 import { getFocusZone } from "../nav/get-focus-zone.js";
 import { initToggleSideBar } from "../ui/toggle-sidebar.js";
-
+import { initInjectContentListeners } from "./inject-content.js";
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
+    initInjectContentListeners()
     initToggleSideBar()
     initDarkMode()
     setupGlobalKeyListener()
@@ -21,7 +22,6 @@ function setupGlobalKeyListener(){
         hijack typing inside inputs,break future search boxes,make textareas unusable
 cause “why is arrow left changing focus instead of moving my cursor?” bugs*/
         if (e.defaultPrevented) return
-
         const tag = e.target.tagName
         const isTyping =
             tag === 'INPUT' ||

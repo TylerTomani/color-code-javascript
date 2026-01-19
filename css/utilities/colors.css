@@ -18,7 +18,8 @@ main>.side-bar {
 #sideBarBtn {
     color: black;
 }
-
-.side-bar ul li a {
+.side-bar ul li a,
+.side-bar ul li a:visited
+ {
     color: black;
 }
