@@ -1,18 +1,15 @@
 // toggle-sidebar.js
 const sideBar = document.querySelector('.page-wrapper .side-bar')
 export const mainContentContainer = document.querySelector('.main-content-container')
-export const main = document.querySelector('.page-wrapper')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
+export const navSectionLessonTitle = document.querySelector('.section-lesson-title')
 
 export function initToggleSideBar() {
     sideBar.addEventListener('click', toggleSidebar)
     sideBarBtn.addEventListener('click', toggleSidebar)
-    sideBarBtn.addEventListener('keydown', e => {
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            mainContentContainer.classList.toggle('collapsed')
-        }
-    })
+    sideBarBtn.addEventListener('keydown', toggleSidebar)
+    navSectionLessonTitle.addEventListener('click', toggleSidebar)
+    navSectionLessonTitle.addEventListener('keydown', toggleSidebar)
     function toggleSidebar(e) {
         const isSidebarClick =
             e.currentTarget === sideBar && e.target === sideBar
@@ -20,8 +17,19 @@ export function initToggleSideBar() {
         const isButtonClick =
             e.currentTarget === sideBarBtn
 
+            console.log(e.type)
         if (!isSidebarClick && !isButtonClick) return
+        if (e.type == 'click') {
 
-        mainContentContainer.classList.toggle('collapsed')
+            mainContentContainer.classList.toggle('collapsed')
+        }
+        if (e.type == 'keydown') {
+            if (e.key === 'Enter') {
+                e.preventDefault()
+                mainContentContainer.classList.toggle('collapsed')
+            }
+        }
+        
+        
     }
 }
