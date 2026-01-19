@@ -13,9 +13,12 @@ body>nav.section-lesson-title>h1#title {
 }
 main > .side-bar {
     /* padding-left: .5%; */
-    padding-right: 2;
+    padding-right: 2%;
 }
-.side-bar > .parts ul {
+.side-bar > .side-bar-links-container{
+    margin-top: 10%;
+}
+.side-bar > .side-bar-links-container ul {
     /* margin-top: 5%; */
     /* margin-right: 2%; */
 }

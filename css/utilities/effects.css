@@ -1,8 +1,12 @@
-body>header a:focus,
-body>header a:active {
+.page-header a:focus,
+.page-header  a:active {
     box-shadow: 0 0 10px 6px rgb(143, 194, 192);
+    border: 1px solid blue;
+    background: rgb(0,50,50,.5);
 }
 ul li a:visited {
     text-decoration: none;
     color: white;
+}
+a:active,a:focus{
 }

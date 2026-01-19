@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01-Javascript Inheritance </title>
+    <title>01-jsInheritance </title>
     <!-- tutorial-temp is the original version of sections-temp -->
     <link rel="stylesheet" href="../css/main.css">
-    <!-- <link rel="stylesheet" href="../css/copy-code-color-code.css"> -->
-    <!-- <link rel="stylesheet" href="../css/colorCode-lesson-medias.css"> -->
-
     <script type="module" src="../js/core/main-script.js" defer></script>
-    <!-- <script type="module" src="../js/dark-mode.js" defer></script>    
-    <script type="module" src="../js/copy-code-colorCode.js" defer></script>    
-    <script type="module" src="../js/inject-content.js" defer></script>    
-    <script type="module" src="../js/toggle-sidebar.js" defer></script>    
-    <script type="module" src="../js/drag-hide-side-bar.js" defer></script>     -->
+    <!-- <script type="module" src="../js/copy-code-colorCode.js" defer></script>     -->
     <!-- <link rel="icon" href="favicon.ico"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -46,9 +39,12 @@
             <h1 id="navTitle">Design Nav Like python - stackoverflow</h1>
         </nav>
         <main class="main-content-container">
-            <aside class="side-bar">              
-                <i tabindex="0" id="sideBarBtn" class="bx bx-menu"></i>
-                <div class="parts">
+            <!-- role= and aria-label are new features recommended by chatgpt -->
+             <!-- so is the i #sideBarbtn, not sure what roll and aria label do???????? -->
+            <aside class="side-bar" role="navigation" aria-label="Lesson parts">
+                <i tabindex="0" id="sideBarBtn" class="bx bx-menu" role="button" aria-label="Toggle sidebar"></i>
+                <!-- <i tabindex="0" id="sideBarBtn" class="bx bx-menu"></i> -->
+                <div class="side-bar-links-container">
                     <h2 tabindex="0">Parts</h2>
                     <ul class="">
                         <li><a tabindex="0" href="parts/01/01.html">1. Inheritance w/ <code class="b">classes</code>

@@ -10,10 +10,10 @@ body>nav.section-lesson-title>h1#title {
 .main-landing-page>nav#nxtPrevLessonsBtns button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.parts>ul li {
+.side-bar-links-container>ul li {
     /* text-wrap: wrap; */
 }
-.side-bar>.parts ul {
+.side-bar>.side-bar-links-container ul {
     font-size: 89%;
 }
 .side-bar ul li a {

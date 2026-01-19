@@ -6,7 +6,7 @@ main>.side-bar::-webkit-scrollbar {
     display: none;
 }
 
-.parts>ul code {
+.side-bar-links-container>ul code {
     display: inline;
 }
 

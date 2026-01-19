@@ -27,9 +27,13 @@
 .dark-mode #partsTxt {
     color: white;
 }
-.dark-mode main>aside.side-bar {
-    border-right: 1px solid whitesmoke;
+.dark-mode .side-bar {
+    /* border-right: 1px solid whitesmoke; */
     background-color: var(--bg-primary);
+}
+.dark-mode .side-bar *{
+    color: var(--font-primary-db) !important;
+
 }
 .dark-mode .section-container>.section {
     color: var(--font-primary-db);
@@ -37,6 +41,7 @@
 .dark-mode a {
     color: white;
 }
+
 .dark-mode,
 h4 .dark-mode p {
     color: whitesmoke;
