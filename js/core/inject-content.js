@@ -1,10 +1,8 @@
 export const mainLandingPage = document.querySelector('#mainLandingPage')
 import { sideBar } from "../ui/toggle-sidebar.js"
 export function initInjectContentListeners(){
-    const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
-    // const sideBarAs = document.querySelectorAll('.side-bar-links-container a')
-    // if(!document.listenersAdded){
-    // }
+    
+    
     sideBar.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
@@ -12,16 +10,7 @@ export function initInjectContentListeners(){
         if(a === null) return
         injectMainTargetDiv({e})
     });
-    // sideBarAs.addEventListener('keydown', e => {
-    //     let key = e.key.toLowerCase()
-    //     if(key == 'enter'){
-    //         e.preventDefault()
-    //         e.stopPropagation()
-    //         injectMainTargetDiv({e})
-    //     }
-        
-    // });
-    // document.listenersAdded = true
+
 }
 export async function injectMainTargetDiv({e}){
     const href = e.target.href
