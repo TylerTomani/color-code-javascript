@@ -32,10 +32,9 @@ cause “why is arrow left changing focus instead of moving my cursor?” bugs*/
 
         if (isTyping) return
 
-        const focusZone = getFocusZone({ e })
-        if (!focusZone) return
+        
 
-        keyboardNav({ e, focusZone })
+        keyboardNav({ e})
         
     });
 }

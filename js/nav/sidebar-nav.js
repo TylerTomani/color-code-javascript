@@ -1,28 +1,34 @@
+// sidebar-nav.js
 
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
-let activeSideBarA = -1
+import { sideBarBtn } from "../ui/toggle-sidebar.js";
+let iSideBarAs = -1
 export function initSideBarListeners(){
     sideBarAs.forEach(el =>{
         el.addEventListener('focusin', e => {
-            activeSideBarA = [...sideBarAs].indexOf(el)
+            iSideBarAs = [...sideBarAs].indexOf(el)
         });
     })
+    
 }
 export function sideBarNav({e}){
     let key = e.key.toLowerCase()
     if(!isNaN(key)){
         console.log(key)
-        let intKey = parseInt(key)
-        sideBarAs[intKey - 1]?.focus()
-        return 
+        iSideBarAs = parseInt(key) - 1
+        sideBarAs[iSideBarAs]?.focus()
+        return true
     }
     if(key === 'f'){
-        
-        activeSideBarA = (activeSideBarA + 1) % sideBarAs.length
+        if(e.target === sideBarBtn) iSideBarAs = -1
+        iSideBarAs = (iSideBarAs + 1) % sideBarAs.length
+        sideBarAs[iSideBarAs]?.focus()       
+        return true
     }
     if(key === 'a'){
-        activeSideBarA = (activeSideBarA - 1 + sideBarAs.length) % sideBarAs.length
-        
+        iSideBarAs = (iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length
+        sideBarAs[iSideBarAs]?.focus()       
+        return true
     }
-    sideBarAs[activeSideBarA]?.focus()       
+    return false 
 }

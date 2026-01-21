@@ -1,19 +1,16 @@
 // get-focus-zone.js
 export function getFocusZone({e}){
     let key = e.key
-
-    if(key === 'x' && e.shiftKey && e.metaKey){
-        return 'letterNavMode'
-    }
+    let zone= 'letterNavMode'
     if (e.target.closest('.page-header')) {
-        return 'pageHeader'
+        zone= 'letterNavMode'
     }
     if (e.target.closest('.side-bar')) {
-        return 'sideBar'
+        zone= 'sideBar'
     }
     if (e.target.closest('#mainTargetDiv')) {
-        return 'mainTargetDiv'
+        zone= 'mainTargetDiv'
     }
-    return 'letterNavMode'
+    return zone
 }
 

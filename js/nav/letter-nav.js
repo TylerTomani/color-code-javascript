@@ -1,7 +1,8 @@
 // letter-nav.js
+let lastLetterPressed = null
 export function letterNav({e,focusZone}){
     const key = e.key.toLowerCase()
-    let lastLetterPressed = null
+
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
         const rect = el.getBoundingClientRect()
@@ -9,7 +10,8 @@ export function letterNav({e,focusZone}){
     })
     const matching = allEls.filter(el =>{
         const id = el.id.toLowerCase()
-        el.setAttribute('tabindex','0')
+        // Don't DO this yet, this will be in handle for google, chatgpt letter focus
+        // el.setAttribute('tabindex','0')
         return id.startsWith(key)
     })
     
