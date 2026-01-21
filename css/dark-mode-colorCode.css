@@ -52,6 +52,9 @@ h4 .dark-mode p {
     background-color: var(--bg-primary)
 
 }
+.dark-mode .code-container{
+    border: 1px solid whitesmoke;
+}
 .dark-mode .code-container,
 .dark-mode .code-container>.copy-code {
     background-color: var(--bg-primary);

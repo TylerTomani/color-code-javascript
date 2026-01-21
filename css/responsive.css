@@ -87,7 +87,11 @@ main > .side-bar{
     .topic-container ul.sub-resources-container {
         margin-top: 4%;
     }
-
+    .code-container {
+        justify-self: center;
+        align-self: center;
+        width: 90%;
+    }
 
 }
 

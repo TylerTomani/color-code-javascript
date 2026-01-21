@@ -7,7 +7,9 @@ export function initInjectContentListeners(){
         const a = e.target.closest('a')
         if(a === null) return
         injectMainTargetDiv({e})
+        window.scrollTo(0,0)
     });
+
 }
 export async function injectMainTargetDiv({e}){
     const href = e.target.href
@@ -15,7 +17,9 @@ export async function injectMainTargetDiv({e}){
         const response = await fetch(href)
         const html = await response.text()
         mainLandingPage.innerHTML = html
+
     } catch{
-        console.log(`${error}`)
+        // console.log('color Code error inject-content')
+        // console.log(`${error}`)
     }
 }
