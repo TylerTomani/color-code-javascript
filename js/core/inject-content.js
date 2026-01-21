@@ -16,7 +16,6 @@ export async function injectMainTargetDiv({e}){
         const html = await response.text()
         mainLandingPage.innerHTML = html
     } catch{
-        // console.log('color Code error inject-content')
         console.log(`${error}`)
     }
 }
