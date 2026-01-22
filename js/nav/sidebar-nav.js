@@ -34,11 +34,6 @@ export function sideBarNav({e}){
         sideBarAs[iSideBarAs]?.focus()       
         return true
     }
-    if(key === 'm'){
-        e.preventDefault()
-        // window.scrollIntoView({behavior: 'instant'})
-        window.scrollIntoView({behavior: 'instant',inline:'nearest'})
-        // return true
-    }
+    
     return false 
 }

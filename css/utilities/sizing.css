@@ -32,3 +32,9 @@ main > aside,
 .side-bar ul li a {
     width: 100%;
 }
+#mainLandingPage{
+    height: 1px;
+}
+#mainLandingPage:active,#mainLandingPage:focus{
+    border: 20px solid blue !important;
+}
