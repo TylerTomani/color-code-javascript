@@ -36,8 +36,9 @@ export function sideBarNav({e}){
     }
     if(key === 'm'){
         e.preventDefault()
-        scrollTo(0,0)
-        return true
+        // window.scrollIntoView({behavior: 'instant'})
+        window.scrollIntoView({behavior: 'instant',inline:'nearest'})
+        // return true
     }
     return false 
 }

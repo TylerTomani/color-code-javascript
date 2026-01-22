@@ -1,4 +1,4 @@
-export const mainLandingPage = document.querySelector('#mainLandingPage')
+export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
 export function initInjectContentListeners(){
     sideBar.addEventListener('click', e => {
@@ -16,7 +16,7 @@ export async function injectMainTargetDiv({e}){
     try {
         const response = await fetch(href)
         const html = await response.text()
-        mainLandingPage.innerHTML = html
+        mainTargetDiv.innerHTML = html
 
     } catch{
         // console.log('color Code error inject-content')

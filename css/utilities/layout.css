@@ -41,11 +41,10 @@
     /* align-items: center; */
 }
 main {
-    display: flex;
-    
 }
 .main-content-container {
-    display: static;
+    display: flex;    
+    /* display: static; */
 }
 main>.side-bar {
     flex-basis: 25%;
