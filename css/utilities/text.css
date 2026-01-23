@@ -1,4 +1,5 @@
-body>header a {
+
+.page-header-links a {
     text-decoration: none;
 }
 .page-wrapper>nav.section-lesson-title {

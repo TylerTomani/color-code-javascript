@@ -2,7 +2,6 @@
 
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 import { sideBarBtn } from "../ui/toggle-sidebar.js";
-import { mainContentContainer } from "../ui/toggle-sidebar.js";
 let iSideBarAs = -1
 export function initSideBarListeners(){
     sideBarAs.forEach(el =>{
@@ -27,13 +26,8 @@ export function sideBarNav({e}){
     }
     if(key === 'a'){
         iSideBarAs = (iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length
-        if(iSideBarAs > sideBarAs.length){
-            sideBarAs[sideBarAs.length - 1]?.focus()
-            return
-        }
         sideBarAs[iSideBarAs]?.focus()       
         return true
     }
-    
     return false 
 }

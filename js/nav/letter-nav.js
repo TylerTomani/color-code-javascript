@@ -6,15 +6,8 @@ export function letterNav({e,focusZone}){
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
         const rect = el.getBoundingClientRect()
-        // #mainLandingPage doens't have height because it's empty, YOU CAN
-        // also add 1px height to mainLandingPage height in css``
-        if (el.id === 'mainLandingPage'){
-            return true
-        } 
         return el.offsetParent !== null && rect.width > 0 && rect.height > 0
-        
     })
-    
     const matching = allEls.filter(el =>{
         const id = el.id.toLowerCase()
         // Don't DO this yet, this will be in handle for google, chatgpt letter focus

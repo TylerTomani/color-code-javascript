@@ -13,7 +13,7 @@ body>nav.section-lesson-title>h1#title {
 }
 main > .side-bar {
     /* padding-left: .5%; */
-    /* padding-right: 2%; */
+    padding-right: 2%;
 }
 .side-bar > .side-bar-links-container{
     margin-top: 10%;

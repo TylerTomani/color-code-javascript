@@ -80,26 +80,3 @@ main > .side-bar{
         left: 4%;
     }
 }
-
-@media screen and (max-width:720px) {
-
-    .topic-container>.sub-topics-container,
-    .topic-container ul.sub-resources-container {
-        margin-top: 4%;
-    }
-
-
-}
-
-@media screen and (max-width:672px) {
-
-    .topic-container>.sub-topics-container,
-    .topic-container ul.sub-resources-container {
-        margin: 2.5% 0;
-        padding-top: 2%;
-    }
-
-    .resource>img {
-        max-width: 50px;
-    }
-}

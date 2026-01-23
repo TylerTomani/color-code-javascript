@@ -1,4 +1,4 @@
-export const mainLandingPage = document.querySelector('#mainLandingPage')
+export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
 export function initInjectContentListeners(){
     sideBar.addEventListener('click', e => {
@@ -6,17 +6,17 @@ export function initInjectContentListeners(){
         e.stopPropagation()
         const a = e.target.closest('a')
         if(a === null) return
-        injectMainLandingPage({e})
-        // window.scrollTo(0,0)
+        injectMainTargetDiv({e})
+        window.scrollTo(0,0)
     });
 
 }
-export async function injectMainLandingPage({e}){
+export async function injectMainTargetDiv({e}){
     const href = e.target.href
     try {
         const response = await fetch(href)
         const html = await response.text()
-        mainLandingPage.innerHTML = html
+        mainTargetDiv.innerHTML = html
 
     } catch{
         // console.log('color Code error inject-content')

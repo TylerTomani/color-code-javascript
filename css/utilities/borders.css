@@ -3,6 +3,11 @@
     border-bottom: none;
     border-top: none;
 }
+.page-header-links a{
+    border: 1px solid black;
+    /* border-bottom: none; */
+    border-top: none;
+}
 .page-wrapper >nav.section-lesson-title {
     border: 1px solid black;
 }

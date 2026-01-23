@@ -14,11 +14,8 @@ main > .side-bar{
 #sideBarBtn {
     /* position: fixed; */
     /* bottom: 0; */
-    /* font-size: 20px; */
-    
+    /* font-size: 20px; */   
 }
-
-
 @media screen and (min-width:960px){    
     main> .side-bar.deactive  {
         transition: all 250ms;
@@ -78,28 +75,5 @@ main > .side-bar{
 @media screen and (max-width:420px){
     .deactive #sideBarBtn {
         left: 4%;
-    }
-}
-
-@media screen and (max-width:720px) {
-
-    .topic-container>.sub-topics-container,
-    .topic-container ul.sub-resources-container {
-        margin-top: 4%;
-    }
-
-
-}
-
-@media screen and (max-width:672px) {
-
-    .topic-container>.sub-topics-container,
-    .topic-container ul.sub-resources-container {
-        margin: 2.5% 0;
-        padding-top: 2%;
-    }
-
-    .resource>img {
-        max-width: 50px;
     }
 }

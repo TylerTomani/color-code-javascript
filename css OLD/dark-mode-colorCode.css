@@ -27,13 +27,9 @@
 .dark-mode #partsTxt {
     color: white;
 }
-.dark-mode .side-bar {
-    /* border-right: 1px solid whitesmoke; */
+.dark-mode main>aside.side-bar {
+    border-right: 1px solid whitesmoke;
     background-color: var(--bg-primary);
-}
-.dark-mode .side-bar *{
-    color: var(--font-primary-db) !important;
-
 }
 .dark-mode .section-container>.section {
     color: var(--font-primary-db);
@@ -41,7 +37,6 @@
 .dark-mode a {
     color: white;
 }
-
 .dark-mode,
 h4 .dark-mode p {
     color: whitesmoke;
@@ -55,9 +50,5 @@ h4 .dark-mode p {
 .dark-mode .code-container,
 .dark-mode .code-container>.copy-code {
     background-color: var(--bg-primary);
-    color: white;
-}
-
-.dark-mode #sideBarBtn {
     color: white;
 }

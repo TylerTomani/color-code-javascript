@@ -5,7 +5,7 @@ import { getFocusZone } from "./get-focus-zone.js"
 export function keyboardNav({e}){
     const zone = getFocusZone({ e })
     if (!zone) return
-
+    
     let isLetterNavEnabled = true
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
         isLetterNavEnabled = !isLetterNavEnabled
@@ -15,7 +15,6 @@ export function keyboardNav({e}){
         const isHandled = sideBarNav({e})
         if(isHandled) return
     }
-
     letterNav({e})
        
 }
