@@ -1,0 +1,10 @@
+#popupLetterNav{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 150%;
+}
+#popupLetterNav.animate{
+    transition: opacity 2000ms;
+}
