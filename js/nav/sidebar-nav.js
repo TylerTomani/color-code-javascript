@@ -1,5 +1,4 @@
 // sidebar-nav.js
-
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 import { sideBarBtn } from "../ui/toggle-sidebar.js";
 let iSideBarAs = -1

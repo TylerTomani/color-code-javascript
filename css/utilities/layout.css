@@ -54,7 +54,7 @@ main.main-container {
 }
 main>.side-bar {
     flex-basis: 25%;
-    /* width: fit-content; */
+    width: fit-content;
     text-wrap: hidden;
     /* overflow-x: hidden; */
     /* flex-direction: column; */
