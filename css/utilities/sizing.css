@@ -7,15 +7,6 @@ main {
 main > aside{
     height: 100vh;
 }
-main > aside,
-.side-bar-links-container {
-    /* display: flex; */
-    /* flex-direction: column; */
-}
-#sideBarBtn {
-    /* width: 100px; */
-    /* height: 100px; */
-}
 #darkModeBtn {
     width: 10vh; 
     height: 4vh; 
@@ -27,8 +18,12 @@ main > aside,
 }
 
 .side-bar ul li {
-    width: 100%;
-}
+    width: fit-content;
+}   
 .side-bar ul li a {
     width: 100%;
+}
+#sideBarBtn {
+    /* width: 100px; */
+    /* height: 100px; */
 }

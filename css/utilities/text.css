@@ -5,20 +5,13 @@
 .page-wrapper>nav.section-lesson-title {
     font-size: 80%;
 }
-body>nav.section-lesson-title>h1#title {
-    /* font-size: 100%; */
-}
+
 .main-landing-page>nav#nxtPrevLessonsBtns button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.side-bar-links-container>ul li {
-    /* text-wrap: wrap; */
 }
 .side-bar>.side-bar-links-container ul {
     font-size: 89%;
 }
 .side-bar ul li a {
     text-decoration: none;
-    /* font-size: 10%; */
-    /* text-decoration: none; */
 }

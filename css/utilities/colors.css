@@ -2,7 +2,6 @@ body>header {
     color: black;
 }
 body>nav.section-lesson-title {
-    background-color: white;
     box-shadow: 0 0 1px 1px white;
 }
 body>nav.section-lesson-title>h1#title {
@@ -11,7 +10,6 @@ body>nav.section-lesson-title>h1#title {
     border: 1px solid black;
 }
 main>.side-bar {
-    background-color: var(--font-primary-db);
     color: black;
     box-shadow: 0 0 1px 1px white;
 }
@@ -22,4 +20,10 @@ main>.side-bar {
 .side-bar ul li a:visited
  {
     color: black;
+}
+.nav-mode-colors{
+    background: rgb(0, 80, 200, 200);
+}
+.nav-mode-colors a{
+    color: whitesmoke !important;
 }

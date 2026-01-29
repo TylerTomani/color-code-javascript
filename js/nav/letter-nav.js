@@ -1,6 +1,6 @@
 // letter-nav.js
 let lastLetterPressed = null
-export function letterNav({e,focusZone}){
+export function letterNav({e}){
     const key = e.key.toLowerCase()
 
     let target
@@ -8,13 +8,6 @@ export function letterNav({e,focusZone}){
         const rect = el.getBoundingClientRect()
         return el.offsetParent !== null && rect.width > 0 && rect.height > 0
     })
-    const matching = allEls.filter(el =>{
-        const id = el.id.toLowerCase()
-        // Don't DO this yet, this will be in handle for google, chatgpt letter focus
-        // el.setAttribute('tabindex','0')
-        return id.startsWith(key)
-    })
-    
     const firstAlpha = el => {
         // If element is NOT an anchor, use its ID  
         // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
@@ -29,11 +22,21 @@ export function letterNav({e,focusZone}){
         // Regular <a> text logic
         const s = (el.innerText || '').trim().toLowerCase()
         for (let i = 0; i < s.length; i++) {
+            // console.log(s[0], s[1])
             if (/[a-z]/.test(s[i])) return s[i]
         }
         return ''
     }
+    const matching = allEls.filter(el => {
+        // const id = el.id.toLowerCase()
+        // return id.startsWith(key)
 
+
+        // Don't DO this yet, this will be in handle for google, chatgpt letter focus
+        // el.setAttribute('tabindex','0')
+        return firstAlpha(el) == key
+
+    })
     const activeEl = document.activeElement
     let iAllEls = allEls.indexOf(activeEl)
     let iMatching = matching.indexOf(activeEl)

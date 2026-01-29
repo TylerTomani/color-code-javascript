@@ -4,10 +4,8 @@
 }
 .page-wrapper > .page-header {
     display: flex;
-
     .page-header-links{
         display: flex;    
-        /* flex-direction: column; */
         flex-basis: 80%;
     }
     .page-header-links > a {
@@ -45,29 +43,16 @@
 }
 .page-wrapper > nav.section-lesson-title {
     display: flex;
-    /* background-color: blue; */
-    /* align-items: center; */
 }
 main.main-container {
-    display: flex;
-    
+    display: flex;   
 }
 main>.side-bar {
     flex-basis: 25%;
     width: fit-content;
     text-wrap: hidden;
-    /* overflow-x: hidden; */
-    /* flex-direction: column; */
-    /* overflow-y: auto; */
-    /* optional for nice scroll: */
-    /* scrollbar-width: none; */
-    /* -ms-overflow-style: none; */
 }
 .side-bar>.side-bar-links-container ul {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
-    /* text-wrap: wrap; */
-    /* overflow-y: scroll; */
-    /* scrollbar-width: none; */
 }

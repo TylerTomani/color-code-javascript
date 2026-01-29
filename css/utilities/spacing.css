@@ -1,26 +1,11 @@
-#mainLinks>a {
-    /* padding: 0 5%; */
-}
-.page-wrapper>nav.section-lesson-title {
-    /* padding: 1% 0; */
-    /* padding-left: 1%; */
-}
-body>nav.section-lesson-title>h1#title {
-    /* margin-left: 1%; */
-}
 .main-landing-page>nav#nxtPrevLessonsBtns button {
     padding: 0 1%
 }
 main > .side-bar {
-    /* padding-left: .5%; */
     padding-right: 2%;
 }
 .side-bar > .side-bar-links-container{
     margin-top: 10%;
-}
-.side-bar > .side-bar-links-container ul {
-    /* margin-top: 5%; */
-    /* margin-right: 2%; */
 }
 .side-bar ul li {
     margin-top: 2%;
