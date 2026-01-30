@@ -23,7 +23,9 @@ export function letterNav({e}){
         const s = (el.innerText || '').trim().toLowerCase()
         for (let i = 0; i < s.length; i++) {
             // console.log(s[0], s[1])
-            if (/[a-z]/.test(s[i])) return s[i]
+            if (/[a-z]/.test(s[i])) {
+                return s[i]
+            }
         }
         return ''
     }

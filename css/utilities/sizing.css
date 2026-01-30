@@ -19,6 +19,7 @@ main > aside{
 
 .side-bar ul li {
     width: fit-content;
+    /* border: 1px solid blue; */
 }   
 .side-bar ul li a {
     width: 100%;
