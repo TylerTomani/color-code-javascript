@@ -4,11 +4,11 @@ import { initDarkMode } from "../dark-mode.js";
 import { keyboardNav } from "../nav/keyboard-nav.js";
 import { initToggleSideBar } from "../ui/toggle-sidebar.js";
 import { initInjectContentListeners } from "./inject-content.js";
-// import { initSideBarListeners } from "../nav/sidebar-nav.js";
+import { initSideBarListeners } from "../nav/sidebar-nav.js";
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
-    // initSideBarListeners()
+    initSideBarListeners()
     initInjectContentListeners()
     initToggleSideBar()
     initDarkMode()

@@ -1,32 +1,56 @@
 // sidebar-nav.js
-const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
+import { setLastSideBarLink, getLastSideBarLink} from "./sidebar-state.js";
 import { sideBarBtn } from "../ui/toggle-sidebar.js";
-let iSideBarAs = -1
-export function initSideBarListeners(){
-    sideBarAs.forEach(el =>{
-        el.addEventListener('focusin', e => {
-            iSideBarAs = [...sideBarAs].indexOf(el)
-        });
-    })
-    
+const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
+let iSideBarAs = 0
+
+function focusSideBarIndex(index) {
+    iSideBarAs = index
+    const el = sideBarAs[iSideBarAs]
+    if (!el) return
+
+    el.focus()
+    setLastSideBarLink(el)
 }
-export function sideBarNav({e}){
+
+
+export function initSideBarListeners(){
+    sideBarAs.forEach((el,i,arr) =>{
+        if(el.hasAttribute('autofocus')){
+            setLastSideBarLink(el)
+        }
+        el.addEventListener('focusin', e => {
+            setLastSideBarLink(el)
+        });
+    })    
+}
+
+export function sideBarNav({ e, links = sideBarAs,index = iSideBarAs}){
     let key = e.key.toLowerCase()
+
+    
+
     if(!isNaN(key)){
-        iSideBarAs = parseInt(key) - 1
-        sideBarAs[iSideBarAs]?.focus()
+        focusSideBarIndex(parseInt(key) - 1)
         return true
     }
     if(key === 'f'){
         if(e.target === sideBarBtn) iSideBarAs = -1
-        iSideBarAs = (iSideBarAs + 1) % sideBarAs.length
-        sideBarAs[iSideBarAs]?.focus()       
+
+        focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
         return true
     }
     if(key === 'a'){
-        iSideBarAs = (iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length
-        sideBarAs[iSideBarAs]?.focus()       
+        focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
         return true
+    }
+    if(key === 's'){
+        if(e.target === sideBarBtn){
+            const lastLink = getLastSideBarLink()
+            iSideBarAs = [...sideBarAs].indexOf(lastLink)
+            focusSideBarIndex(iSideBarAs)
+            return true
+        }
     }
     return false 
 }

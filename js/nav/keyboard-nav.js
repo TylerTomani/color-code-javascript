@@ -14,8 +14,8 @@ export const navState = {
 export function keyboardNav({e}){
     navState.zone = getFocusZone({ e })
     // if (!navState.zone) return
-    
-    
+
+
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
         navState.isLetterNavEnabled = !navState.isLetterNavEnabled
 
@@ -25,24 +25,23 @@ export function keyboardNav({e}){
         setTimeout(() => {
             popupLetterNav.classList.remove('animate')
         }, 1000);
-        
+
         return
     }
-    routeKey({e})
+    routeKey({ e })
 }
 function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
 
-    let keyHandledByZone = false
-
-    // 1️⃣ Let zones attempt to handle THEIR keys
-    if (zone === 'sideBar') {
-        keyHandledByZone = sideBarNav({ e })
-    }
-
-    // 2️⃣ Letter nav is GLOBAL when enabled
-    //    but should NOT re-handle keys already consumed
-    if (isLetterNavEnabled && !keyHandledByZone) {
+    if (isLetterNavEnabled) {
         letterNav({ e })
+        return
     }
+
+    if (zone === 'sideBar') {
+        const isHandled = sideBarNav({ e })
+        if (isHandled) return
+    }
+
+    letterNav({ e })
 }

@@ -1,6 +1,6 @@
 // letter-nav.js
 let lastLetterPressed = null
-export function letterNav({e}){
+export function letterNav({ e }) {
     const key = e.key.toLowerCase()
 
     let target
@@ -8,6 +8,8 @@ export function letterNav({e}){
         const rect = el.getBoundingClientRect()
         return el.offsetParent !== null && rect.width > 0 && rect.height > 0
     })
+
+
     const firstAlpha = el => {
         // If element is NOT an anchor, use its ID  
         // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
@@ -39,6 +41,7 @@ export function letterNav({e}){
         return firstAlpha(el) == key
 
     })
+
     const activeEl = document.activeElement
     let iAllEls = allEls.indexOf(activeEl)
     let iMatching = matching.indexOf(activeEl)

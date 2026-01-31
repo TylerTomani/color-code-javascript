@@ -1,0 +1,82 @@
+
+body{/* overscroll-behavior-x: none; */}
+body>nav.section-lesson-title {/* background-color: var(--font-primary-db); */}
+main > .side-bar{
+    /* text-wrap: wrap; */
+    /* text-wrap: none; */
+    /* white-space: none; */
+}
+.side-bar > .parts ul {
+    /* width: fit-content; */
+    /* margin-top: 25%; */
+    /* border: 1px solid magenta; */
+}
+#sideBarBtn {
+    /* position: fixed; */
+    /* bottom: 0; */
+    /* font-size: 20px; */
+    
+}
+
+
+@media screen and (min-width:960px){    
+    main> .side-bar.deactive  {
+        transition: all 250ms;
+    }
+    .parts sup{
+        display: inline-block;
+        margin-left: -3px;
+    }
+}
+@media screen and (max-width:600px){
+    .side-bar{
+        width: 20%;
+    }
+    .side-bar>.parts {
+        margin-left: 10%;
+    }
+    .side-bar>.parts ul li{
+        line-height: 1.4;
+    }
+    
+    .parts{
+        margin-left: 1.5%;
+        font-size: 90%;
+    }
+    .parts h2{
+        margin-left: 2.5%;
+    }
+    body>nav.section-lesson-title>h1 {
+    /* color: blue;s */
+        font-size: 45%;
+    }
+    /* Gets rid of scroll bar see Chatgpt css Get rid of scroll-bar overlfow question on site */
+    #mainTargetDiv {
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+    }
+
+    #mainTargetDiv::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    #mainTargetDiv::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+    main>.side-bar.deactive {
+        flex-basis: 5%;
+    }
+    .parts>ul li {
+        margin-left: 2%;
+    }
+}
+@media screen and (max-width:420px){
+    .deactive #sideBarBtn {
+        left: 4%;
+    }
+}

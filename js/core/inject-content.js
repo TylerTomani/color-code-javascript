@@ -1,3 +1,4 @@
+// inject-content.js
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
 export function initInjectContentListeners(){

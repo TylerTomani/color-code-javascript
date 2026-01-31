@@ -1,15 +1,18 @@
 .page-wrapper>nav.section-lesson-title {
     height: fit-content;
 }
+
 main {
     width: 100%;
 }
-main > aside{
+
+main>aside {
     height: 100vh;
 }
+
 #darkModeBtn {
-    width: 10vh; 
-    height: 4vh; 
+    width: 10vh;
+    height: 4vh;
 }
 
 .side-bar ul {
@@ -20,10 +23,12 @@ main > aside{
 .side-bar ul li {
     width: fit-content;
     /* border: 1px solid blue; */
-}   
+}
+
 .side-bar ul li a {
     width: 100%;
 }
+
 #sideBarBtn {
     /* width: 100px; */
     /* height: 100px; */
