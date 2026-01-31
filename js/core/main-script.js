@@ -14,7 +14,6 @@ function initMain(){
     initDarkMode()
     setupGlobalKeyListener()
 }
-
 function setupGlobalKeyListener(){
     addEventListener('keydown', e => {
         /** The e.preventDefault to if(isTyping) means:

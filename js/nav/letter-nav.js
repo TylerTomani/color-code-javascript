@@ -2,14 +2,12 @@
 let lastLetterPressed = null
 export function letterNav({ e }) {
     const key = e.key.toLowerCase()
-
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
+        if (el.id === 'mainTargetDiv') return true
         const rect = el.getBoundingClientRect()
         return el.offsetParent !== null && rect.width > 0 && rect.height > 0
     })
-
-
     const firstAlpha = el => {
         // If element is NOT an anchor, use its ID  
         // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
@@ -24,7 +22,6 @@ export function letterNav({ e }) {
         // Regular <a> text logic
         const s = (el.innerText || '').trim().toLowerCase()
         for (let i = 0; i < s.length; i++) {
-            // console.log(s[0], s[1])
             if (/[a-z]/.test(s[i])) {
                 return s[i]
             }
@@ -32,16 +29,9 @@ export function letterNav({ e }) {
         return ''
     }
     const matching = allEls.filter(el => {
-        // const id = el.id.toLowerCase()
-        // return id.startsWith(key)
-
-
-        // Don't DO this yet, this will be in handle for google, chatgpt letter focus
-        // el.setAttribute('tabindex','0')
         return firstAlpha(el) == key
 
     })
-
     const activeEl = document.activeElement
     let iAllEls = allEls.indexOf(activeEl)
     let iMatching = matching.indexOf(activeEl)
@@ -84,6 +74,11 @@ export function letterNav({ e }) {
         }
     }
     target = matching[newIndex]
+    console.clear()
     target?.focus()
+    if (target.id === 'mainTargetDiv') {
+        console.log(target)
+        scrollTo(0, 0)
+    }
     lastLetterPressed = key
 }
