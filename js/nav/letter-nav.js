@@ -76,7 +76,7 @@ export function letterNav({ e }) {
     target = matching[newIndex]
     console.clear()
     target?.focus()
-    if (target.id === 'mainTargetDiv') {
+    if (target === mainTargetDiv) {
         console.log(target)
         scrollTo(0, 0)
     }
