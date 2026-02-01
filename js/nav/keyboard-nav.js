@@ -42,6 +42,6 @@ function routeKey({ e }) {
         const isHandled = sideBarNav({ e })
         if (isHandled) return
     }
-
+    console.log('going')
     letterNav({ e })
 }
