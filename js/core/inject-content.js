@@ -10,23 +10,40 @@ export function initInjectContentListeners(){
         const a = e.target.closest('a')
         if(a === null) return
         injectMainTargetDiv({e})
-        if(a === getLastSideBarLink() && lastClickedSideBarLink == a){
-            mainTargetDiv.focus()
-        }
+        console.log(getLastSideBarLink())
         window.scrollTo(0,0)
         lastClickedSideBarLink = a
     });
+    sideBar.addEventListener('keydown', e => {
+        const a = e.target.closest('a')
+        const key = e.key.toLowerCase()
+        if(a === null) return
+        if(key === 'enter'){
+            e.preventDefault()
+            e.stopPropagation()
+            if (a === getLastSideBarLink() && lastClickedSideBarLink == a) {
+                mainTargetDiv.focus()
+            }
+        }
+    });
 
 }
-export async function injectMainTargetDiv({e}){
-    const href = e.target.href
+export function injectMainTargetDiv({ e }) {
+    const a = e.target.closest('a')
+    if (!a) return
+    injectFromLink(a)
+}
+
+
+export async function injectFromLink(a) {
+    if (!a || !a.href) return
+
     try {
-        const response = await fetch(href)
+        const response = await fetch(a.href)
         const html = await response.text()
         mainTargetDiv.innerHTML = html
-
-    } catch{
-        // console.log('color Code error inject-content')
-        // console.log(`${error}`)
+        window.scrollTo(0, 0)
+    } catch (err) {
+        mainTargetDiv.innerHTML = `<p>Failed to load content.</p>`
     }
 }

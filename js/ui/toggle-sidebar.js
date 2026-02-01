@@ -11,7 +11,7 @@ export function initToggleSideBar() {
     navSectionLessonTitle.addEventListener('keydown', toggleSidebar)
     function toggleSidebar(e) {
         if (e.type == 'click') {
-            console.log(e.target)
+            // console.log(e.target)
             e.stopPropagation()
             if(e.target.tagName === 'A') {
                 return

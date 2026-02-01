@@ -3,10 +3,11 @@
 👉 keyboardNav no longer decides behavior
 It just updates truth.
 */
-import { letterNav } from "./letter-nav.js"
-import { sideBarNav } from "./sidebar-nav.js"
 import { getFocusZone } from "./get-focus-zone.js"
 import { popupLetterNav } from "../ui/popups.js"
+import { letterNav } from "./letter-nav.js"
+import { sideBarNav } from "./sidebar-nav.js"
+import { stepNav } from "./step-nav.js"
 export const navState = {
     zone: null,
     isLetterNavEnabled: false
@@ -40,8 +41,12 @@ function routeKey({ e }) {
 
     if (zone === 'sideBar') {
         const isHandled = sideBarNav({ e })
-        if (isHandled) return
+        if (isHandled )return
     }
-    console.log('going')
+    if (zone === 'mainTargetDiv') {
+        const isHandled = stepNav({e,navState})
+        if (isHandled )return
+    }
+
     letterNav({ e })
 }

@@ -6,7 +6,7 @@ export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
-        // if (el.id === 'mainTargetDiv') return true
+        if (el.id === 'mainTargetDiv') return true
         // const rect = el.getBoundingClientRect()
         // return el.offsetParent !== null && rect.width > 0 && rect.height > 0
         return isActuallyVisible(el)
@@ -85,7 +85,7 @@ export function letterNav({ e }) {
     }
     lastLetterPressed = key
 }
-function isActuallyVisible(el) {
+export function isActuallyVisible(el) {
     if (!el) return false;
     // 1. Sidebar collapsed → block ALL sidebar descendants
     if (
