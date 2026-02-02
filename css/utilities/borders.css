@@ -16,3 +16,7 @@ main>.side-bar {
     /* border-right: 1px solid blue;} */
     /* border-top: 1px solid black; */
 }
+.code-container {
+    border: 1px solid black;
+    border-radius: 5px;
+}

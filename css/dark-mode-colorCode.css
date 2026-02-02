@@ -52,12 +52,17 @@ h4 .dark-mode p {
     background-color: var(--bg-primary)
 
 }
-.dark-mode .code-container,
-.dark-mode .code-container>.copy-code {
-    background-color: var(--bg-primary);
-    color: white;
-}
+
 
 .dark-mode #sideBarBtn {
     color: white;
+}
+.dark-mode .sidebarbtn-fallback-img {
+    border: 1px solid whitesmoke !important;
+}
+
+/* .dark-mode .code-container, */
+.dark-mode .code-container>.copy-code {
+    background-color: var(--code-bg-primary);
+    /* color: white; */
 }

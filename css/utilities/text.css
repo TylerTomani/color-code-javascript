@@ -27,3 +27,6 @@ body>nav.section-lesson-title>h1#title {
     font-style: bold;
     font-weight: 999;
 }
+.code-container {
+    font-weight: 580;
+}

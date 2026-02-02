@@ -8,6 +8,7 @@ import { popupLetterNav } from "../ui/popups.js"
 import { letterNav } from "./letter-nav.js"
 import { sideBarNav } from "./sidebar-nav.js"
 import { stepNav } from "./step-nav.js"
+import { mainTargetDiv } from "../core/inject-content.js"
 export const navState = {
     zone: null,
     isLetterNavEnabled: false

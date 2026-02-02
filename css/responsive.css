@@ -27,8 +27,11 @@
     .resource>img {
         max-width: 50px;
     }
+    .code-container{
+        font-size: 90%;
+        margin: 1% 5%;
+    }
 }
-
 @media screen and (max-width:600px) {
     .side-bar {
         width: 20%;

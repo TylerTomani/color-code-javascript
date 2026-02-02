@@ -1,33 +1,53 @@
 // sidebar-nav.js
-import { setLastSideBarLink, getLastSideBarLink, 
+import { setLastSideBarLink, getLastSideBarLink,clearLastSideBarLink, 
          setLastCLICKEDLink,getLastCLICKEDLink } from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
-import { injectFromLink } from "../core/inject-content.js"
-
+import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
+export const sideBarAsARRAY = Array.from(sideBarAs)
 let iSideBarAs = 0
-let lastClickedSideBarLink = null
 function focusSideBarIndex(index) {
     iSideBarAs = index
     const el = sideBarAs[iSideBarAs]
     if (!el) return
     el.focus()
+    // THIS CODE RIGHT HERE IS AWFUL, get rid of this
+    scrollTo(0,0)
+    el.scrollIntoView({behavior:'smooth', block: 'nearest'})
     setLastSideBarLink(el)
     // This below line will inject #mainTargetDiv everytime side-bar a element is focused 
-    // injectFromLink(el)   // ✅ single injection point
+    // injectFromHref(el)   // ✅ single injection point
 }
-
 export function initSideBarListeners() {
     sideBarAs.forEach((el) => {
         if (el.hasAttribute('autofocus')) {
-            setLastSideBarLink(el)
-            injectFromLink(el)
+            setLastCLICKEDLink(el)
+            injectFromHref(el)
+            iSideBarAs = sideBarAsARRAY.indexOf(el)
         }
-
-        el.addEventListener('focusin', () => {
-            setLastSideBarLink(el)
+        // el.addEventListener('focusin', () => {
+        //     setLastSideBarLink(el)
+        //     setLastCLICKEDLink(el)
+        // })
+        el.addEventListener('click', (e) => {
+            clearLastSideBarLink()
+            const lastClickedLink = getLastCLICKEDLink()
+            // console.log(lastClickedLink)
+            if(e.target === getLastCLICKEDLink()){
+                mainTargetDiv.focus()
+            }
+            setLastCLICKEDLink(el)
         })
-        el.addEventListener('click', () => {
+        el.addEventListener('focus', (e) => {
+                
+        })
+        el.addEventListener('keydown', (e) => {
+            clearLastSideBarLink()
+            const lastClickedLink = getLastCLICKEDLink()
+            // console.log(lastClickedLink)
+            if(e.target === getLastCLICKEDLink()){
+                mainTargetDiv.focus()
+            }
             setLastCLICKEDLink(el)
         })
     })
@@ -55,16 +75,12 @@ export function sideBarNav({ e }) {
     if (key === 's' && e.target === sideBarBtn) {
         const lastLink = getLastSideBarLink()
         const lastClicked = getLastCLICKEDLink()
-        console.log('clicked',lastClicked)
-        if(lastClicked){
-            iSideBarAs = [...sideBarAs].indexOf(lastClicked)
+        if (lastClicked) {
+            iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
             focusSideBarIndex(iSideBarAs)
-            // return
-
         } else {
-            iSideBarAs = [...sideBarAs].indexOf(lastLink)
+            iSideBarAs = sideBarAsARRAY.indexOf(lastLink)
             focusSideBarIndex(iSideBarAs)
-
         }
         return true
     }

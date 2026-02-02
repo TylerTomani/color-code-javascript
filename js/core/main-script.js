@@ -5,9 +5,11 @@ import { keyboardNav } from "../nav/keyboard-nav.js";
 import { initToggleSideBar } from "../ui/toggle-sidebar.js";
 import { initInjectContentListeners } from "./inject-content.js";
 import { initSideBarListeners } from "../nav/sidebar-nav.js";
+import { initStepNav } from "../nav/step-nav.js";
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
+    initStepNav()
     initSideBarListeners()
     initInjectContentListeners()
     initToggleSideBar()

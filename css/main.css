@@ -3,6 +3,8 @@
 @import url('step-txt-lesson-codeColor.css');
 @import url('responsive.css');
 @import url('dark-mode-colorCode.css');
+/* media */
+@import url('media/images.css');
 /* utilities */
 @import url('utilities/borders.css');
 @import url('utilities/colors.css');
