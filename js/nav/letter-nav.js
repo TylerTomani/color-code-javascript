@@ -6,34 +6,33 @@ export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
-        if (el.id === 'mainTargetDiv') return true
-        // const rect = el.getBoundingClientRect()
-        // return el.offsetParent !== null && rect.width > 0 && rect.height > 0
+        if (el.id === 'mainTargetDiv') return el
         return isActuallyVisible(el)
     })
     const firstAlpha = el => {
-        // If element is NOT an anchor, use its ID  
-        // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
-        if (el.tagName !== 'A') {
-            const id = (el.id || '').trim().toLowerCase()
-            for (let i = 0; i < id.length; i++) {
-                const ch = id[i]
-                if (/[a-z]/.test(ch)) return ch
-            }
-            return ''
+        // 1. Visible text
+        const text = (el.innerText || '').trim().toLowerCase()
+        for (let i = 0; i < text.length; i++) {
+            if (/[a-z]/.test(text[i])) return text[i]
         }
-        // Regular <a> text logic
-        const s = (el.innerText || '').trim().toLowerCase()
-        for (let i = 0; i < s.length; i++) {
-            if (/[a-z]/.test(s[i])) {
-                return s[i]
-            }
+
+        // 2. ID fallback
+        const id = (el.id || '').trim().toLowerCase()
+        for (let i = 0; i < id.length; i++) {
+            if (/[a-z]/.test(id[i])) return id[i]
         }
+
+        // 3. aria-label fallback
+        const aria = (el.getAttribute('aria-label') || '').trim().toLowerCase()
+        for (let i = 0; i < aria.length; i++) {
+            if (/[a-z]/.test(aria[i])) return aria[i]
+        }
+
         return ''
     }
+
     const matching = allEls.filter(el => {
         return firstAlpha(el) == key
-
     })
     const activeEl = document.activeElement
     let iAllEls = allEls.indexOf(activeEl)
@@ -77,10 +76,8 @@ export function letterNav({ e }) {
         }
     }
     target = matching[newIndex]
-    // console.clear()
     target?.focus()
     if (target === mainTargetDiv) {
-        // console.log(target)
         scrollTo(0, 0)
     }
     lastLetterPressed = key

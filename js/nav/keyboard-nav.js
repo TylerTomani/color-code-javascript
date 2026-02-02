@@ -14,12 +14,9 @@ export const navState = {
 }
 export function keyboardNav({e}){
     navState.zone = getFocusZone({ e })
-    // if (!navState.zone) return
-
-
+    if (!navState.zone) return
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
         navState.isLetterNavEnabled = !navState.isLetterNavEnabled
-
         popupLetterNav.innerText = `letter navigation : ${navState.isLetterNavEnabled}`
         popupLetterNav.classList.add('animate')
         document.querySelector('.page-wrapper').classList.toggle('nav-mode-colors')
@@ -33,12 +30,10 @@ export function keyboardNav({e}){
 }
 function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
-
     if (isLetterNavEnabled) {
         letterNav({ e })
         return
     }
-
     if (zone === 'sideBar') {
         const isHandled = sideBarNav({ e })
         if (isHandled )return
@@ -47,6 +42,5 @@ function routeKey({ e }) {
         const isHandled = stepNav({e,navState})
         if (isHandled )return
     }
-
     letterNav({ e })
 }

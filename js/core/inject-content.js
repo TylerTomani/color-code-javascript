@@ -9,7 +9,9 @@ export function initInjectContentListeners(){
         e.stopPropagation()
         const a = e.target.closest('a')
         if(a === null) return
-        injectMainTargetDiv({e})
+        // injectMainTargetDiv({e})
+    console.log(a)        
+        injectFromLink(a)
         console.log(getLastSideBarLink())
         window.scrollTo(0,0)
         lastClickedSideBarLink = a
@@ -21,9 +23,13 @@ export function initInjectContentListeners(){
         if(key === 'enter'){
             e.preventDefault()
             e.stopPropagation()
+            console.log('enter')
+
             if (a === getLastSideBarLink() && lastClickedSideBarLink == a) {
                 mainTargetDiv.focus()
+            } else {
             }
+            injectFromLink(a)
         }
     });
 
@@ -37,7 +43,6 @@ export function injectMainTargetDiv({ e }) {
 
 export async function injectFromLink(a) {
     if (!a || !a.href) return
-
     try {
         const response = await fetch(a.href)
         const html = await response.text()

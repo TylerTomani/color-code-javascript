@@ -22,3 +22,8 @@ body>nav.section-lesson-title>h1#title {
     /* font-size: 10%; */
     /* text-decoration: none; */
 }
+
+.nav-mode-colors a {
+    font-style: bold;
+    font-weight: 999;
+}
