@@ -16,7 +16,7 @@
     bottom: 0;
 }
 .collapsed #sideBarBtn {
-    left: 150%;
+    left: 100%;
     position: absolute;
     border: 1px solid var(--bg-primary-db);
     transform: scale(2);

@@ -29,10 +29,10 @@ main>aside {
     width: 100%;
 }
 
-#sideBarBtn {
-    /* width: 100px; */
-    /* height: 100px; */
-}
 #mainTargetDiv {
     height: 100vh;
+}
+#sideBarBtn {
+    /* width: 400px; */
+    /* height: 100px; */
 }
