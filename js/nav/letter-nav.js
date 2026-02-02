@@ -6,31 +6,26 @@ export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
-        if (el.id === 'mainTargetDiv') return el
+        if (el.id === 'mainTargetDiv') return true
         return isActuallyVisible(el)
     })
     const firstAlpha = el => {
-        // 1. Visible text
-        const text = (el.innerText || '').trim().toLowerCase()
-        for (let i = 0; i < text.length; i++) {
-            if (/[a-z]/.test(text[i])) return text[i]
+        // If element is NOT an anchor, use its ID  
+        // If anchor has ID, go to ID[0]
+        
+        if(el.id){
+            return el.id[0].toLowerCase()
+        } else {
+            const s = (el.innerText || '').trim().toLowerCase()
+            for (let i = 0; i < s.length; i++) {
+                if (/[a-z]/.test(s[i])) {
+                    return s[i]
+                }
+            }
+            return ''
         }
-
-        // 2. ID fallback
-        const id = (el.id || '').trim().toLowerCase()
-        for (let i = 0; i < id.length; i++) {
-            if (/[a-z]/.test(id[i])) return id[i]
-        }
-
-        // 3. aria-label fallback
-        const aria = (el.getAttribute('aria-label') || '').trim().toLowerCase()
-        for (let i = 0; i < aria.length; i++) {
-            if (/[a-z]/.test(aria[i])) return aria[i]
-        }
-
-        return ''
+        // Regular <a> text logic
     }
-
     const matching = allEls.filter(el => {
         return firstAlpha(el) == key
     })

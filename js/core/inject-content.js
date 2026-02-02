@@ -3,6 +3,7 @@ export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
 import { getLastSideBarLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
+let currentHref = null
 export function initInjectContentListeners(){
     sideBar.addEventListener('click', e => {
         e.preventDefault()
@@ -28,8 +29,8 @@ export function initInjectContentListeners(){
             if (a === getLastSideBarLink() && lastClickedSideBarLink == a) {
                 mainTargetDiv.focus()
             } else {
+                injectFromLink(a)
             }
-            injectFromLink(a)
         }
     });
 
@@ -43,9 +44,18 @@ export function injectMainTargetDiv({ e }) {
 
 export async function injectFromLink(a) {
     if (!a || !a.href) return
+    // 🚫 already loaded → just focus
+    if (a.href === currentHref) {
+        mainTargetDiv.focus()
+        return
+    }
+
     try {
         const response = await fetch(a.href)
         const html = await response.text()
+
+        mainTargetDiv.innerHTML = html
+        currentHref = a.href
         mainTargetDiv.innerHTML = html
         window.scrollTo(0, 0)
     } catch (err) {

@@ -13,6 +13,7 @@ function focusSideBarIndex(index) {
 
     el.focus()
     setLastSideBarLink(el)
+    // This below line will inject #mainTargetDiv everytime side-bar a element is focused 
     // injectFromLink(el)   // ✅ single injection point
 }
 
