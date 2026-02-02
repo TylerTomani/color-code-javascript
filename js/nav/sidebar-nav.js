@@ -1,11 +1,12 @@
 // sidebar-nav.js
-import { setLastSideBarLink, getLastSideBarLink } from "./sidebar-state.js"
+import { setLastSideBarLink, getLastSideBarLink, 
+         setLastCLICKEDLink,getLastCLICKEDLink } from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromLink } from "../core/inject-content.js"
 
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 let iSideBarAs = 0
-
+let lastClickedSideBarLink = null
 function focusSideBarIndex(index) {
     iSideBarAs = index
     const el = sideBarAs[iSideBarAs]
@@ -25,6 +26,9 @@ export function initSideBarListeners() {
 
         el.addEventListener('focusin', () => {
             setLastSideBarLink(el)
+        })
+        el.addEventListener('click', () => {
+            setLastCLICKEDLink(el)
         })
     })
 }
@@ -50,8 +54,18 @@ export function sideBarNav({ e }) {
 
     if (key === 's' && e.target === sideBarBtn) {
         const lastLink = getLastSideBarLink()
-        iSideBarAs = [...sideBarAs].indexOf(lastLink)
-        focusSideBarIndex(iSideBarAs)
+        const lastClicked = getLastCLICKEDLink()
+        console.log('clicked',lastClicked)
+        if(lastClicked){
+            iSideBarAs = [...sideBarAs].indexOf(lastClicked)
+            focusSideBarIndex(iSideBarAs)
+            // return
+
+        } else {
+            iSideBarAs = [...sideBarAs].indexOf(lastLink)
+            focusSideBarIndex(iSideBarAs)
+
+        }
         return true
     }
 
