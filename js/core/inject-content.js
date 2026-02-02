@@ -1,7 +1,7 @@
 // inject-content.js
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
-import { getLastSideBarLink } from "../nav/sidebar-state.js";
+import { getLastSideBarLink,setLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
 let currentHref = null
 export function initInjectContentListeners(){
@@ -11,11 +11,11 @@ export function initInjectContentListeners(){
         const a = e.target.closest('a')
         if(a === null) return
         // injectMainTargetDiv({e})
-    console.log(a)        
         injectFromLink(a)
         console.log(getLastSideBarLink())
         window.scrollTo(0,0)
         lastClickedSideBarLink = a
+        setLastCLICKEDLink(lastClickedSideBarLink)
     });
     sideBar.addEventListener('keydown', e => {
         const a = e.target.closest('a')

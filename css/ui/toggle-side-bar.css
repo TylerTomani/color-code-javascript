@@ -1,6 +1,7 @@
 /* toggle-side-bar.css */
 .main-container.collapsed .side-bar {
-    flex-basis: 2%;
+    /* border-top: none !important; */
+    flex-basis: 4%;
 }
 
 .main-container.collapsed .side-bar-links-container {
@@ -16,9 +17,10 @@
     bottom: 0;
 }
 .collapsed #sideBarBtn {
-    left: 100%;
-    position: absolute;
+    z-index: 10;
+    /* position: absolute; */
     border: 1px solid var(--bg-primary-db);
-    transform: scale(2);
-    bottom: 20%;
+    transform: scale(1.8);
+    left: 90%;
+    top: 80%;
 }

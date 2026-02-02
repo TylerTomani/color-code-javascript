@@ -33,10 +33,10 @@ main>.side-bar {
     right: 10%;
 }
 #sideBarBtn {
-    transform: scale(2);
+    /* transform: scale(2); */
     z-index: 10;
     position: absolute;
-    bottom: 20%;
-    left: 10%;
+    top: 0%;
+    left: 5%;
     
 }

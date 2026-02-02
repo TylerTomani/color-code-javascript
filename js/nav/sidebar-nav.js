@@ -10,7 +10,6 @@ function focusSideBarIndex(index) {
     iSideBarAs = index
     const el = sideBarAs[iSideBarAs]
     if (!el) return
-
     el.focus()
     setLastSideBarLink(el)
     // This below line will inject #mainTargetDiv everytime side-bar a element is focused 
