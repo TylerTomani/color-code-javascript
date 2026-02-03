@@ -26,6 +26,9 @@ export function initSideBarListeners() {
             injectFromHref(el)
             iSideBarAs = sideBarAsARRAY.indexOf(el)
         }
+        if (el.hasAttribute('focus')) {
+            setLastSideBarLink(0)
+        }
         el.addEventListener('click', (e) => {
             clearLastSideBarLink()
             const lastClickedLink = getLastCLICKEDLink()
@@ -49,6 +52,20 @@ export function sideBarNav({ e,navState }) {
     const key = e.key.toLowerCase()
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
+        return true
+    }
+    if(key === 'm'){
+        const lastStep = getLastStep()
+        if(lastStep ){
+            lastStep?.focus() 
+        } else {
+            scrollTo(0,0)
+            mainTargetDiv.focus()
+        }
+    }
+    if (key === 'f') {
+        if (e.target === sideBarBtn) iSideBarAs = -1
+        focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
         return true
     }
     if (key === 'f') {

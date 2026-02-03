@@ -1,17 +1,22 @@
 // letter-nav.js
 const pageWrapper = document.querySelector('.page-wrapper')
 let lastLetterPressed = null
+import { mainTargetDiv } from "../core/inject-content.js"
 import { getLastStep } from "./step-nav.js"
 export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target
     if(e.target.id != 'mainTargetDiv' && key === 'm'){
         const lastStep = getLastStep()
-        console.log('here')
-        console.log(lastStep)
-        lastStep?.focus()
+        if(lastStep){
+            lastStep?.focus()
+        } else {
+            const mainTargetDiv = document.querySelector('#mainTargetDiv')
+            mainTargetDiv.focus()
+        }
         return
     }
+    
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
         if (el.id === 'mainTargetDiv') return true
         return isActuallyVisible(el)

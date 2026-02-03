@@ -1,20 +1,40 @@
 // step-nav.js
 import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
+import { toggleSingleImage } from "../ui/toggle-img-sizes.js"
 let steps = []
 let iSteps = 0
 let target
 let lastStep
+let allImgs = []
 export function initStepNav(){
     updateSteps()
     // console.log('here')
+    
 }
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
+    allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
+    allImgs.forEach(el => {
+        el.addEventListener('click', e => {
+            e.preventDefault()
+            e.stopPropagation()
+            toggleSingleImage(e.target)
+        });
+    })
     steps.forEach((el,i) => {
         el.addEventListener('focus', e => {
-            console.log('here')
             lastStep = steps[i]
+        });
+    })
+    steps.forEach(el => {
+        el.addEventListener('keydown', e => {
+            let key = e.key.toLowerCase()
+            const img = e.target.querySelector('img,video')
+            if (key === 'enter') {
+                console.log('enter')
+                toggleSingleImage(img)
+            }
         });
     })
 }
@@ -56,6 +76,7 @@ export function stepNav({e,navState}){
         steps[iSteps].focus()
         return true
     }
+    return false
 }
 
 export function getLastStep(){
