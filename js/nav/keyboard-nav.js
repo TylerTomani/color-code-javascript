@@ -36,7 +36,7 @@ function routeKey({ e }) {
         return
     }
     if (zone === 'sideBar') {
-        const isHandled = sideBarNav({ e })
+        const isHandled = sideBarNav({ e,navState })
         if (isHandled )return
     }
     if (zone === 'mainTargetDiv') {

@@ -26,6 +26,13 @@ export function stepNav({e,navState}){
         const intLet = parseInt(key)
         if(intLet > steps.length) steps[steps.length -1].focus()
             else steps[intLet - 1].focus()
+        return true
+    }
+    if(key === 'enter' && e.target === mainTargetDiv){
+        iSteps = 0
+        steps[iSteps].focus()
+        scrollTo(0,0)
+        return true
     }
     if(key === 'm'){
         if(e.target === mainTargetDiv){
