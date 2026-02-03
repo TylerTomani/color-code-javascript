@@ -32,9 +32,6 @@ function setupGlobalKeyListener(){
             e.target.isContentEditable
 
         if (isTyping) return
-
-        
-
         keyboardNav({ e})
         
     });

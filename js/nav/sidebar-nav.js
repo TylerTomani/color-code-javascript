@@ -3,6 +3,7 @@ import { setLastSideBarLink, getLastSideBarLink,clearLastSideBarLink,
          setLastCLICKEDLink,getLastCLICKEDLink } from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
+import { getLastStep } from "./step-nav.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
 let iSideBarAs = 0
@@ -25,26 +26,17 @@ export function initSideBarListeners() {
             injectFromHref(el)
             iSideBarAs = sideBarAsARRAY.indexOf(el)
         }
-        // el.addEventListener('focusin', () => {
-        //     setLastSideBarLink(el)
-        //     setLastCLICKEDLink(el)
-        // })
         el.addEventListener('click', (e) => {
             clearLastSideBarLink()
             const lastClickedLink = getLastCLICKEDLink()
-            // console.log(lastClickedLink)
             if(e.target === getLastCLICKEDLink()){
                 mainTargetDiv.focus()
             }
             setLastCLICKEDLink(el)
         })
-        el.addEventListener('focus', (e) => {
-                
-        })
         el.addEventListener('keydown', (e) => {
             clearLastSideBarLink()
             const lastClickedLink = getLastCLICKEDLink()
-            // console.log(lastClickedLink)
             if(e.target === getLastCLICKEDLink()){
                 mainTargetDiv.focus()
             }
@@ -52,26 +44,21 @@ export function initSideBarListeners() {
         })
     })
 }
-
 export function sideBarNav({ e }) {
     const key = e.key.toLowerCase()
-
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
         return true
     }
-
     if (key === 'f') {
         if (e.target === sideBarBtn) iSideBarAs = -1
         focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
         return true
     }
-
     if (key === 'a') {
         focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
         return true
     }
-
     if (key === 's' && e.target === sideBarBtn) {
         const lastLink = getLastSideBarLink()
         const lastClicked = getLastCLICKEDLink()
@@ -84,6 +71,5 @@ export function sideBarNav({ e }) {
         }
         return true
     }
-
     return false
 }

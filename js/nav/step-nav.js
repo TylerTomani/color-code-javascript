@@ -1,3 +1,4 @@
+// step-nav.js
 import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 let steps = []
@@ -6,62 +7,51 @@ let target
 let lastStep
 export function initStepNav(){
     updateSteps()
+    // console.log('here')
+}
+export function updateSteps(){
+    steps = mainTargetDiv.querySelectorAll('.step-float')
     steps.forEach((el,i) => {
         el.addEventListener('focus', e => {
+            console.log('here')
             lastStep = steps[i]
         });
     })
 }
-function updateSteps(){
-    steps = mainTargetDiv.querySelectorAll('.step-float')
-}
-// step-nav.js
+
 export function stepNav({e,navState}){
-    if(navState.zone != 'mainTargetDiv') return
+    if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
-    
-    // if(e.target == mainTargetDiv){
-    //     if (key === 'f' || key === 'enter'){
-    //        target = steps[0]
-    //        target.focus()
-    //        return true
-    //    }
-
-
-    // }
-    // console.log(steps)
-    if(key === 's'){
-        getLastCLICKEDLink().focus()        
+    if(!isNaN(key)){
+        const intLet = parseInt(key)
+        if(intLet > steps.length) steps[steps.length -1].focus()
+            else steps[intLet - 1].focus()
     }
-    
-    if(key === 'f'){
-        iSteps = (iSteps + 1) % steps.length
-
-        target = steps[iSteps]
-        if(e.target == mainTargetDiv){
-            target = steps[0]
-        } else {
-            
-        }
-        
-    }   
-    // if(key === 'a'){
-    //     target = steps[(iSteps - 1 + steps.length) % steps.length]
-    // }   
     if(key === 'm'){
-        if(e.target != mainTargetDiv){
-            mainTargetDiv.focus()
-            mainTargetDiv.scrollIntoView({behavior:'smooth', block: 'nearest'})
-        } else {
-            console.log(lastStep)
-            console.log('here')
+        if(e.target === mainTargetDiv){
             lastStep?.focus()
-
-            // return 
+        } else {
+            mainTargetDiv.focus()
         }
-    }   
-    // console.log(steps.length, "iSteps:", iSteps,target)
-    console.log(iSteps)
-    // target.focus()
-    return true
+        return true
+    }
+    if(key === 'a'){
+        iSteps = (iSteps - 1 + steps.length) % steps.length
+        steps[iSteps].focus()
+        return true
+    }
+    if(key === 'f'){
+        if(e.target === mainTargetDiv){
+            iSteps = 0
+        } else {
+            iSteps = (iSteps + 1) % steps.length
+        }
+        steps[iSteps].focus()
+        return true
+    }
+}
+
+export function getLastStep(){
+    return lastStep
+
 }

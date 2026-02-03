@@ -4,7 +4,7 @@ import { sideBar } from "../ui/toggle-sidebar.js"
 import { getLastSideBarLink, setLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
-import { initStepNav } from "../nav/step-nav.js";
+import { initStepNav,updateSteps } from "../nav/step-nav.js";
 export function initInjectContentListeners(){
     let linkClicked = false
     initStepNav()
@@ -48,7 +48,8 @@ export async function injectFromHref(href) {
         const response = await fetch(href)
         const html = await response.text()
         mainTargetDiv.innerHTML = html
-        initStepNav()
+        // initStepNav()
+        updateSteps()
         // window.scrollTo(0, 0)
     } catch (err) {
         mainTargetDiv.innerHTML = `<p>Failed to load content.</p>`

@@ -1,3 +1,4 @@
+/* position.css */
 body>header {
     display: flex;
 }
@@ -6,6 +7,11 @@ header>nav#mainLinksContainer>#mainLinks {
 }
 main{
     position: relative;
+}
+main>.side-bar {
+    
+    position: sticky;
+    top: 0;
 }
 body>nav.section-lesson-title {
     position: sticky;
@@ -21,11 +27,7 @@ body>nav.section-lesson-title {
     bottom: 0;
     z-index: 10;
 }
-main>.side-bar {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+
 
 #darkModeBtn {
     position: absolute;
