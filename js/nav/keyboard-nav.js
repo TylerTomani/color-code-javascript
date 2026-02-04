@@ -36,6 +36,7 @@ function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
     const key = e.key.toLowerCase()
     if (key === 'm') {        
+
         handleMainFocus({ e, zone })
         return
     }
@@ -60,19 +61,29 @@ function routeKey({ e }) {
 
 function handleMainFocus({ e, zone }) {
     const key = e.key.toLowerCase()
-    
-    if (e.target != mainTargetDiv && key === 'm') {
-        const lastStep = getLastStep()
+    const lastStep = getLastStep()
+    if(zone === 'mainTargetDiv'){
         if(lastStep){
-            lastStep?.focus()
-        } else {
-            const mainTargetDiv = document.querySelector('#mainTargetDiv')
-            mainTargetDiv.focus()
+            if(e.target == lastStep ){
+                console.log(mainTargetDiv)
+                mainTargetDiv.focus()
+            } else {
+                lastStep.focus()
+            }
         }
         return
     }
-    // mainTargetDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-    // mainTargetDiv.focus()
+    if (e.target != mainTargetDiv && key === 'm') {
+        if(lastStep){
+            lastStep?.focus()
+        } else {
+            mainTargetDiv.focus()
+        }
+        return
+    } else {
+        mainTargetDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        mainTargetDiv.focus()
+    }
 
 }
 function handleSidebarFocus({ e, zone }) {

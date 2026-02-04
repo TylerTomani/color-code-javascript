@@ -7,9 +7,7 @@ let iSteps = 0
 let target
 let lastStep
 let allImgs = []
-export function initStepNav(){
-    updateSteps()
-}
+export function initStepNav(){updateSteps()}
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
@@ -81,15 +79,9 @@ export function stepNav({e,navState}){
             iSteps = (iSteps + 1) % steps.length
         }
         stepFocus(iSteps)
-        // steps[iSteps].focus()
         return true
     }
     return false
 }
-function stepFocus(index){
-    steps[index].focus()
-}
-export function getLastStep(){
-    return lastStep
-
-}
+function stepFocus(index){steps[index].focus()}
+export function getLastStep(){return lastStep}
