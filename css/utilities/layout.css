@@ -71,3 +71,10 @@ main>.side-bar {
     /* overflow-y: scroll; */
     /* scrollbar-width: none; */
 }
+.lesson-btns-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+    
+}

@@ -9,8 +9,6 @@ let lastStep
 let allImgs = []
 export function initStepNav(){
     updateSteps()
-    // console.log('here')
-    
 }
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
@@ -38,16 +36,18 @@ export function updateSteps(){
         });
     })
 }
-
 export function stepNav({e,navState}){
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
     if(!isNaN(key)){
         const intLet = parseInt(key)
-        if(intLet > steps.length) steps[steps.length -1].focus()
-            else steps[intLet - 1].focus()
+        iSteps = steps[intLet - 1]
+        if(intLet > steps.length) iSteps = steps.length - 1
+
+        steps[intLet - 1].focus()
         return true
     }
+    
     if(key === 'enter' && e.target === mainTargetDiv){
         iSteps = 0
         steps[iSteps].focus()
@@ -58,13 +58,20 @@ export function stepNav({e,navState}){
         if(e.target === mainTargetDiv){
             lastStep?.focus()
         } else {
+            
+            mainTargetDiv.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+                // inline: 'nearest',
+            })
             mainTargetDiv.focus()
         }
         return true
     }
     if(key === 'a'){
         iSteps = (iSteps - 1 + steps.length) % steps.length
-        steps[iSteps].focus()
+        // steps[iSteps].focus()
+        stepFocus(iSteps)
         return true
     }
     if(key === 'f'){
@@ -73,12 +80,15 @@ export function stepNav({e,navState}){
         } else {
             iSteps = (iSteps + 1) % steps.length
         }
-        steps[iSteps].focus()
+        stepFocus(iSteps)
+        // steps[iSteps].focus()
         return true
     }
     return false
 }
-
+function stepFocus(index){
+    steps[index].focus()
+}
 export function getLastStep(){
     return lastStep
 

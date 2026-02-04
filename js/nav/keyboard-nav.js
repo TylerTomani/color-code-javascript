@@ -8,7 +8,10 @@ import { popupLetterNav } from "../ui/popups.js"
 import { letterNav } from "./letter-nav.js"
 import { sideBarNav } from "./sidebar-nav.js"
 import { stepNav } from "./step-nav.js"
+import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
+import { getLastCLICKEDLink, getLastSideBarLink } from "./sidebar-state.js"
+import { sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
 export const navState = {
     zone: null,
     isLetterNavEnabled: false
@@ -31,6 +34,15 @@ export function keyboardNav({e}){
 }
 function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
+    const key = e.key.toLowerCase()
+    if (key === 'm') {        
+        handleMainFocus({ e, zone })
+        return
+    }
+    if (key === 's' ) {        
+        handleSidebarFocus({ e, zone })
+        return
+    }
     if (isLetterNavEnabled) {
         letterNav({ e })
         return
@@ -44,4 +56,38 @@ function routeKey({ e }) {
         if (isHandled )return
     }
     letterNav({ e })
+}
+
+function handleMainFocus({ e, zone }) {
+    const key = e.key.toLowerCase()
+    
+    if (e.target != mainTargetDiv && key === 'm') {
+        const lastStep = getLastStep()
+        if(lastStep){
+            lastStep?.focus()
+        } else {
+            const mainTargetDiv = document.querySelector('#mainTargetDiv')
+            mainTargetDiv.focus()
+        }
+        return
+    }
+    // mainTargetDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    // mainTargetDiv.focus()
+
+}
+function handleSidebarFocus({ e, zone }) {
+    const lastLink = getLastSideBarLink()
+    const lastClicked = getLastCLICKEDLink()
+    console.log('s')
+    if(zone === 'sideBar'){
+        if(e.target === sideBarBtn){
+            if(lastClicked ){
+                lastClicked.focus()
+            } else if (lastLink) {
+                lastLink.focus()
+            } 
+        }
+    } else {
+        lastClicked.focus()
+    }
 }
