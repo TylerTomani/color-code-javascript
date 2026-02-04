@@ -11,7 +11,7 @@ import { stepNav } from "./step-nav.js"
 import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { getLastCLICKEDLink, getLastSideBarLink } from "./sidebar-state.js"
-import { sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
+import { mainContainer, sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
 export const navState = {
     zone: null,
     isLetterNavEnabled: false
@@ -89,7 +89,6 @@ function handleMainFocus({ e, zone }) {
 function handleSidebarFocus({ e, zone }) {
     const lastLink = getLastSideBarLink()
     const lastClicked = getLastCLICKEDLink()
-    console.log('s')
     if(zone === 'sideBar'){
         if(e.target === sideBarBtn){
             if(lastClicked ){
@@ -99,6 +98,13 @@ function handleSidebarFocus({ e, zone }) {
             } 
         }
     } else {
-        lastClicked.focus()
+        if(mainContainer.classList.contains('collapsed')){
+            console.log('here')
+            console.log(sideBarBtn)
+            sideBarBtn.focus()
+        } else {
+            lastClicked.focus()
+        }
+        return
     }
 }

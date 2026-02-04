@@ -45,6 +45,8 @@ export function initSideBarListeners() {
             const key = e.key.toLowerCase()
             clearLastSideBarLink()
             const lastClickedLink = getLastCLICKEDLink()
+            const lastStep = getLastStep()
+            
             if(lastClickedLink == e.target && key === 'enter' ){
                 mainTargetDiv.focus()
             }
