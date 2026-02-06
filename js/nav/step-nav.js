@@ -42,17 +42,21 @@ export function updateSteps(){
         
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
-            e.target.scrollIntoView({behavior:'smooth',block: 'start'})
+            scrollToStart(e.target)
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             
             if (key === 'enter') {
                 stepClicked = true
-                e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
+                // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
+                let smooth = true
+                scrollToCenter({e})
                 handleStepClickedNav({e})
             }
             if(e.shiftKey && key === 'enter'){
+                // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
+                scrollToCenter({e})
                 handleImgSizes({e})
                 stepClicked = true
             }
@@ -166,9 +170,22 @@ function handleStepClickedNav({e}){
     }
     currentCopyCodes[iCopyCodes]?.focus()
     // [iCopyCodes]?.focus()
-    
+    return true
 }
 // function 
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
+}
+function scrollToStart({el,smooth}){
+    el.scrollIntoView({ behavior: 'instant', block: 'start' })
+}
+function scrollToCenter({e,smooth}){
+    const el = e.target
+    if(smooth){
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
+    }else {
+
+        el.scrollIntoView({ behavior: 'instant', block: 'center' })
+    }
 }

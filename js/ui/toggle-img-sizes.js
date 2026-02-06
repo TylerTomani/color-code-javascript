@@ -14,6 +14,7 @@ export function toggleSingleImage({e,img}) {
     if (img) {
         img.classList.toggle("enlarge");
         img.style.zIndex = img.classList.contains("enlarge") ? 100 : 0;
+        
     }
 }
 if (allImgs) {
