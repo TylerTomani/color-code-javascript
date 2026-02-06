@@ -17,8 +17,8 @@
     bottom: 0;
 }
 .collapsed #sideBarBtn {
-    z-index: 10;
-    /* position: absolute; */
+    z-index: 99;
+    position: absolute;
     border: 1px solid var(--bg-primary-db);
     transform: scale(1.8);
     left: 90%;
