@@ -36,7 +36,5 @@ main>.side-bar {
 }
 #sideBarBtn {
     transform: scale(1);
-
-    /* height: 100px;
-    width: 100px; */
+    /* height: 100px; */
 }

@@ -79,8 +79,6 @@ function handleMainFocus({ e, zone }) {
         } else {
             mainTargetDiv.focus()
         }
-        // console.log('here')
-        document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
         return
     } else {
         mainTargetDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' })

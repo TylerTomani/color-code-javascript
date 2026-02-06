@@ -4,7 +4,7 @@ export function updateImgs() {
     allImgs = document.querySelectorAll('.step-img, .step-vid ')
 }
 // --- Image handling ---
-export function toggleImgSizes(img) {
+export function toggleSingleImage(img) {
     // denlargeAllImages()
     if (img) {
         img.classList.toggle("enlarge");
@@ -16,7 +16,7 @@ if (allImgs) {
         el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
-            // toggleImgSizes(e.target)
+            // toggleSingleImage(e.target)
         });
     })
 }
