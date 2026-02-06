@@ -6,6 +6,8 @@ import { setLastSideBarLink, getLastSideBarLink,clearLastSideBarLink,
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 import { getLastStep } from "./step-nav.js"
+import { changeTutorialLink } from "../ui/change-tutorial-link.js"
+
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 
 export const sideBarAsARRAY = Array.from(sideBarAs)
@@ -40,6 +42,7 @@ export function initSideBarListeners() {
                 mainTargetDiv.focus()
             }
             setLastCLICKEDLink(el)
+            changeTutorialLink(e)
         })
         el.addEventListener('keydown', (e) => {
             const key = e.key.toLowerCase()

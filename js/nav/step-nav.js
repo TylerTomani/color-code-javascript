@@ -2,6 +2,9 @@
 import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
+import { changeTutorialLink } from "../ui/change-tutorial-link.js"
+// nonSideBarEls is an awfule way to do this but i'm desperate right now
+let nonSideBarEls =[]
 let steps = []
 let copyCodes = []
 let iSteps = 0
@@ -15,12 +18,14 @@ export function initStepNav(){{
     copyCodes = []
     updateSteps()
     updateCopyCodes()
-    
-
 }}
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
+    nonSideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
+        if(!el.closest('.side-bar'))
+        return el
+    })
     copyCodes = updateCopyCodes()
     copyCodes.forEach(el => {
         el.addEventListener('keydown', e => {
@@ -30,7 +35,7 @@ export function updateSteps(){
                 handleImgSizes({e})
             }
             if(key === 'enter'){
-                // console.log('here')
+                // 
                 handleImgSizes({e})
                 scrollToStart({e})
             }
@@ -60,9 +65,8 @@ export function updateSteps(){
         
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
-            console.log('here')
             if(e.type != 'click') return
-            copy
+            changeTutorialLink(e)
             scrollToCenter({e})
         });
         el.addEventListener('keydown', e => {
@@ -74,6 +78,7 @@ export function updateSteps(){
                 let smooth = true
                 scrollToCenter({e})
                 handleStepClickedNav({e})
+                changeTutorialLink(e)
             }
             if(e.shiftKey && key === 'enter'){
                 // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
@@ -95,7 +100,7 @@ export function stepNav({e,navState}){
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
     if (stepClicked) {
-        console.log(e.target)
+        
         if(!step.classList.contains('step-clicked')){
 
             step.classList.add('step-clicked')
@@ -211,4 +216,10 @@ function scrollToCenter({e,smooth}){
 
         el.scrollIntoView({ behavior: 'instant', block: 'center' })
     }
+}
+function focusToNonSideBarEl(e){
+    const key = e.key.toLowerCase()
+    nonSideBarEls
+
+
 }

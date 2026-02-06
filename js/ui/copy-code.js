@@ -4,7 +4,7 @@ export function initCopyCode() {
         el.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
             if (e.metaKey &&  key == 'c' ) {
-                console.log(e.target)
+                
                 animate(el)
                 if (e.target.value) {
                     copyTextToClipboard(e.target.value)
@@ -18,7 +18,7 @@ export function initCopyCode() {
         el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
-            console.log('here')
+            
             handleCopy(e)
             animate(el)
             const step = e.target.closest('.step-float')
