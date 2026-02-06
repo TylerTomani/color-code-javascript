@@ -88,7 +88,12 @@ export function sideBarNav({ e,navState }) {
         return true
     }
     if (key === 'a') {
-        focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
+        if (e.target.id === 'homePageSideBar'){
+            
+            focusSideBarIndex(sideBarAs.length - 2)
+        } else {
+            focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
+        }
         return true
     }
     if (key === 's' ) {

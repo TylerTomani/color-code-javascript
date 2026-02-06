@@ -38,6 +38,8 @@ export function initInjectContentListeners(){
                 mainTargetDiv.focus()
             } else {
                 injectFromHref(a)
+                document.querySelector('body').scrollIntoView({ behavior : 'instant', block: 'start'})
+                // window.scrollIntoView({ behavior : 'instant', block: 'start'})
             }
         }
     });
