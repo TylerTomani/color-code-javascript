@@ -75,6 +75,7 @@
 }
 
 @media screen and (max-width:720px) {
+    
 
     .topic-container>.sub-topics-container,
     .topic-container ul.sub-resources-container {
@@ -83,16 +84,6 @@
 
     .code-container {
         min-width: 250px;
-    }
-
-    video {
-        min-width: 250px;
-    }
-
-    video.enlarge-vid {
-        right: 3%;
-        top: 0;
-        transform: scale(1.02);
     }
 
     .step-txt {
@@ -104,13 +95,6 @@
         margin-bottom: 15%;
     }
 
-    img.enlarge {
-        position: absolute;
-        z-index: 10;
-        min-height: 112px;
-        min-width: 244px;
-        max-width: 200px;
-        margin-right: 80%;
-    }
+    
 
 }

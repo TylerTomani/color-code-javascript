@@ -1,8 +1,8 @@
 /* toggle-side-bar.css */
 .main-container.collapsed .side-bar {
     /* border-top: none !important; */
-    z-index: 99;
-    flex-basis: 4%;
+    z-index: 50;
+    flex-basis: 10%;
 }
 
 .main-container.collapsed .side-bar-links-container {

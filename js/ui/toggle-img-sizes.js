@@ -5,11 +5,12 @@ export function updateImgs() {
 }
 // --- Image handling ---
 export function handleImgSizes({e}) {
-    const img = e.target.closest('.step-float').querySelector('img,video')
-    toggleSingleImage({e,img})
+    
+    toggleSingleImage({e})
     // console.log(e.target)
 }
-export function toggleSingleImage({e,img}) {
+export function toggleSingleImage({e}) {
+    const img = e.target.closest('.step-float').querySelector('img,video')
     // denlargeAllImages()
     if (img) {
         img.classList.toggle("enlarge");

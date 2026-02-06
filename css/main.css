@@ -19,6 +19,7 @@
 /* ui */
 @import url('ui/toggle-side-bar.css');
 @import url('ui/toggle-img-sizes.css');
+@import url('ui/copyCode.css');
 * {
     box-sizing: border-box;
     margin: 0;

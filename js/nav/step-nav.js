@@ -21,6 +21,21 @@ export function initStepNav(){{
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
+    copyCodes = updateCopyCodes()
+    copyCodes.forEach(el => {
+        el.addEventListener('keydown', e => {
+            const key = e.key.toLowerCase()
+            if(e.shiftKey && key === 'enter'){
+                
+                handleImgSizes({e})
+            }
+            if(key === 'enter'){
+                // console.log('here')
+                handleImgSizes({e})
+                scrollToStart({e})
+            }
+        });
+    })
     allImgs.forEach(el => {
         el.addEventListener('click', e => {
             e.preventDefault()
@@ -45,7 +60,9 @@ export function updateSteps(){
         
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
-            scrollToStart(e.target)
+            console.log('here')
+            if(e.type != 'click') return
+            scrollToCenter({e})
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
@@ -69,12 +86,7 @@ export function updateSteps(){
 }
 function updateCopyCodes(){
     copyCodes = document.querySelectorAll('.copy-code')
-    copyCodes.forEach(el => {
-        el.addEventListener('focus', e => {
-            console.log('e')
-            denlargeAllImages()
-        });
-    })
+    return copyCodes
 
 }
 export function stepNav({e,navState}){
@@ -103,15 +115,15 @@ export function stepNav({e,navState}){
     }
     if(key === 'm'){
         if(e.target === mainTargetDiv){
-            lastStep?.focus()
+            // lastStep?.focus()
         } else {
             
+            mainTargetDiv.focus()
             mainTargetDiv.scrollIntoView({
                 behavior: 'smooth',
-                block: 'nearest'
+                block: 'start'
                 // inline: 'nearest',
             })
-            mainTargetDiv.focus()
         }
         return true
     }
@@ -121,12 +133,7 @@ export function stepNav({e,navState}){
         stepFocus(iSteps)
         return true
     }
-    if(key === 'a'){
-        iSteps = (iSteps - 1 + steps.length) % steps.length
-        // steps[iSteps].focus()
-        stepFocus(iSteps)
-        return true
-    }
+    
     if(key === 'f'){
         if(e.target === mainTargetDiv){
             iSteps = 0
@@ -162,9 +169,7 @@ function handleStepClickedNav({e}){
         stepCopyCodes[iCopyCodes]?.focus()
     }
     if(!document.listenersAdded){
-        console.log('here')
         stepCopyCodes.forEach((el,i,arr) => {
-            
             el.addEventListener('focus', e => {
                 iCopyCodes = i
             })
@@ -188,7 +193,8 @@ function handleStepClickedNav({e}){
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
-function scrollToStart({el,smooth}){
+function scrollToStart({e,smooth}){
+    const el = e.target
     el.scrollIntoView({ behavior: 'instant', block: 'start' })
 }
 function scrollToCenter({e,smooth}){

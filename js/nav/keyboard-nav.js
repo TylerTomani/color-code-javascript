@@ -93,7 +93,6 @@ function handleMainFocus({ e, zone }) {
 function handleSidebarFocus({ e, zone }) {
     const lastLink = getLastSideBarLink()
     const lastClicked = getLastCLICKEDLink()
-    console.log('ehre')
     if(zone === 'sideBar'){
         if(e.target === sideBarBtn){
             if(lastClicked ){

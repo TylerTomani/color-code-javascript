@@ -8,10 +8,12 @@ import { initToggleSideBar } from "../ui/toggle-sidebar.js";
 import { initInjectContentListeners } from "./inject-content.js";
 import { initSideBarListeners } from "../nav/sidebar-nav.js";
 import { initStepNav } from "../nav/step-nav.js";
+import { initCopyCode } from "../ui/copy-code.js";
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
     initStepNav()
+    initCopyCode()
     initSideBarListeners()
     initInjectContentListeners()
     initToggleSideBar()
