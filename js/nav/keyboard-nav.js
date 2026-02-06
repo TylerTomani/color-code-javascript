@@ -66,10 +66,12 @@ function handleMainFocus({ e, zone }) {
         if(lastStep){
             if(e.target == lastStep ){
                 console.log(mainTargetDiv)
-                mainTargetDiv.focus()
+                console.log('here')
+                window.scrollTo(0,0)
             } else {
                 lastStep.focus()
             }
+            
         }
         return
     }
