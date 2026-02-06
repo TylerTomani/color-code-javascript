@@ -51,6 +51,8 @@
 }
 main.main-container {
     display: flex;    
+}
+#mainTargetDiv{
     overflow-x: hidden;
 }
 main>.side-bar {

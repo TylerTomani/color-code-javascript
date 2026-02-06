@@ -65,11 +65,11 @@ function handleMainFocus({ e, zone }) {
     if(zone === 'mainTargetDiv'){
         if(lastStep){
             if(e.target == lastStep ){
-                console.log(mainTargetDiv)
-                console.log('here')
-                window.scrollTo(0,0)
+                mainTargetDiv.focus()
+                document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
             } else {
                 lastStep.focus()
+                lastStep.scrollIntoView({behavior:'smooth', block: 'center'})
             }
             
         }
@@ -91,6 +91,7 @@ function handleMainFocus({ e, zone }) {
 function handleSidebarFocus({ e, zone }) {
     const lastLink = getLastSideBarLink()
     const lastClicked = getLastCLICKEDLink()
+    console.log('ehre')
     if(zone === 'sideBar'){
         if(e.target === sideBarBtn){
             if(lastClicked ){
@@ -101,8 +102,6 @@ function handleSidebarFocus({ e, zone }) {
         }
     } else {
         if(mainContainer.classList.contains('collapsed')){
-            console.log('here')
-            console.log(sideBarBtn)
             sideBarBtn.focus()
         } else {
             lastClicked.focus()

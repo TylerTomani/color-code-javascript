@@ -1,4 +1,7 @@
 /* overflow-x: scroll; */
+.mainTargetDiv:active,.mainTargetDiv:focus {
+    outline: none;
+}
 .min-half {
     min-width: 50px !important;
 }

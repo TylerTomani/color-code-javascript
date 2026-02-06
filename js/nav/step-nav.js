@@ -23,6 +23,15 @@ export function updateSteps(){
             lastStep = steps[i]
         });
     })
+    steps.forEach((el,i) => {
+        el.addEventListener('click', e => {
+            lastStep = steps[i]
+            if (!e.target.closest('.step-float')) {
+                console.log('here')
+                return
+            }
+        });
+    })
     steps.forEach(el => {
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
@@ -37,6 +46,10 @@ export function updateSteps(){
 export function stepNav({e,navState}){
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
+    if(!e.target.closest('.step-float')) {
+        console.log('here')
+        return
+    }
     if(!isNaN(key)){
         const intLet = parseInt(key)
         iSteps = steps[intLet - 1]
@@ -83,5 +96,9 @@ export function stepNav({e,navState}){
     }
     return false
 }
-function stepFocus(index){steps[index].focus()}
+function stepFocus(index){{
+    
+    steps[index].focus()
+
+}}
 export function getLastStep(){return lastStep}
