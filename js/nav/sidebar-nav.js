@@ -17,13 +17,15 @@ function focusSideBarIndex(index) {
     el.focus()
     // THIS CODE RIGHT HERE IS AWFUL, get rid of this
     scrollTo(0,0)
-    el.scrollIntoView({behavior:'smooth', block: 'nearest'})
+    // el.scrollIntoView({behavior:'smooth', block: 'nearest'})
+
     setLastSideBarLink(el)
+    
     // This below line will inject #mainTargetDiv everytime side-bar a element is focused 
     // injectFromHref(el)   // ✅ single injection point
 }
 export function initSideBarListeners() {
-    sideBarAs.forEach((el,i) => {
+    sideBarAs.forEach((el,i,arr) => {
         if (el.hasAttribute('autofocus')) {
             setLastCLICKEDLink(el)
             injectFromHref(el)
@@ -31,7 +33,7 @@ export function initSideBarListeners() {
         }
         if (el.hasAttribute('focus')) {
             setLastSideBarLink(0)
-            focusSideBarIndex(i)
+            iSideBarAs[[...arr].indexOf(el)]
         }
         el.addEventListener('click', (e) => {
             clearLastSideBarLink()
@@ -61,36 +63,40 @@ export function sideBarNav({ e,navState }) {
     if(navState.zone != 'sideBar') return
     const key = e.key.toLowerCase()
     if(e.target == sideBarBtn && key === 'm' && mainContainer.classList.contains('collapsed')){
-        
+        console.log(e.target)        
 
+    }
+    if (key === 'a') {
+        if (e.target.id == 'homepageSideBar') {
+            iSideBarAs = (sideBarAs.length - 2)
+            
+            focusSideBarIndex(iSideBarAs)
+        } else {
+
+            focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
+        }
+        return true
     }
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
         return true
     }
-    // if(key === 'm'){
-    //     const lastStep = getLastStep()
-    //     if(lastStep ){
-    //         lastStep?.focus() 
-    //     } else {
-    //         scrollTo(0,0)
-    //         mainTargetDiv.focus()
-    //     }
-    // }
+    if(key === 'm'){
+        const lastStep = getLastStep()
+        if(lastStep ){
+            lastStep?.focus() 
+        } else {
+            scrollTo(0,0)
+            mainTargetDiv.focus()
+        }
+    }
+    
     if (key === 'f') {
         if (e.target === sideBarBtn) iSideBarAs = -1
         focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
         return true
     }
-    if (key === 'f') {
-        if (e.target === sideBarBtn) iSideBarAs = -1
-        focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
-        return true
-    }
-    if (key === 'a') {
-        focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
-        return true
-    }
+    
     if (key === 's' ) {
         console.log('go')
         // console.log('here')
