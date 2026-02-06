@@ -4,7 +4,12 @@ export function updateImgs() {
     allImgs = document.querySelectorAll('.step-img, .step-vid ')
 }
 // --- Image handling ---
-export function toggleSingleImage(img) {
+export function handleImgSizes({e}) {
+    const img = e.target.closest('.step-float').querySelector('img,video')
+    toggleSingleImage({e,img})
+    // console.log(e.target)
+}
+export function toggleSingleImage({e,img}) {
     // denlargeAllImages()
     if (img) {
         img.classList.toggle("enlarge");
