@@ -54,6 +54,7 @@ export function initSideBarListeners() {
             }
             if(key === 's'){
                 sideBarBtn?.focus()
+                document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
             }
             setLastCLICKEDLink(el)
         })
@@ -63,7 +64,7 @@ export function sideBarNav({ e,navState }) {
     if(navState.zone != 'sideBar') return
     const key = e.key.toLowerCase()
     if(e.target == sideBarBtn && key === 'm' && mainContainer.classList.contains('collapsed')){
-        console.log(e.target)        
+        // console.log(e.target)        
 
     }
     if (key === 'a') {
@@ -82,13 +83,15 @@ export function sideBarNav({ e,navState }) {
         return true
     }
     if(key === 'm'){
+        
         const lastStep = getLastStep()
         if(lastStep ){
             lastStep?.focus() 
         } else {
-            scrollTo(0,0)
             mainTargetDiv.focus()
         }
+        // window.scrollIntoView({behavior:'smooth',block: 'start'})
+        return true
     }
     
     if (key === 'f') {
@@ -98,19 +101,6 @@ export function sideBarNav({ e,navState }) {
     }
     
     if (key === 's' ) {
-        console.log('go')
-        // console.log('here')
-        // const lastLink = getLastSideBarLink()
-        // const lastClicked = getLastCLICKEDLink()
-        // if (lastClicked) lastClicked.focus()
-            // else if(lastLink) lastLink.focus()
-        // if (lastClicked) {
-        //     iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        //     focusSideBarIndex(iSideBarAs)
-        // } else {
-        //     iSideBarAs = sideBarAsARRAY.indexOf(lastLink)
-        //     focusSideBarIndex(iSideBarAs)
-        // }
         return true
     }
     return false
