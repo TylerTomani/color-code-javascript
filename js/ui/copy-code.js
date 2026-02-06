@@ -2,18 +2,17 @@ export function initCopyCode() {
     const copyCodes = document.querySelectorAll('.copy-code')
     copyCodes.forEach(el => {
         el.addEventListener('keydown', e => {
-            if (e.target.value) {
-            if (e.key == 'c' && e.metaKey) {
-                console.log('yes')
+            const key = e.key.toLowerCase()
+            if (e.metaKey &&  key == 'c' ) {
+                console.log(e.target)
+                animate(el)
+                if (e.target.value) {
                     copyTextToClipboard(e.target.value)
                 }
                 if (e.target.innerText) {
                     copyTextToClipboard(e.target.innerText)
 
                 }
-                // copyTextToClipboard(e.target.innerText)
-                animate(el)
-                el
             }
         })
         el.addEventListener('click', e => {
@@ -26,16 +25,12 @@ export function initCopyCode() {
             step.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
         })
     })
-    
     // Setup for mainScript and both buttons
-    
 }
 function handleCopy(e) {
     // Always copy the text from mainScript regardless of source
     const textToCopy = e.target.innerText
     copyTextToClipboard(textToCopy);
-    // console.log(animateCode)
-
 }
 
 function setupCopyShortcut(element) {
@@ -62,10 +57,8 @@ function copyTextToClipboard(text) {
     });
 }
 function animate(element) {
-    element.classList.remove('decopied', 'copied'); // reset classes fast
     element.classList.add('copied');
     setTimeout(() => {
         element.classList.remove('copied');
-        element.classList.add('decopied');
     }, 250);
 }

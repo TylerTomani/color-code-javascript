@@ -62,6 +62,7 @@ export function updateSteps(){
             lastStep = steps[iSteps]
             console.log('here')
             if(e.type != 'click') return
+            copy
             scrollToCenter({e})
         });
         el.addEventListener('keydown', e => {
@@ -92,9 +93,13 @@ function updateCopyCodes(){
 export function stepNav({e,navState}){
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
-    
+    const step = e.target.closest('.step-float')
     if (stepClicked) {
-        if(!e.target.classList.contains('step-clicked')) e.target.classList.add('step-clicked')
+        console.log(e.target)
+        if(!step.classList.contains('step-clicked')){
+
+            step.classList.add('step-clicked')
+        }
         handleStepClickedNav({ e })
         return true
     }

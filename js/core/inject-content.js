@@ -3,6 +3,7 @@ export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
 import { getLastSideBarLink, setLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
+import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
 import { initStepNav,updateSteps } from "../nav/step-nav.js";
 import { updateImgs } from "../ui/toggle-img-sizes.js";
@@ -52,6 +53,7 @@ export async function injectFromHref(href) {
         const response = await fetch(href)
         const html = await response.text()
         mainTargetDiv.innerHTML = html
+        initCopyCode()
         updateSteps()
     } catch (err) {
         mainTargetDiv.innerHTML = `<p>Failed to load content.</p>`

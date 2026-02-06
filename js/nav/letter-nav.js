@@ -6,7 +6,7 @@ import { pageWrapper } from "../core/main-script.js"
 export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target
-
+    if (e.metaKey) return
     
     const allEls = [...document.querySelectorAll('[id],a')].filter(el => {
         if (el.id === 'mainTargetDiv') return true
@@ -74,6 +74,7 @@ export function letterNav({ e }) {
         }
     }
     target = matching[newIndex]
+    
     target?.focus()
     if (target === mainTargetDiv) {
         scrollTo(0, 0)
