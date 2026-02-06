@@ -27,7 +27,7 @@ main > .side-bar {
     margin-bottom: 10%;
 }
 
-.code-container{
+.code-container> .copy-code{
     padding-left: 1.4%;
     padding-top: .8%;
 }

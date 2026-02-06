@@ -81,21 +81,19 @@
     margin-left: 2.5%;
 }
 .code-container {
-    background-color: white;
     width: fit-content;
+    background-color: white;
     margin-top: 2.5%;
     min-width: 400px;
+    /* border-radius: 8px; */
 }
 .code-container>.copy-code {
     color: white;
-    position: relative;
+    /* position: relative; */
     /* ADD THIS */
-    border-radius: 8px;
-    width: 100%;
     z-index: 5;
     background-color: var(--bg-primary);
-    width: 100%;
-    padding: 1.5% 5% 2% 1.2%;
+    /* padding: 1.5% 5% 2% 1.2%; */
 }
 .clear {
     clear: both;

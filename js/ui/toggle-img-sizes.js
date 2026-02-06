@@ -27,7 +27,7 @@ if (allImgs) {
 }
 
 // --- Utility ---
-export function denlargeAllImages() {
+export function denlargeAllImages(allImgs) {
     allImgs.forEach(img => {
         if (img.classList.contains('enlarge')) img.classList.remove("enlarge");
         img.style.zIndex = 0;

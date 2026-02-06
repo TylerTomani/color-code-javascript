@@ -1,7 +1,7 @@
 // step-nav.js
 import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
-import { handleImgSizes } from "../ui/toggle-img-sizes.js"
+import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
 let steps = []
 let iSteps = 0
 let target
@@ -12,6 +12,8 @@ let iCopyCodes = 0
 let currentCopyCodes = []
 export function initStepNav(){{
     updateSteps()
+    
+
 }}
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
@@ -29,10 +31,14 @@ export function updateSteps(){
         }
         
         el.addEventListener('focus', e => {
+            denlargeAllImages(allImgs)
+            removeStepClicked(steps)            
             stepClicked = false
             iSteps = i
+            iCopyCodes = 0
             lastStep = steps[iSteps]
         })
+        
         
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
@@ -59,6 +65,8 @@ export function stepNav({e,navState}){
     const key = e.key.toLowerCase()
     
     if (stepClicked) {
+        console.log(e.target)
+        if(!e.target.classList.contains('step-clicked')) e.target.classList.add('step-clicked')
         handleStepClickedNav({ e })
         return true
     }
@@ -121,18 +129,26 @@ export function getLastStep(){return lastStep}
 function getCopyCodes(step){
     if(!step) return
     let copyCodes = step.querySelectorAll('.copy-code')   
+    copyCodes.forEach(el => {
+        if (!el.hasAttribute('tabindex')) {
+            el.setAttribute('tabindex', '0')
+        }
+    })
     if (copyCodes) return [...copyCodes] 
 }
 function handleStepClickedNav({e}){
     const step = e.target.closest('.step-float')
     const key = e.key.toLowerCase()
     if(key === 'enter'){
+        if(!step) return
         currentCopyCodes = getCopyCodes(step)
+        
         currentCopyCodes[iCopyCodes]?.focus()
     }
     if(!document.listenersAdded){
         console.log('here')
         currentCopyCodes.forEach((el,i,arr) => {
+            
             el.addEventListener('focus', e => {
                 iCopyCodes = i
             })
@@ -148,7 +164,11 @@ function handleStepClickedNav({e}){
     if(key === 'm'){
         step.focus()
     }
-    currentCopyCodes[iCopyCodes].focus()
+    currentCopyCodes[iCopyCodes]?.focus()
     // [iCopyCodes]?.focus()
     
+}
+// function 
+function removeStepClicked(steps){
+    steps.forEach(el => el.classList.remove('step-clicked'))
 }

@@ -38,3 +38,10 @@ main>.side-bar {
     transform: scale(1);
     /* height: 100px; */
 }
+.code-container {
+    width: fit-content;
+}
+.code-container>.copy-code {
+    width: 100%;
+    height: 100%;
+}
