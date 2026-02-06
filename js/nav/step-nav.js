@@ -3,15 +3,18 @@ import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
 let steps = []
+let copyCodes = []
 let iSteps = 0
 let target
 let lastStep
 let allImgs = []
 let stepClicked = false
 let iCopyCodes = 0
-let currentCopyCodes = []
+let stepCopyCodes = []
 export function initStepNav(){{
+    copyCodes = []
     updateSteps()
+    updateCopyCodes()
     
 
 }}
@@ -64,12 +67,21 @@ export function updateSteps(){
     })
     
 }
+function updateCopyCodes(){
+    copyCodes = document.querySelectorAll('.copy-code')
+    copyCodes.forEach(el => {
+        el.addEventListener('focus', e => {
+            console.log('e')
+            denlargeAllImages()
+        });
+    })
+
+}
 export function stepNav({e,navState}){
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
     
     if (stepClicked) {
-        console.log(e.target)
         if(!e.target.classList.contains('step-clicked')) e.target.classList.add('step-clicked')
         handleStepClickedNav({ e })
         return true
@@ -145,13 +157,13 @@ function handleStepClickedNav({e}){
     const key = e.key.toLowerCase()
     if(key === 'enter'){
         if(!step) return
-        currentCopyCodes = getCopyCodes(step)
+        stepCopyCodes = getCopyCodes(step)
         
-        currentCopyCodes[iCopyCodes]?.focus()
+        stepCopyCodes[iCopyCodes]?.focus()
     }
     if(!document.listenersAdded){
         console.log('here')
-        currentCopyCodes.forEach((el,i,arr) => {
+        stepCopyCodes.forEach((el,i,arr) => {
             
             el.addEventListener('focus', e => {
                 iCopyCodes = i
@@ -160,15 +172,15 @@ function handleStepClickedNav({e}){
         document.listenersAdded = true
     }
     if(key === 'a'){
-        iCopyCodes = (iCopyCodes - 1 + currentCopyCodes.length) % currentCopyCodes.length    
+        iCopyCodes = (iCopyCodes - 1 + stepCopyCodes.length) % stepCopyCodes.length    
     }
     if(key === 'f'){
-        iCopyCodes = (iCopyCodes + 1) % currentCopyCodes.length
+        iCopyCodes = (iCopyCodes + 1) % stepCopyCodes.length
     }
     if(key === 'm'){
         step.focus()
     }
-    currentCopyCodes[iCopyCodes]?.focus()
+    stepCopyCodes[iCopyCodes]?.focus()
     // [iCopyCodes]?.focus()
     return true
 }

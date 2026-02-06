@@ -11,7 +11,8 @@ ul li a:visited {
 a:active,a:focus{
 }
 #mainTargetDiv:active,#mainTargetDiv:focus {
-    border: 2px solid blue;
+    border: 1px solid blue;
+    border-left: 1px solid blue;
 }
 
 /* STEPS  */
@@ -21,8 +22,12 @@ a:active,
 a:focus,
 .step-float:focus,
 .step-float:active {
-    box-shadow: 2px 1px 10px rgb(179, 155, 95); 
-    border: 2px solid rgb(140, 135, 104);
+    /* box-shadow: 2px 1px 10px rgb(179, 155, 95);  */
+    /* border: 2px solid rgb(140, 135, 104); */
+    /* box-shadow: 2px 1px 4px rgb(95, 168, 179); */
+    box-shadow: 2px 1px 4px whitesmoke;
+    /* border: 1px solid rgb(135, 140, 104); */
+    border: 1px solid whitesmoke;
     outline: none;
 }
 .step-float.step-clicked{
