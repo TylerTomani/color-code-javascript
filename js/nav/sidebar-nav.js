@@ -53,6 +53,10 @@ export function initSideBarListeners() {
             if(key === 's'){
                 sideBarBtn?.focus()
             }
+            if(key === 'm'){
+                mainTargetDiv?.focus()
+                document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
+            }
             setLastCLICKEDLink(el)
         })
     })

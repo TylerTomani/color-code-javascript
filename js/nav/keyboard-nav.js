@@ -80,11 +80,13 @@ function handleMainFocus({ e, zone }) {
             lastStep?.focus()
         } else {
             mainTargetDiv.focus()
+            document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
+            
         }
         return
     } else {
-        mainTargetDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
         mainTargetDiv.focus()
+        document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
     }
 
 }

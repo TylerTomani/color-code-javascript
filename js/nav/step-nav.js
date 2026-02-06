@@ -20,16 +20,12 @@ export function updateSteps(){
     })
     steps.forEach((el,i) => {
         el.addEventListener('focus', e => {
-            lastStep = steps[i]
+            iSteps = i
+            lastStep = steps[iSteps]
         });
-    })
-    steps.forEach((el,i) => {
         el.addEventListener('click', e => {
-            lastStep = steps[i]
-            if (!e.target.closest('.step-float')) {
-                console.log('here')
-                return
-            }
+            lastStep = steps[iSteps]
+            e.target.scrollIntoView({behavior:'smooth',block: 'start'})
         });
     })
     steps.forEach(el => {
@@ -38,6 +34,7 @@ export function updateSteps(){
             const img = e.target.querySelector('img,video')
             if (key === 'enter') {
                 console.log('enter')
+                e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
                 toggleSingleImage(img)
             }
         });
@@ -46,10 +43,7 @@ export function updateSteps(){
 export function stepNav({e,navState}){
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
-    if(!e.target.closest('.step-float')) {
-        console.log('here')
-        return
-    }
+    
     if(!isNaN(key)){
         const intLet = parseInt(key)
         iSteps = steps[intLet - 1]
