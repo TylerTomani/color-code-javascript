@@ -35,10 +35,11 @@ export function initInjectContentListeners(){
             e.stopPropagation()
             setLastCLICKEDLink(a)
             if (a === getLastSideBarLink() && lastClickedSideBarLink == a) {
+                console.log('ehre')
                 mainTargetDiv.focus()
+                document.querySelector('body').scrollIntoView({ behavior : 'instant', block: 'start'})
             } else {
                 injectFromHref(a)
-                document.querySelector('body').scrollIntoView({ behavior : 'instant', block: 'start'})
                 // window.scrollIntoView({ behavior : 'instant', block: 'start'})
             }
         }
