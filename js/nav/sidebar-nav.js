@@ -2,7 +2,8 @@
 // import { pageWrapper } from "../core/main-script.js"
 import { mainContainer } from "../ui/toggle-sidebar.js"
 import { setLastSideBarLink, getLastSideBarLink,clearLastSideBarLink, 
-    setLastCLICKEDLink,getLastCLICKEDLink } from "./sidebar-state.js"
+    setLastCLICKEDLink,getLastCLICKEDLink, 
+    clearLastCLICKEDLink} from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 import { getLastStep } from "./step-nav.js"
@@ -19,39 +20,55 @@ function focusSideBarIndex(index) {
     el.focus()
     // THIS CODE RIGHT HERE IS AWFUL, get rid of this
     scrollTo(0,0)
-    el.scrollIntoView({behavior:'smooth', block: 'nearest'})
+    // el.scrollIntoView({behavior:'smooth', block: 'nearest'})
     setLastSideBarLink(el)
     // This below line will inject #mainTargetDiv everytime side-bar a element is focused 
     // injectFromHref(el)   // ✅ single injection point
 }
 export function initSideBarListeners() {
+    sideBarBtn.addEventListener('keydown', e => {
+        let key = e.key.toLowerCase()
+        const lastClicked = getLastCLICKEDLink()
+        console.log(lastClicked.innerText)
+        if(key === 's'){
+            // console.log(lastClicked.innerText)
+            // lastClicked?.focus()
+            return
+        }
+    });
     sideBarAs.forEach((el,i) => {
         if (el.hasAttribute('autofocus')) {
             setLastCLICKEDLink(el)
+            setLastSideBarLink(el)
             injectFromHref(el)
             iSideBarAs = sideBarAsARRAY.indexOf(el)
+            focusSideBarIndex(iSideBarAs)
         }
         if (el.hasAttribute('focus')) {
+            clearLastCLICKEDLink()
             setLastSideBarLink(0)
+            iSideBarAs = i
             focusSideBarIndex(i)
         }
         el.addEventListener('click', (e) => {
             clearLastSideBarLink()
-            const lastClickedLink = getLastCLICKEDLink()
-            if(e.target === getLastCLICKEDLink()){
+            const lastClicked = getLastCLICKEDLink()
+            if(e.target === lastClicked){
                 mainTargetDiv.focus()
             }
-            setLastCLICKEDLink(el)
+            // setLastCLICKEDLink(el)
             changeTutorialLink(e)
         })
         el.addEventListener('keydown', (e) => {
             const key = e.key.toLowerCase()
-            clearLastSideBarLink()
-            const lastClickedLink = getLastCLICKEDLink()
-            const lastStep = getLastStep()
-            
-            if(lastClickedLink == e.target && key === 'enter' ){
+            // clearLastSideBarLink()
+            const lastClicked = getLastCLICKEDLink()
+            // const lastStep = getLastStep()
+            if(lastClicked == e.target && key === 'enter' ){
                 mainTargetDiv.focus()
+            }
+            if(key === 'enter'){
+                // setLastCLICKEDLink(e.target)
             }
             if(key === 's'){
                 sideBarBtn?.focus()
@@ -60,33 +77,15 @@ export function initSideBarListeners() {
                 mainTargetDiv?.focus()
                 document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
             }
-            setLastCLICKEDLink(el)
+            // setLastCLICKEDLink(el)
         })
     })
 }
 export function sideBarNav({ e,navState }) {
     if(navState.zone != 'sideBar') return
     const key = e.key.toLowerCase()
-    if(e.target == sideBarBtn && key === 'm' && mainContainer.classList.contains('collapsed')){
-        
-
-    }
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
-        return true
-    }
-    // if(key === 'm'){
-    //     const lastStep = getLastStep()
-    //     if(lastStep ){
-    //         lastStep?.focus() 
-    //     } else {
-    //         scrollTo(0,0)
-    //         mainTargetDiv.focus()
-    //     }
-    // }
-    if (key === 'f') {
-        if (e.target === sideBarBtn) iSideBarAs = -1
-        focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
         return true
     }
     if (key === 'f') {
@@ -95,8 +94,7 @@ export function sideBarNav({ e,navState }) {
         return true
     }
     if (key === 'a') {
-        if (e.target.id === 'homePageSideBar'){
-            
+        if (e.target.id === 'homePageSideBar'){       
             focusSideBarIndex(sideBarAs.length - 2)
         } else {
             focusSideBarIndex((iSideBarAs - 1 + sideBarAs.length) % sideBarAs.length)
@@ -104,20 +102,9 @@ export function sideBarNav({ e,navState }) {
         return true
     }
     if (key === 's' ) {
+    //     console.log('sidebar')
         console.log('go')
-        // console.log('here')
-        // const lastLink = getLastSideBarLink()
-        // const lastClicked = getLastCLICKEDLink()
-        // if (lastClicked) lastClicked.focus()
-            // else if(lastLink) lastLink.focus()
-        // if (lastClicked) {
-        //     iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        //     focusSideBarIndex(iSideBarAs)
-        // } else {
-        //     iSideBarAs = sideBarAsARRAY.indexOf(lastLink)
-        //     focusSideBarIndex(iSideBarAs)
-        // }
-        return true
+    //     return false
     }
     return false
 }

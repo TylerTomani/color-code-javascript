@@ -33,8 +33,9 @@ export function updateSteps(){
             if(e.shiftKey && key === 'enter'){
                 
                 handleImgSizes({e})
+                return
             }
-            if(key === 'enter'){
+            if(key === 'enter' && !e.shiftKey){
                 // 
                 
                 handleImgSizes({e})
@@ -70,25 +71,21 @@ export function updateSteps(){
             lastStep = steps[iSteps]
             if(e.type != 'click') return
             changeTutorialLink(e)
-            // scrollToCenter({e})
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
-            
-            if (key === 'enter') {
+            if(!e.target.classList.contains('step-float')) return
+            if (e.shiftKey && key === 'enter') {
+                handleImgSizes({ e })
+                return
+            }
+            if (key === 'enter' && !e.shiftKey) {
                 stepClicked = true
-                // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
                 let smooth = true
-                // scrollToCenter({e})
                 handleStepClickedNav({e})
                 changeTutorialLink(e)
             }
-            if(e.shiftKey && key === 'enter'){
-                // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
-                // scrollToCenter({e})
-                handleImgSizes({e})
-                stepClicked = true
-            }
+            
         });
     })
     

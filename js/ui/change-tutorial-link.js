@@ -11,6 +11,6 @@ export function changeTutorialLink(e) {
     if (ts) {
         vidHref += (vidBase.includes("?") ? "&" : "?") + `&t=${ts}s`;
     }
-    console.log(vidHref)
+    // console.log(vidHref)
     return tutorialLink
 }
