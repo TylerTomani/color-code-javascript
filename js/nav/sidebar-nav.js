@@ -10,7 +10,11 @@ import { getLastStep } from "./step-nav.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
-let iSideBarAs = 0
+let iSideBarAs 
+export function setIndexSideBarAs(i){iSideBarAs = i}
+export function getIndexSideBarAs(){
+    return iSideBarAs
+}
 function focusSideBarIndex(index) {
     iSideBarAs = index
     const el = sideBarAs[iSideBarAs]

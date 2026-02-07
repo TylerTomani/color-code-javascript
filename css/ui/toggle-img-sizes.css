@@ -37,10 +37,13 @@ video.enlarge-vid {
 
 .imgs-container .step-img {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.imgs-container .img-container .step-img {
-    width: 90%;
+.imgs-container  .step-img img {
+    width: 100%;
 }
 
 @media screen and (max-width:720px) {
