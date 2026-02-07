@@ -29,10 +29,14 @@ export function updateSteps(){
     })
     copyCodes = updateCopyCodes()
     copyCodes.forEach(el => {
+        el.addEventListener('focusin', e => {
+            denlargeAllImages(allImgs)
+        });
         el.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
             if(e.shiftKey && key === 'enter'){
-                handleImgSizes({e})
+                const step = e.target.closest('.step-float')
+                step.focus()
                 return
             }
             if(key === 'enter' && !e.shiftKey){
@@ -72,7 +76,6 @@ export function updateSteps(){
             let key = e.key.toLowerCase()
             if(!e.target.classList.contains('step-float')) return
             if (e.shiftKey && key === 'enter') {
-                console.log(e.target)
                 handleImgSizes({ e })
                 return
             }

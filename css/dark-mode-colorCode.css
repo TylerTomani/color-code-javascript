@@ -6,12 +6,14 @@
     background-color: var(--bg-primary-db);
     color: var(--font-primary-db)
 }
+.dark-mode .side-bar a:active, .dark-mode .side-bar a:focus,
 .dark-mode .step:active, .dark-mode .step:focus,
 .dark-mode .step-float:active, .dark-mode .step-float:focus {
     /* font-style: bold; */
     /* background-color: blue; */
     /* font-weight: 800; */
     /* color: white; */
+    background-color: rgb(0,0,0,0) !important;
 }
 .dark-mode #mainLinksContainer{
     color: var(--font-primary-db);
