@@ -36,8 +36,9 @@ export function updateSteps(){
             }
             if(key === 'enter'){
                 // 
+                
                 handleImgSizes({e})
-                scrollToStart({e})
+                scrollToCenter({e})
             }
         });
     })
@@ -60,6 +61,8 @@ export function updateSteps(){
             iSteps = i
             iCopyCodes = 0
             lastStep = steps[iSteps]
+            scrollToCenter({e})
+
         })
         
         
@@ -67,7 +70,7 @@ export function updateSteps(){
             lastStep = steps[iSteps]
             if(e.type != 'click') return
             changeTutorialLink(e)
-            scrollToCenter({e})
+            // scrollToCenter({e})
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
@@ -76,13 +79,13 @@ export function updateSteps(){
                 stepClicked = true
                 // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
                 let smooth = true
-                scrollToCenter({e})
+                // scrollToCenter({e})
                 handleStepClickedNav({e})
                 changeTutorialLink(e)
             }
             if(e.shiftKey && key === 'enter'){
                 // e.target.scrollIntoView({ behavior: 'instant', block: 'center' })
-                scrollToCenter({e})
+                // scrollToCenter({e})
                 handleImgSizes({e})
                 stepClicked = true
             }
@@ -156,7 +159,9 @@ export function stepNav({e,navState}){
     
     return false
 }
-function stepFocus(index){{steps[index].focus()}}
+function stepFocus(index){
+    steps[index].focus()
+}
 export function getLastStep(){return lastStep}
 
 function getCopyCodes(step){
@@ -211,9 +216,7 @@ function scrollToCenter({e,smooth}){
     const el = e.target
     if(smooth){
         el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-
     }else {
-
         el.scrollIntoView({ behavior: 'instant', block: 'center' })
     }
 }
