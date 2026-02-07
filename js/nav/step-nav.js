@@ -63,8 +63,6 @@ export function updateSteps(){
             scrollToCenter({e})
 
         })
-        
-        
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
             if(e.type != 'click') return
@@ -74,6 +72,7 @@ export function updateSteps(){
             let key = e.key.toLowerCase()
             if(!e.target.classList.contains('step-float')) return
             if (e.shiftKey && key === 'enter') {
+                console.log(e.target)
                 handleImgSizes({ e })
                 return
             }
@@ -100,8 +99,7 @@ export function stepNav({e,navState}){
     if (stepClicked) {
         
         if(!step.classList.contains('step-clicked')){
-
-            step.classList.add('step-clicked')
+            step?.classList.add('step-clicked')
         }
         handleStepClickedNav({ e })
         return true
