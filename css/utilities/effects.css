@@ -8,7 +8,9 @@ ul li a:visited {
     text-decoration: none;
     color: white;
 }
-a:active,a:focus{
+.side-bar a:active,
+.side-bar a:focus{
+    border: 1px solid black;
 }
 #mainTargetDiv:active,#mainTargetDiv:focus {
     border: 1px solid blue;
