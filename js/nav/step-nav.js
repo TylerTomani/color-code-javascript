@@ -55,6 +55,8 @@ export function updateSteps(){
     steps.forEach((el,i) => {
         if(el.hasAttribute('autofocus')){
             el.focus()
+            lastStep = el
+            iSteps = i
         }
         
         el.addEventListener('focus', e => {
@@ -100,7 +102,7 @@ export function stepNav({e,navState}){
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
     if (stepClicked) {
-        
+        if(!step) return        
         if(!step.classList.contains('step-clicked')){
             step?.classList.add('step-clicked')
         }
