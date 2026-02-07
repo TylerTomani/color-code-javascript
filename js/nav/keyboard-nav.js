@@ -58,7 +58,6 @@ function routeKey({ e }) {
     }
     letterNav({ e })
 }
-
 function handleMainFocus({ e, zone }) {
     const key = e.key.toLowerCase()
     const lastStep = getLastStep()
@@ -71,7 +70,6 @@ function handleMainFocus({ e, zone }) {
                 lastStep.focus()
                 lastStep.scrollIntoView({behavior:'smooth', block: 'center'})
             }
-            
         }
         return
     }
@@ -80,15 +78,13 @@ function handleMainFocus({ e, zone }) {
             lastStep?.focus()
         } else {
             mainTargetDiv.focus()
-            document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
-            
+            document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })       
         }
         return
     } else {
         mainTargetDiv.focus()
         document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
     }
-
 }
 function handleSidebarFocus({ e, zone }) {
     const lastLink = getLastSideBarLink()

@@ -219,7 +219,7 @@ function scrollToCenter({e,smooth}){
 }
 function focusToNonSideBarEl(e){
     const key = e.key.toLowerCase()
-    nonSideBarEls
+    // nonSideBarEls
 
 
 }
