@@ -26,6 +26,8 @@ export function initInjectContentListeners(){
         lastClickedSideBarLink = a
         setLastCLICKEDLink(a)
         linkClicked = true
+
+        mainTargetDiv.scrollTo(0,0)
     });
     sideBar.addEventListener('keydown', e => {
         const a = e.target.closest('a')

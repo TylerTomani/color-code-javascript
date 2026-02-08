@@ -43,7 +43,10 @@ export function initSideBarListeners() {
             clearLastFocusedLink()
             const lastClicked = getLastCLICKEDLink()
             if(e.target === lastClicked){
+                console.log('click')
                 mainTargetDiv.focus()
+                mainTargetDiv.scrollTo(0,0)
+                window.scrollTo(0,0)
             }
             changeTutorialLink(e)
         })
