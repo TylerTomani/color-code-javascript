@@ -10,7 +10,7 @@ import { sideBarNav } from "./sidebar-nav.js"
 import { stepNav } from "./step-nav.js"
 import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
-import { getLastCLICKEDLink, getLastSideBarLink } from "./sidebar-state.js"
+import { getLastCLICKEDLink, getLastFocusedLink } from "./sidebar-state.js"
 import { mainContainer, sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
 export const navState = {
     zone: null,
@@ -87,7 +87,7 @@ function handleMainFocus({ e, zone }) {
     }
 }
 function handleSidebarFocus({ e, zone }) {
-    const lastLink = getLastSideBarLink()
+    const lastLink = getLastFocusedLink()
     const lastClicked = getLastCLICKEDLink()
     if(zone === 'sideBar'){
         if(e.target === sideBarBtn){

@@ -4,11 +4,9 @@ import { mainTargetDiv } from "../core/inject-content.js"
 import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
 // nonSideBarEls is an awfule way to do this but i'm desperate right now
-let nonSideBarEls =[]
 let steps = []
 let copyCodes = []
 let iSteps = 0
-let target
 let lastStep
 let allImgs = []
 let stepClicked = false
@@ -23,7 +21,7 @@ export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
     // I don't fully know why nonSideBarEls is working
-    nonSideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
+    const SideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
         if(!el.closest('.side-bar'))
         return 
     })
@@ -76,6 +74,12 @@ export function updateSteps(){
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
+            // This is if there are 2 step-img in imgs-container div
+            const hasImgsContainer = e.target.querySelector('.img-container') ? true : false
+            if(hasImgsContainer){
+                console.log("make handling for 2 or more step-img's" )
+            }
+            
             if(!e.target.classList.contains('step-float')) return
             if (e.shiftKey && key === 'enter') {
                 handleImgSizes({ e })
@@ -86,6 +90,11 @@ export function updateSteps(){
                 let smooth = true
                 handleStepClickedNav({e})
                 changeTutorialLink(e)
+            }
+            if(key === 'm'){
+                cn
+                mainTargetDiv.scrollTo(0,0)
+                console.log(mainTargetDiv)
             }
             
         });

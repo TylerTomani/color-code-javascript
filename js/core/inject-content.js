@@ -1,7 +1,7 @@
 // inject-content.js
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
-import { getLastSideBarLink, setLastCLICKEDLink } from "../nav/sidebar-state.js";
+import { getLastFocusedLink, setLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
 import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
@@ -36,7 +36,7 @@ export function initInjectContentListeners(){
             e.preventDefault()
             e.stopPropagation()
             setLastCLICKEDLink(a)
-            if (a === getLastSideBarLink() && lastClickedSideBarLink == a) {
+            if (a === getLastFocusedLink() && lastClickedSideBarLink == a) {
                 
                 mainTargetDiv.focus()
                 mainTargetDiv.scrollIntoView({ behavior : 'instant', block: 'start'})

@@ -1,10 +1,10 @@
 // sidebar-state.js
-let lastSideBarLink = null
+let lastFocusedLink = null
 let lastClickedLink = null
 // LastFocused
-export function setLastSideBarLink(el){lastSideBarLink = el}
-export function getLastSideBarLink(){return lastSideBarLink}
-export function clearLastSideBarLink(el){lastSideBarLink = null}
+export function setLastFocusedLink(el){lastFocusedLink = el}
+export function getLastFocusedLink(){return lastFocusedLink}
+export function clearLastFocusedLink(el){lastFocusedLink = null}
 
 export function setLastCLICKEDLink(el){lastClickedLink = el}
 export function getLastCLICKEDLink() { return lastClickedLink }

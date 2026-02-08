@@ -1,7 +1,7 @@
 // sidebar-nav.js
 // import { pageWrapper } from "../core/main-script.js"
 import { mainContainer } from "../ui/toggle-sidebar.js"
-import { setLastSideBarLink, getLastSideBarLink,clearLastSideBarLink, 
+import { setLastFocusedLink,getLastFocusedLink,clearLastFocusedLink, 
     setLastCLICKEDLink,getLastCLICKEDLink, 
     clearLastCLICKEDLink} from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
@@ -17,10 +17,11 @@ export function getIndexSideBarAs(){
 }
 function focusSideBarIndex(index) {
     iSideBarAs = index
-    const el = sideBarAs[iSideBarAs]
+    const el = sideBarAs[index]
     if (!el) return
     el.focus()   
-    setLastSideBarLink(el)
+    setLastFocusedLink(el)
+    console.log([...sideBarAs].indexOf(el))
 }
 export function initSideBarListeners() {
     sideBarBtn.addEventListener('keydown', e => {
@@ -31,19 +32,19 @@ export function initSideBarListeners() {
     sideBarAs.forEach((el,i) => {
         if (el.hasAttribute('autofocus')) {
             setLastCLICKEDLink(el)
-            setLastSideBarLink(el)
+            setLastFocusedLink(el)
             injectFromHref(el)
             iSideBarAs = sideBarAsARRAY.indexOf(el)
             focusSideBarIndex(iSideBarAs)
         }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
-            setLastSideBarLink(0)
+            // setLastFocusedLink(0)
             iSideBarAs = i
             focusSideBarIndex(i)
         }
         el.addEventListener('click', (e) => {
-            clearLastSideBarLink()
+            clearLastFocusedLink()
             const lastClicked = getLastCLICKEDLink()
             if(e.target === lastClicked){
                 mainTargetDiv.focus()

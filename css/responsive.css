@@ -95,6 +95,8 @@
         margin-bottom: 15%;
     }
 
-    
-
+        .collapsed #sideBarBtn {
+            left: 5%;
+            top: 90%;
+        }
 }
