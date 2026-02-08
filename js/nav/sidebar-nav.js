@@ -2,8 +2,7 @@
 // import { pageWrapper } from "../core/main-script.js"
 import { mainContainer } from "../ui/toggle-sidebar.js"
 import { setLastFocusedLink,getLastFocusedLink,clearLastFocusedLink, 
-    setLastCLICKEDLink,getLastCLICKEDLink, 
-    clearLastCLICKEDLink} from "./sidebar-state.js"
+        setLastCLICKEDLink,getLastCLICKEDLink, clearLastCLICKEDLink} from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 import { getLastStep } from "./step-nav.js"
@@ -12,16 +11,14 @@ const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
 let iSideBarAs 
 export function setIndexSideBarAs(i){iSideBarAs = i}
-export function getIndexSideBarAs(){
-    return iSideBarAs
-}
+export function getIndexSideBarAs(){return iSideBarAs}
 function focusSideBarIndex(index) {
-    iSideBarAs = index
+    setIndexSideBarAs(index)
     const el = sideBarAs[index]
     if (!el) return
     el.focus()   
+    // set last focused take e.target NOT el
     setLastFocusedLink(el)
-    console.log([...sideBarAs].indexOf(el))
 }
 export function initSideBarListeners() {
     sideBarBtn.addEventListener('keydown', e => {
@@ -29,7 +26,7 @@ export function initSideBarListeners() {
         const lastClicked = getLastCLICKEDLink()
         
     });
-    sideBarAs.forEach((el,i) => {
+    sideBarAs.forEach((el,i,arr) => {
         if (el.hasAttribute('autofocus')) {
             setLastCLICKEDLink(el)
             setLastFocusedLink(el)
@@ -39,7 +36,6 @@ export function initSideBarListeners() {
         }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
-            // setLastFocusedLink(0)
             iSideBarAs = i
             focusSideBarIndex(i)
         }
@@ -54,9 +50,27 @@ export function initSideBarListeners() {
         el.addEventListener('keydown', (e) => {
             const key = e.key.toLowerCase()
             const lastClicked = getLastCLICKEDLink()
-            if(lastClicked == e.target && key === 'enter' ){mainTargetDiv.focus()}
+            const lastFocused = getLastFocusedLink()
+            if(lastClicked == e.target){
+                if (key === 'enter'){
+                    mainTargetDiv.focus()
+                }
+                if(key === 'f'){
+                    iSideBarAs = sideBarAsARRAY.indexOf(e.target)
+                    setLastFocusedLink(iSideBarAs)
+                }
+            }
             if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
-            if(key === 's'){sideBarBtn?.focus()}
+            if(key === 's'){
+                if(e.target == lastClicked){
+                    console.log('here')
+                    console.log(lastFocused)
+                    lastFocused?.focus() 
+                }
+                
+                sideBarBtn?.focus()
+            }
+
             if(key === 'm'){
                 mainTargetDiv?.focus()
                 document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })

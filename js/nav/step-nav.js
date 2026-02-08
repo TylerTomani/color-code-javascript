@@ -92,7 +92,6 @@ export function updateSteps(){
                 changeTutorialLink(e)
             }
             if(key === 'm'){
-                cn
                 mainTargetDiv.scrollTo(0,0)
                 console.log(mainTargetDiv)
             }
