@@ -62,11 +62,11 @@ export function initSideBarListeners() {
             }
             if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
             if(key === 's'){
-                if(e.target == lastClicked){
-                    console.log('here')
-                    console.log(lastFocused)
-                    lastFocused?.focus() 
-                }
+                // if(e.target == lastClicked){
+                //     console.log('here')
+                //     console.log(lastFocused)
+                //     lastFocused?.focus() 
+                // }
                 
                 sideBarBtn?.focus()
             }
