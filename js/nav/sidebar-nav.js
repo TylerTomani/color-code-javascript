@@ -96,7 +96,13 @@ export function sideBarNav({ e,navState }) {
         } else {
             if (key === 'f') {
                 const steps = getSteps()
-                steps[0].focus()
+                const lastStep = getLastStep()
+                if(lastStep){
+                    lastStep?.focus()
+                } else {
+
+                    steps[0].focus()
+                }
             }
         }
         return true
