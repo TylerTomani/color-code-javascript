@@ -42,5 +42,6 @@ main>.side-bar {
     background-color: var(--code-bg-primary);
 }
 .code-container>.copy-code{
+    background-color: var(--code-bg-primary);
     color: black;
 }
