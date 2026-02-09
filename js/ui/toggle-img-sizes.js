@@ -1,33 +1,52 @@
 // toggle-img-sizes.js
 let allImgs
+let iStepImgs = -1
 export function updateImgs() {
-    allImgs = document.querySelectorAll('.step-img, .step-vid ')
+    allImgs = document.querySelectorAll('.step-img img, .step-vid video')
 }
 // --- Image handling ---
 export function handleImgSizes({e}) {
-    
-    toggleSingleImage({e})
-    // console.log(e.target)
+    const step = e.target.closest('.step-float')
+    if (!step) return
+
+    const imgsContainer = step.querySelector('.imgs-container')
+
+    if (!imgsContainer) {
+        toggleSingleImage({ e })
+    } else {
+        toggleMultipleImages({ e, step })
+
+    }    
 }
-export function toggleSingleImage({e}) {
+function toggleSingleImage({e}) {
     const img = e.target.closest('.step-float').querySelector('img,video')
     // denlargeAllImages()
     if (img) {
-        img.classList.toggle("enlarge");
-        img.style.zIndex = img.classList.contains("enlarge") ? 100 : 0;
+        toggleImgSize(img)
         
     }
 }
-if (allImgs) {
-    allImgs.forEach(el => {
-        el.addEventListener('click', e => {
-            // e.preventDefault()
-            // e.stopPropagation()
-            // toggleSingleImage(e.target)
-        });
-    })
+function toggleMultipleImages({ e, step }) {
+    const key = e.key.toLowerCase()
+    console.log(key)
+    if(key === 'enter'){
+        const stepImgs = step.querySelectorAll('.step-img > img')
+        iStepImgs++ 
+        console.log(iStepImgs)
+        if(iStepImgs >= stepImgs.length){
+            denlargeAllImages(allImgs)
+            iStepImgs = -1
+            return
+        } else {
+            toggleImgSize(stepImgs[iStepImgs])
+        }
+        
+    }
 }
-
+function toggleImgSize(img){
+    img.classList.toggle("enlarge");
+    img.style.zIndex = img.classList.contains("enlarge") ? 100 : 0;
+}
 // --- Utility ---
 export function denlargeAllImages(allImgs) {
     allImgs.forEach(img => {

@@ -24,7 +24,7 @@ export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
     // I don't fully know why nonSideBarEls is working
-    const SideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
+    const sideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
         if(!el.closest('.side-bar'))
         return 
     })
@@ -46,6 +46,7 @@ export function updateSteps(){
             }
         });
     })
+    // This should not be here, this needs to get implemented into  toggle-img-sizes.js i think
     allImgs.forEach(el => {
         el.addEventListener('click', e => {
             e.preventDefault()
