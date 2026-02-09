@@ -2,7 +2,7 @@
 export const sideBar = document.querySelector('.page-wrapper .side-bar')
 export const mainContainer = document.querySelector('.main-container')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
-export const navSectionLessonTitle = document.querySelector('.section-lesson-title')
+import { navSectionLessonTitle } from "../core/main-script.js"
 export function initToggleSideBar() {
     sideBar.addEventListener('click', toggleSidebar)
     sideBarBtn.addEventListener('click', toggleSidebar)

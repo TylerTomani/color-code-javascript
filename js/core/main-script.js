@@ -1,6 +1,6 @@
 // main-script.js
 export const pageWrapper = document.querySelector('.page-wrapper') 
-
+export const navSectionLessonTitle = document.querySelector('.section-lesson-title')
 import { getFocusZone } from "../nav/get-focus-zone.js";
 import { initDarkMode } from "../dark-mode.js";
 import { keyboardNav } from "../nav/keyboard-nav.js";

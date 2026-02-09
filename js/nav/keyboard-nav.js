@@ -3,6 +3,7 @@
 👉 keyboardNav no longer decides behavior
 It just updates truth.
 */
+import { navSectionLessonTitle } from "../core/main-script.js"
 import { getFocusZone } from "./get-focus-zone.js"
 import { popupLetterNav } from "../ui/popups.js"
 import { letterNav } from "./letter-nav.js"
@@ -12,13 +13,16 @@ import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { getLastCLICKEDLink, getLastFocusedLink } from "./sidebar-state.js"
 import { mainContainer, sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
+// import {navTi}
 export const navState = {
     zone: null,
     isLetterNavEnabled: false
 }
 export function keyboardNav({e}){
     navState.zone = getFocusZone({ e })
+    console.log(navState.zone)
     if (!navState.zone) return
+    // if
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
         navState.isLetterNavEnabled = !navState.isLetterNavEnabled
         popupLetterNav.innerText = `letter navigation : ${navState.isLetterNavEnabled}`

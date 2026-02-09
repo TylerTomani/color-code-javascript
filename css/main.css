@@ -1,5 +1,5 @@
 /* main.css */
-@import url('ui/popup-letterNav.css');
+
 @import url('step-txt-lesson-codeColor.css');
 @import url('responsive.css');
 @import url('dark-mode-colorCode.css');
@@ -20,6 +20,7 @@
 @import url('ui/toggle-side-bar.css');
 @import url('ui/toggle-img-sizes.css');
 @import url('ui/copyCode.css');
+@import url('ui/popup-letterNav.css');
 * {
     box-sizing: border-box;
     margin: 0;

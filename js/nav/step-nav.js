@@ -93,7 +93,6 @@ export function updateSteps(){
             }
             if(key === 'm'){
                 mainTargetDiv.scrollTo(0,0)
-                console.log(mainTargetDiv)
             }
             
         });
@@ -105,71 +104,11 @@ function updateCopyCodes(){
     return copyCodes
 
 }
-export function stepNav({e,navState}){
-    if (navState.zone !== 'mainTargetDiv') return false
-    const key = e.key.toLowerCase()
-    const step = e.target.closest('.step-float')
-    if (stepClicked) {
-        if(!step) return        
-        if(!step.classList.contains('step-clicked')){
-            step?.classList.add('step-clicked')
-        }
-        handleStepClickedNav({ e })
-        return true
-    }
-    if(!isNaN(key)){
-        const intLet = parseInt(key)
-        iSteps = steps[intLet - 1]
-        if(intLet > steps.length) iSteps = steps.length - 1
 
-        steps[intLet - 1].focus()
-        return true
-    }
-    
-    if(key === 'enter' && e.target === mainTargetDiv){
-        iSteps = 0
-        steps[iSteps].focus()
-        scrollTo(0,0)
-        return true
-    }
-    if(key === 'm'){
-        if(e.target === mainTargetDiv){
-            // lastStep?.focus()
-        } else {
-            
-            mainTargetDiv.focus()
-            mainTargetDiv.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-                // inline: 'nearest',
-            })
-        }
-        return true
-    }
-    if(key === 'a'){
-        iSteps = (iSteps - 1 + steps.length) % steps.length
-        // steps[iSteps].focus()
-        stepFocus(iSteps)
-        return true
-    }
-    
-    if(key === 'f'){
-        if(e.target === mainTargetDiv){
-            iSteps = 0
-        } else {
-            iSteps = (iSteps + 1) % steps.length
-        }
-        stepFocus(iSteps)
-        return true
-    }
-    
-    return false
-}
 function stepFocus(index){
     steps[index].focus()
 }
 export function getLastStep(){return lastStep}
-
 function getCopyCodes(step){
     if(!step) return
     let copyCodes = step.querySelectorAll('.copy-code')   
@@ -210,13 +149,8 @@ function handleStepClickedNav({e}){
     // [iCopyCodes]?.focus()
     return true
 }
-// function 
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
-}
-function scrollToStart({e,smooth}){
-    const el = e.target
-    el.scrollIntoView({ behavior: 'instant', block: 'start' })
 }
 function scrollToCenter({e,smooth}){
     const el = e.target
@@ -225,4 +159,62 @@ function scrollToCenter({e,smooth}){
     }else {
         el.scrollIntoView({ behavior: 'instant', block: 'center' })
     }
+}
+export function stepNav({ e, navState }) {
+    if (navState.zone !== 'mainTargetDiv') return false
+    const key = e.key.toLowerCase()
+    const step = e.target.closest('.step-float')
+    if (stepClicked) {
+        if (!step) return
+        if (!step.classList.contains('step-clicked')) {
+            step?.classList.add('step-clicked')
+        }
+        handleStepClickedNav({ e })
+        return true
+    }
+    if (!isNaN(key)) {
+        const intLet = parseInt(key)
+        iSteps = steps[intLet - 1]
+        if (intLet > steps.length) iSteps = steps.length - 1
+
+        steps[intLet - 1].focus()
+        return true
+    }
+
+    if (key === 'enter' && e.target === mainTargetDiv) {
+        iSteps = 0
+        steps[iSteps].focus()
+        scrollTo(0, 0)
+        return true
+    }
+    if (key === 'm') {
+        if (e.target === mainTargetDiv) {
+            // lastStep?.focus()
+        } else {
+
+            mainTargetDiv.focus()
+            mainTargetDiv.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+                // inline: 'nearest',
+            })
+        }
+        return true
+    }
+    if (key === 'a') {
+        iSteps = (iSteps - 1 + steps.length) % steps.length
+        // steps[iSteps].focus()
+        stepFocus(iSteps)
+        return true
+    }
+    if (key === 'f') {
+        if (e.target === mainTargetDiv) {
+            iSteps = 0
+        } else {
+            iSteps = (iSteps + 1) % steps.length
+        }
+        stepFocus(iSteps)
+        return true
+    }
+    return false
 }
