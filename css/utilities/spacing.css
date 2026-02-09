@@ -17,12 +17,16 @@ main > .side-bar {
 }
 #targetDivInjected{    
     .main-container-colorCode{
-        padding-top: 2%;
-        padding-left: 3%;
+        /* padding-top: 1%; */
+        /* padding-left: 3%; */
+        margin-left: 1%;
+        margin-bottom: 1.8%;
 
     }
     .step-float {
-        margin: 1% 0;
+        margin: .5% 0;
+        padding: .5%;
+        padding-bottom: 2%;
     }
 }
 

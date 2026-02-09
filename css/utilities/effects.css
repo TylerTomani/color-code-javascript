@@ -28,16 +28,28 @@ a:active,a:focus,
     outline: none;
 }
 .step-float.step-clicked{
+    background-color: lightblue;
     border: 1px solid blue;
-    
 }
 .dark-mode a:active,.dark-mode a:focus ,
 .dark-mode .step-float:focus,.dark-mode .step-float:active {
-    /* box-shadow: 2px 2px 10px lightblue; */
-    /* box-shadow: 1px 1px 4px lightblue ; */
     background-color: rgb(0, 0, 0, 0) !important;
     box-shadow: 1px 1px 4px rgb(175, 191, 196);
     box-shadow: 1px 1px 4px navy;
-        border: 1px solid lightblue;
+    border: 1px solid lightblue;
     outline: none;
+}
+:root{
+    /* --dk-md-step: rgb(181, 163, 58); */
+    --dk-md-step: gold;
+}
+.dark-mode .step-float:focus,.dark-mode .step-float:active {
+    /* box-shadow: 1px 1px 4px rgb(175, 191, 196); */
+    box-shadow: -1px -1px 4px var(--dk-md-step);
+    border: 2px solid whitesmoke;
+    padding-left: 2%;
+    margin-left: 2%;
+    margin-top: 2%;
+    box-shadow: .5px 1px 4px var(--dk-md-step);
+    
 }
