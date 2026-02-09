@@ -41,7 +41,6 @@ function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
     const key = e.key.toLowerCase()
     if (key === 'm') {        
-
         handleMainFocus({ e, zone })
         return
     }

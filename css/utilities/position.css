@@ -1,10 +1,5 @@
 /* position.css */
-body>header {
-    display: flex;
-}
-header>nav#mainLinksContainer>#mainLinks {
-    width: 100%;
-}
+
 main{
     position: relative;
 }

@@ -5,7 +5,7 @@ import { setLastFocusedLink,getLastFocusedLink,clearLastFocusedLink,
         setLastCLICKEDLink,getLastCLICKEDLink, clearLastCLICKEDLink} from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
-import { getLastStep } from "./step-nav.js"
+import { getSteps,getLastStep } from "./step-nav.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
@@ -25,6 +25,7 @@ export function initSideBarListeners() {
         let key = e.key.toLowerCase()
         const lastClicked = getLastCLICKEDLink()
         
+        return
     });
     sideBarAs.forEach((el,i,arr) => {
         if (el.hasAttribute('autofocus')) {
@@ -83,13 +84,21 @@ export function initSideBarListeners() {
 export function sideBarNav({ e,navState }) {
     if(navState.zone != 'sideBar') return
     const key = e.key.toLowerCase()
+    console.log('here')
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
         return true
     }
     if (key === 'f') {
-        if (e.target === sideBarBtn) iSideBarAs = -1
-        focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
+        if (!mainContainer.classList.contains('collapsed')) {
+            if (e.target === sideBarBtn) iSideBarAs = -1
+            focusSideBarIndex((iSideBarAs + 1) % sideBarAs.length)
+        } else {
+            if (key === 'f') {
+                const steps = getSteps()
+                steps[0].focus()
+            }
+        }
         return true
     }
     if (key === 'a') {

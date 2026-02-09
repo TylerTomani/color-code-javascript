@@ -61,6 +61,7 @@ export function updateSteps(){
         }
         
         el.addEventListener('focus', e => {
+            console.log('here')
             denlargeAllImages(allImgs)
             removeStepClicked(steps)            
             stepClicked = false
@@ -92,6 +93,7 @@ export function updateSteps(){
                 stepClicked = true
                 let smooth = true
                 handleStepClickedNav({e})
+                if(!e.target.classList.contains('step-float')) return
                 changeTutorialLink(e)
             }
             if(key === 'm'){
