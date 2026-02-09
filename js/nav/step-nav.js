@@ -111,7 +111,10 @@ function updateCopyCodes(){
 }
 
 function stepFocus(index){
-    steps[index].focus()
+    if(index >= steps.length){
+        index = steps.length -1
+    }
+    steps[index]?.focus()
 }
 export function getLastStep(){return lastStep}
 function getCopyCodes(step){
