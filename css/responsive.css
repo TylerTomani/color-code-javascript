@@ -26,6 +26,14 @@
         left: 5%;
         top: 90%;
     }
+    .dark-mode .step-float {
+        border-left: none !important;
+        border-bottom: none !important;
+    }
+    .dark-mode .step-clicked {
+        border: 1px solid blue !important;
+        
+    }
 }
 
 @media screen and (max-width:672px) {

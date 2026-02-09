@@ -1,4 +1,6 @@
+
 :root {
+    --dk-md-step: gold;
     --bg-primary-db: #201d1d;
     --font-primary-db: whitesmoke;
 }
@@ -70,5 +72,14 @@ h4 .dark-mode p {
     /* font-weight: 800; */
     /* color: white; */
     border: 1px solid whitesmoke;
-
+}
+.dark-mode .step-float:focus,
+.dark-mode .step-float:active {
+    box-shadow: -1px -1px 4px var(--dk-md-step);
+    box-shadow: 1px 1px 8px whitesmoke !important;
+    border: 2px solid whitesmoke !important;
+    padding-left: 5%;
+    margin-left: 2%;
+    margin-top: 2%;
+    box-shadow: .5px 1px 4px var(--dk-md-step);
 }

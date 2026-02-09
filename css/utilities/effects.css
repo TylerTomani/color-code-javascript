@@ -39,17 +39,4 @@ a:active,a:focus,
     border: 1px solid lightblue;
     outline: none;
 }
-:root{
-    /* --dk-md-step: rgb(181, 163, 58); */
-    --dk-md-step: gold;
-}
-.dark-mode .step-float:focus,.dark-mode .step-float:active {
-    /* box-shadow: 1px 1px 4px rgb(175, 191, 196); */
-    box-shadow: -1px -1px 4px var(--dk-md-step);
-    border: 2px solid whitesmoke;
-    padding-left: 2%;
-    margin-left: 2%;
-    margin-top: 2%;
-    box-shadow: .5px 1px 4px var(--dk-md-step);
-    
-}
+
