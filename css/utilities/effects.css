@@ -21,22 +21,30 @@ ul li a:visited {
 /* STEPS  */
 
 
-a:active,a:focus,
-.step-float:focus,.step-float:active {
+a:active,
+a:focus,
+.step-float:focus,
+.step-float:active {
+    /* box-shadow: 2px 1px 10px rgb(179, 155, 95);  */
+    /* border: 2px solid rgb(140, 135, 104); */
+    /* box-shadow: 2px 1px 4px rgb(95, 168, 179); */
+    box-shadow: 2px 1px 3px whitesmoke;
     border: 1px solid rgb(135, 140, 104);
     background-color: rgb(175, 191, 196);
     outline: none;
 }
 .step-float.step-clicked{
-    background-color: lightblue;
-    border: 1px solid blue;
+
+    box-shadow: 2px 2px 10px lightblue;
+    border: 1px solid blue
 }
-.dark-mode a:active,.dark-mode a:focus ,
-.dark-mode .step-float:focus,.dark-mode .step-float:active {
-    background-color: rgb(0, 0, 0, 0) !important;
-    box-shadow: 1px 1px 4px rgb(175, 191, 196);
-    box-shadow: 1px 1px 4px navy;
-    border: 1px solid lightblue;
+.dark-mode a:active,
+.dark-mode a:focus ,
+.dark-mode .step-float:focus,
+/* .step-float:hover ,*/
+.dark-mode .step-float:active {
+    /* box-shadow: 2px 2px 10px lightblue; */
+    /* box-shadow: 2px 1px 10px rgb(179, 155, 95); */
+    border: 1px solid white;
     outline: none;
 }
-

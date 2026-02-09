@@ -19,11 +19,7 @@ export function initInjectContentListeners(){
     sideBar.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        let a = e.target.closest('a')
-        if (e.target.tagName != 'A') {
-            a = e.target.closest('a')
-            
-        }
+        const a = e.target.closest('a')
         if(a === null) return        
         injectFromHref(a)
         window.scrollTo(0,0)
@@ -34,7 +30,7 @@ export function initInjectContentListeners(){
         mainTargetDiv.scrollTo(0,0)
     });
     sideBar.addEventListener('keydown', e => {
-        let a = e.target.closest('a')
+        const a = e.target.closest('a')
         const key = e.key.toLowerCase()
 
         if(a === null) return
@@ -42,10 +38,6 @@ export function initInjectContentListeners(){
             e.preventDefault()
             e.stopPropagation()
             setLastCLICKEDLink(a)
-            if (e.target.tagName != 'A') {
-                console.log(e.target)
-                a = e.target.closest('a')
-            }
             if (a === getLastFocusedLink() && lastClickedSideBarLink == a) {
                 
                 mainTargetDiv.focus()

@@ -44,7 +44,6 @@ video.enlarge-vid {
 
 .imgs-container  .step-img img {
     width: 100%;
-    z-index: 0 !important;
 }
 
 @media screen and (max-width:720px) {
@@ -60,7 +59,7 @@ video.enlarge-vid {
 
     img.enlarge {
         position: absolute;
-        z-index: 2;
+        z-index: 99;
         min-height: 112px;
         min-width: 2px;
         max-height: 180px;
