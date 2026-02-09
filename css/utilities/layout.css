@@ -52,9 +52,7 @@
 main.main-container {
     display: flex;    
 }
-#mainTargetDiv{
-    overflow-x: hidden;
-}
+
 main>.side-bar {
     /* flex-basis: 20%; */
     /* width: fit-content; */
@@ -80,4 +78,7 @@ main>.side-bar {
     right: 0;
     z-index: 11;
     
+}
+#mainTargetDiv {
+    overflow-x: hidden;
 }

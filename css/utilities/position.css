@@ -37,6 +37,14 @@ body>nav.section-lesson-title {
     left: 5%;
     
 }
+/* Steps */
+.steps-container {
+    position: relative;
+}
+.step-float {
+    position: relative;
+    z-index: 5
+}
 .code-container {
     /* This puts .copy-code in front of Image */
     /* position: relative; */
