@@ -1,32 +1,13 @@
 // inject-content.js
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
 import { sideBar } from "../ui/toggle-sidebar.js"
-import { getLastFocusedLink, setLastCLICKEDLink,getLastCLICKEDLink } from "../nav/sidebar-state.js";
+import { getLastFocusedLink, setLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
 import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
 import { initStepNav,updateSteps } from "../nav/step-nav.js";
 import { updateImgs } from "../ui/toggle-img-sizes.js";
-const endNxtBtn = document.querySelector('#endNxtBtn')
-const prevBtn = document.querySelector('#prevBtn')
-
 export function initInjectContentListeners(){
-    endNxtBtn.addEventListener('click', e => {
-        const lastClicked = getLastCLICKEDLink()
-        let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        iSideBarAs = (iSideBarAs + 1) % sideBarAsARRAY.length
-        setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
-        injectFromHref(sideBarAsARRAY[iSideBarAs].href)
-        console.log(iSideBarAs)
-    })
-    prevBtn.addEventListener('click', e => {
-        const lastClicked = getLastCLICKEDLink()
-        let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        iSideBarAs = (iSideBarAs - 1 + sideBarAsARRAY.length) % sideBarAsARRAY.length
-        setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
-        injectFromHref(sideBarAsARRAY[iSideBarAs].href)
-        console.log(iSideBarAs)
-    })
     let linkClicked = false
     initStepNav()
     sideBarAsARRAY.forEach(el =>{
