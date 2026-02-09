@@ -3,16 +3,18 @@
 👉 keyboardNav no longer decides behavior
 It just updates truth.
 */
-import { navSectionLessonTitle } from "../core/main-script.js"
+import { mainContainer } from "../core/main-script.js"
+import { navLessonTitle } from "./nav-lesson-title-nav.js"
 import { getFocusZone } from "./get-focus-zone.js"
 import { popupLetterNav } from "../ui/popups.js"
 import { letterNav } from "./letter-nav.js"
 import { sideBarNav } from "./sidebar-nav.js"
+import { handleNavLessonTitle } from "./nav-lesson-title-nav.js"
 import { stepNav } from "./step-nav.js"
 import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { getLastCLICKEDLink, getLastFocusedLink } from "./sidebar-state.js"
-import { mainContainer, sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
+import { sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
 // import {navTi}
 export const navState = {
     zone: null,
@@ -20,7 +22,6 @@ export const navState = {
 }
 export function keyboardNav({e}){
     navState.zone = getFocusZone({ e })
-    console.log(navState.zone)
     if (!navState.zone) return
     // if
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
@@ -52,12 +53,17 @@ function routeKey({ e }) {
         letterNav({ e })
         return
     }
-    if (zone === 'sideBar') {
-        const isHandled = sideBarNav({ e,navState })
+    if (zone === 'navLessonTitle') {
+        const isHandled = handleNavLessonTitle({e,navState})
         if (isHandled )return
+        return
     }
     if (zone === 'mainTargetDiv') {
         const isHandled = stepNav({e,navState})
+        if (isHandled )return
+    }
+    if (zone === 'sideBar') {
+        const isHandled = sideBarNav({ e,navState })
         if (isHandled )return
     }
     letterNav({ e })

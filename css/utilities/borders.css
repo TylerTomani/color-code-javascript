@@ -8,7 +8,7 @@
     /* border-bottom: none; */
     border-top: none;
 }
-.page-wrapper >nav.section-lesson-title {
+.page-wrapper >nav.nav-lesson-title {
     border: 1px solid black;
 }
 main>.side-bar {

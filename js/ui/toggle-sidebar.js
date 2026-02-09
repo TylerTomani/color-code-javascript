@@ -1,14 +1,14 @@
 // toggle-sidebar.js
+import { mainContainer } from "../core/main-script.js"
+import { navLessonTitle } from "../nav/nav-lesson-title-nav.js"
 export const sideBar = document.querySelector('.page-wrapper .side-bar')
-export const mainContainer = document.querySelector('.main-container')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
-import { navSectionLessonTitle } from "../core/main-script.js"
 export function initToggleSideBar() {
     sideBar.addEventListener('click', toggleSidebar)
     sideBarBtn.addEventListener('click', toggleSidebar)
     sideBarBtn.addEventListener('keydown', toggleSidebar)
-    navSectionLessonTitle.addEventListener('click', toggleSidebar)
-    navSectionLessonTitle.addEventListener('keydown', toggleSidebar)
+    navLessonTitle.addEventListener('click', toggleSidebar)
+    navLessonTitle.addEventListener('keydown', toggleSidebar)
     function toggleSidebar(e) {
         if (e.type == 'click') {
             e.stopPropagation()

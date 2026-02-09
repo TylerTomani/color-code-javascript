@@ -1,6 +1,6 @@
 // sidebar-nav.js
 // import { pageWrapper } from "../core/main-script.js"
-import { mainContainer } from "../ui/toggle-sidebar.js"
+import { mainContainer } from "../core/main-script.js"
 import { setLastFocusedLink,getLastFocusedLink,clearLastFocusedLink, 
         setLastCLICKEDLink,getLastCLICKEDLink, clearLastCLICKEDLink} from "./sidebar-state.js"
 import { sideBarBtn } from "../ui/toggle-sidebar.js"

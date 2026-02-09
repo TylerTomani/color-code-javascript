@@ -17,6 +17,9 @@ export function initStepNav(){{
     updateSteps()
     updateCopyCodes()
 }}
+export function getSteps(){
+    return steps
+}
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
     allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
