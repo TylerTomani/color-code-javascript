@@ -56,8 +56,8 @@ main.main-container {
     overflow-x: hidden;
 }
 main>.side-bar {
-    flex-basis: 25%;
-    width: fit-content;
+    /* flex-basis: 20%; */
+    /* width: fit-content; */
     /* text-wrap: hidden; */
     /* overflow-x: hidden; */
     /* flex-direction: column; */

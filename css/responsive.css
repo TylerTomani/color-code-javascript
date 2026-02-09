@@ -91,12 +91,16 @@
     }
 
     #targetDiv {
-        padding-bottom: 15%;
-        margin-bottom: 15%;
+        #targetDivInjected {
+            .main-container-colorCode {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
     }
 
-        .collapsed #sideBarBtn {
-            left: 5%;
-            top: 90%;
-        }
+    .collapsed #sideBarBtn {
+        left: 5%;
+        top: 90%;
+    }
 }
