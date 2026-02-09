@@ -5,6 +5,9 @@ export function changeTutorialLink(e) {
     // console.log(e.target)
     const targetLink = e.target
     const vidBase = targetLink.getAttribute("data-video");
+    if(!vidBase){
+        return
+    }
     const ts = targetLink.getAttribute("data-timestamp");
     let vidHref = vidBase;
     if (ts) {
