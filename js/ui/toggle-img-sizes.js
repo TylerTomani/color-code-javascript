@@ -21,8 +21,8 @@ export function toggleSingleImage({e}) {
 if (allImgs) {
     allImgs.forEach(el => {
         el.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
+            // e.preventDefault()
+            // e.stopPropagation()
             // toggleSingleImage(e.target)
         });
     })

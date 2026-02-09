@@ -61,7 +61,6 @@ export function updateSteps(){
         }
         
         el.addEventListener('focus', e => {
-            console.log('here')
             denlargeAllImages(allImgs)
             removeStepClicked(steps)            
             stepClicked = false

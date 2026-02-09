@@ -84,7 +84,6 @@ export function initSideBarListeners() {
 export function sideBarNav({ e,navState }) {
     if(navState.zone != 'sideBar') return
     const key = e.key.toLowerCase()
-    console.log('here')
     if (!isNaN(key)) {
         focusSideBarIndex(parseInt(key) - 1)
         return true

@@ -21,6 +21,6 @@ export function handleNavLessonTitle({ e, navState }){
             }
             return true
         }   
-    }
+    } 
 
 }
