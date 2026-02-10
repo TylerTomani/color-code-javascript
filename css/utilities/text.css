@@ -1,32 +1,23 @@
+* {
+    /* font-size: 1rem; */
+}
+.page-header-links a {text-decoration: none;}
+.page-wrapper > nav.nav-lesson-title>h1#sideBarLinkTitle {
+    /* font-size: 95%; */
+    font-size: 1.3rem;
+}
 
-.page-header-links a {
-    text-decoration: none;
-}
-.page-wrapper>nav.section-lesson-title {
-    font-size: 80%;
-}
-body>nav.section-lesson-title>h1#title {
-    /* font-size: 100%; */
-}
 .main-landing-page>nav#nxtPrevLessonsBtns button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.side-bar-links-container>ul li {
-    /* text-wrap: wrap; */
-}
-.side-bar>.side-bar-links-container ul {
-    font-size: 89%;
-}
-.side-bar ul li a {
-    text-decoration: none;
-    /* font-size: 10%; */
-    /* text-decoration: none; */
-}
 
+
+/* .side-bar-links-container>ul li {text-wrap: wrap;} */
+
+.side-bar>.side-bar-links-container ul {font-size: 89%;}
+.side-bar ul li a {text-decoration: none;}
 .nav-mode-colors a {
     font-style: bold;
     font-weight: 999;
 }
-.code-container {
-    font-weight: 580;
-}
+.code-container {font-weight: 580;}

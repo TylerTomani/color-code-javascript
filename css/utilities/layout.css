@@ -52,18 +52,6 @@
 main.main-container {
     display: flex;    
 }
-
-main>.side-bar {
-    /* flex-basis: 20%; */
-    /* width: fit-content; */
-    /* text-wrap: hidden; */
-    /* overflow-x: hidden; */
-    /* flex-direction: column; */
-    /* overflow-y: auto; */
-    /* optional for nice scroll: */
-    /* scrollbar-width: none; */
-    /* -ms-overflow-style: none; */
-}
 .side-bar>.side-bar-links-container ul {
     display: flex;
     flex-direction: column;
@@ -77,8 +65,5 @@ main>.side-bar {
     bottom: 0;
     right: 0;
     z-index: 11;
-    
 }
-#mainTargetDiv {
-    overflow-x: hidden;
-}
+#mainTargetDiv {overflow-x: hidden;}

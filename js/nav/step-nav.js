@@ -22,7 +22,6 @@ export function getSteps(){
 }
 export function updateSteps(){
     steps = mainTargetDiv.querySelectorAll('.step-float')
-    allImgs = mainTargetDiv.querySelectorAll('.step-img img, step-vid video')
     // I don't fully know why nonSideBarEls is working
     const sideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
         if(!el.closest('.side-bar'))

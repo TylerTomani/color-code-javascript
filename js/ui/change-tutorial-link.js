@@ -2,7 +2,7 @@
 const tutorialLink = document.querySelector('#tutorialLink')
 export function changeTutorialLink(e) {
     const tutorialLink = document.querySelector('#tutorialLink')
-    // console.log(e.target)
+    console.log(e.target)
     const targetLink = e.target
     if(e.target.classList.contains('.step-float')){
         const step = targetLink.closest('.step-float')

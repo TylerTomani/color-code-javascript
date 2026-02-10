@@ -108,4 +108,8 @@
         font-size: 50%;
         max-height: 25px;
     }
+    .dark-mode .side-bar{
+        border-top: none !important;
+        border-top:2px solid black !important
+    }
 }
