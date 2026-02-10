@@ -2,9 +2,8 @@
 const tutorialLink = document.querySelector('#tutorialLink')
 export function changeTutorialLink(e) {
     const tutorialLink = document.querySelector('#tutorialLink')
-    console.log(e.target)
     const targetLink = e.target
-    if(e.target.classList.contains('.step-float')){
+    if(e.target.classList.contains('step-float')){
         const step = targetLink.closest('.step-float')
         const vidBase = step.getAttribute("data-video");
         const ts = step.getAttribute("data-timestamp");
@@ -15,7 +14,6 @@ export function changeTutorialLink(e) {
         tutorialLink.href = vidHref
         if(step){
 
-            console.log(step)
         }
         if(e.target.tagName == 'A'){
             const vidBase = targetLink.getAttribute("data-video");

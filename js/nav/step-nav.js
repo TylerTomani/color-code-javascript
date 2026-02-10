@@ -3,6 +3,10 @@ import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
+import { handleStepClickedNav, } from "./step-clicked-nav.js"
+import { refreshImages } from "../ui/toggle-img-sizes.js";
+
+
 // nonSideBarEls is an awfule way to do this but i'm desperate right now
 let steps = []
 let copyCodes = []
@@ -14,6 +18,7 @@ let iCopyCodes = 0
 let stepCopyCodes = []
 export function initStepNav(){{
     copyCodes = []
+    refreshImages(mainTargetDiv)
     updateSteps()
     updateCopyCodes()
 }}
@@ -77,22 +82,18 @@ export function updateSteps(){
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
-            // This is if there are 2 step-img in imgs-container div
-            const hasImgsContainer = e.target.querySelector('.img-container') ? true : false
-            if(hasImgsContainer){
-                console.log("make handling for 2 or more step-img's" )
-            }
-            
-            if(!e.target.classList.contains('step-float')) return
+            const step = e.target
+            if(!step.classList.contains('step-float')) return
+
             if (e.shiftKey && key === 'enter') {
                 handleImgSizes({ e })
                 return
             }
-            if (key === 'enter' && !e.shiftKey) {
+            if (!e.shiftKey && key === 'enter') {
                 stepClicked = true
                 let smooth = true
-                handleStepClickedNav({e})
-                if(!e.target.classList.contains('step-float')) return
+                // handleStepClickedNav({e})
+                if(!step.classList.contains('step-float')) return
                 changeTutorialLink(e)
             }
             if(key === 'm'){
@@ -103,11 +104,7 @@ export function updateSteps(){
     })
     
 }
-function updateCopyCodes(){
-    copyCodes = document.querySelectorAll('.copy-code')
-    return copyCodes
 
-}
 
 function stepFocus(index){
     if(index >= steps.length){
@@ -116,46 +113,7 @@ function stepFocus(index){
     steps[index]?.focus()
 }
 export function getLastStep(){return lastStep}
-function getCopyCodes(step){
-    if(!step) return
-    let copyCodes = step.querySelectorAll('.copy-code')   
-    copyCodes.forEach(el => {
-        if (!el.hasAttribute('tabindex')) {
-            el.setAttribute('tabindex', '0')
-        }
-    })
-    if (copyCodes) return [...copyCodes] 
-}
-function handleStepClickedNav({e}){
-    const step = e.target.closest('.step-float')
-    const key = e.key.toLowerCase()
-    if(key === 'enter'){
-        if(!step) return
-        stepCopyCodes = getCopyCodes(step)
-        
-        stepCopyCodes[iCopyCodes]?.focus()
-    }
-    if(!document.listenersAdded){
-        stepCopyCodes.forEach((el,i,arr) => {
-            el.addEventListener('focus', e => {
-                iCopyCodes = i
-            })
-        })
-        document.listenersAdded = true
-    }
-    if(key === 'a'){
-        iCopyCodes = (iCopyCodes - 1 + stepCopyCodes.length) % stepCopyCodes.length    
-    }
-    if(key === 'f'){
-        iCopyCodes = (iCopyCodes + 1) % stepCopyCodes.length
-    }
-    if(key === 'm'){
-        step.focus()
-    }
-    stepCopyCodes[iCopyCodes]?.focus()
-    // [iCopyCodes]?.focus()
-    return true
-}
+
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
@@ -176,7 +134,7 @@ export function stepNav({ e, navState }) {
         if (!step.classList.contains('step-clicked')) {
             step?.classList.add('step-clicked')
         }
-        handleStepClickedNav({ e })
+        handleStepClickedNav({ e,iCopyCodes })
         return true
     }
     if (!isNaN(key)) {
@@ -224,4 +182,10 @@ export function stepNav({ e, navState }) {
         return true
     }
     return false
+}
+
+function updateCopyCodes() {
+    const copyCodes = document.querySelectorAll('.copy-code')
+    return copyCodes
+
 }

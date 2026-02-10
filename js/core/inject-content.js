@@ -6,7 +6,7 @@ let lastClickedSideBarLink = null
 import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
 import { initStepNav,updateSteps } from "../nav/step-nav.js";
-import { refreshImages } from "../ui/toggle-img-sizes.js";
+
 const endNxtBtn = document.querySelector('#endNxtBtn')
 const prevBtn = document.querySelector('#prevBtn')
 
@@ -92,7 +92,6 @@ export async function injectFromHref(href) {
         mainTargetDiv.innerHTML = html
         initCopyCode()
         updateSteps()
-        refreshImages(mainTargetDiv)
     } catch (err) {
         mainTargetDiv.innerHTML = `<p>Failed to load content.</p>`
     }
