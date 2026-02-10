@@ -1,11 +1,12 @@
 /* sizing.css */
+#darkModeBtn {
+    width: fit-content;
+    height: 4vh;
+}
 .page-wrapper>nav.section-lesson-title {
     height: fit-content;
 }
-#darkModeBtn {
-    width: 10vh;
-    height: 4vh;
-}
+
 main.main-container {
     width: 100%;
     .side-bar {

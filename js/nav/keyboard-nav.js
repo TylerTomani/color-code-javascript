@@ -55,7 +55,6 @@ function routeKey({ e }) {
     if (zone === 'navLessonTitle') {
         const isHandled = handleNavLessonTitle({e,navState})
         if (isHandled )return
-        return
     }
     if (zone === 'mainTargetDiv') {
         const isHandled = stepNav({e,navState})

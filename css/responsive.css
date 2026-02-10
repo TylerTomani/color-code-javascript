@@ -103,4 +103,9 @@
         left: 5%;
         top: 90%;
     }
+    #darkModeBtn {
+    
+        font-size: 50%;
+        max-height: 25px;
+    }
 }

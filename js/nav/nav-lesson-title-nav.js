@@ -6,6 +6,11 @@ import { getSteps,getLastStep } from "./step-nav.js"
 export function handleNavLessonTitle({ e, navState }){
     const key = e.key.toLowerCase()
     const {zone, isLetterNavEnable} = navState
+    // This variable is repeated in step-nav at top of updateSteps(), i don't believe this is most efficient
+    const sideBarEls = [...document.querySelectorAll('[id],a')].filter(el => {
+        if (!el.closest('.side-bar'))
+            return
+    })
     if(zone != 'navLessonTitle') return
     if(key === 'f'){
         if(!mainContainer.classList.contains('collapsed')){
@@ -22,5 +27,6 @@ export function handleNavLessonTitle({ e, navState }){
             return true
         }   
     } 
+    return false
 
 }

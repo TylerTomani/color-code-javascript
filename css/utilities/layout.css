@@ -32,13 +32,13 @@
         justify-content: center;
 
     }
-    .img-container{
+    .tutorial-link-img-container{
         height: 100%;
         flex-basis: 20%;
         display: flex;
         flex-direction: column;
     }
-    .img-container  img{
+    .tutorial-link-img-container img{
         max-height: 150px;
         max-width: 100px;
     }

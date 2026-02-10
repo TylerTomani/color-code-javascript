@@ -1,5 +1,12 @@
 /* position.css */
 
+.page-wrapper>.page-header {
+
+
+    .tutorial-link-img-container {
+        position: sticky;
+    }
+}
 main{
     position: relative;
 }
@@ -24,11 +31,7 @@ body>nav.section-lesson-title {
 }
 
 
-#darkModeBtn {
-    position: absolute;
-    bottom: 15%;
-    right: 10%;
-}
+
 #sideBarBtn {
     /* transform: scale(2); */
     z-index: 10;
