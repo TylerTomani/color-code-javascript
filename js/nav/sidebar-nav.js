@@ -29,13 +29,17 @@ export function initSideBarListeners() {
         return
     });
     sideBarAs.forEach((el,i,arr) => {
-        if (el.hasAttribute('autofocus')) {
-            setLastCLICKEDLink(el)
-            setLastFocusedLink(el)
-            iSideBarAs = sideBarAsARRAY.indexOf(el)
-            focusSideBarIndex(iSideBarAs)
-            injectFromHref(el)
-            return
+        if(!document.listenerAdded){
+            
+            if (el.hasAttribute('autofocus')) {
+                setLastCLICKEDLink(el)
+                setLastFocusedLink(el)
+                iSideBarAs = sideBarAsARRAY.indexOf(el)
+                focusSideBarIndex(iSideBarAs)
+                injectFromHref(el)
+                document.listenerAdded = true
+                return
+            }
         }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
@@ -65,13 +69,14 @@ export function initSideBarListeners() {
                     setLastFocusedLink(iSideBarAs)
                 }
             }
-            if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
+            // if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
             if(key === 's'){
                 
                 sideBarBtn?.focus()
             }
 
             if(key === 'm'){
+                console.log('here')
                 mainTargetDiv?.focus()
                 document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
             }

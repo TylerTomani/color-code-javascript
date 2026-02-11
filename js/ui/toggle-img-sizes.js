@@ -5,7 +5,6 @@ let activeImgIndex = -1
 let iStepImgs = -1
 export function refreshImages(root = document){
     allImgs = root.querySelectorAll('.step-img > img, .step-vid > vid')
-    console.log(allImgs.length)
     resetImageState()
 }
 function resetImageState(){
@@ -17,7 +16,6 @@ function resetImageState(){
         el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
-            console.log('here')
             handleImgSizes({ e })
         });
     })

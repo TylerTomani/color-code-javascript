@@ -49,6 +49,7 @@ export function updateSteps(){
                 const el = e.target
                 scrollToCenter({el})
             }
+            
         });
     })
     // This should not be here, this needs to get implemented into  toggle-img-sizes.js i think
@@ -84,7 +85,10 @@ export function updateSteps(){
             let key = e.key.toLowerCase()
             const step = e.target
             if(!step.classList.contains('step-float')) return
-
+            if(key === 'enter' && !step.querySelector('.copy-code')){
+                handleImgSizes({e})
+                
+            }
             if (e.shiftKey && key === 'enter') {
                 handleImgSizes({ e })
                 return
@@ -128,6 +132,10 @@ export function stepNav({ e, navState }) {
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
+    console.log('here')
+    // if(!step.querySelector('.copy-code')){
+    //     return
+    // }
     if (stepClicked) {
         if (!step) return
         if (!step.classList.contains('step-clicked')) {
