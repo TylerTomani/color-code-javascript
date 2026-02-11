@@ -15,6 +15,7 @@ import { getLastStep } from "./step-nav.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { getLastCLICKEDLink, getLastFocusedLink } from "./sidebar-state.js"
 import { sideBar, sideBarBtn } from "../ui/toggle-sidebar.js"
+import { scrollToCenter } from "./step-nav.js"
 // import {navTi}
 export const navState = {
     zone: null,
@@ -49,6 +50,16 @@ export function keyboardNav({e}){
 function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
     const key = e.key.toLowerCase()
+    if(key === 'f' && e.target === mainTargetDiv){
+        // I'mm sick of this not working so i added it here to always ensure that 'f' goes to first step
+        const steps = [...document.querySelectorAll('.step-float')]
+        if (steps[0]){
+            scrolToCenter(steps[0])
+            return
+        }
+
+        
+    }
     if (key === 'm') {        
         handleMainFocus({ e, zone })
         return

@@ -116,7 +116,7 @@ export function getLastStep(){return lastStep}
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
-function scrollToCenter({e,smooth}){
+export function scrollToCenter({e,smooth}){
     const el = e.target
     if(smooth){
         el.scrollIntoView({ behavior: 'smooth', block: 'center' })
