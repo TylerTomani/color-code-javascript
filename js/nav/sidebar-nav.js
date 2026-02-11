@@ -7,6 +7,7 @@ import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 import { getSteps,getLastStep } from "./step-nav.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
+import { refreshImages } from "../ui/toggle-img-sizes.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
 let iSideBarAs 
@@ -31,9 +32,10 @@ export function initSideBarListeners() {
         if (el.hasAttribute('autofocus')) {
             setLastCLICKEDLink(el)
             setLastFocusedLink(el)
-            injectFromHref(el)
             iSideBarAs = sideBarAsARRAY.indexOf(el)
             focusSideBarIndex(iSideBarAs)
+            injectFromHref(el)
+            return
         }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
@@ -65,11 +67,6 @@ export function initSideBarListeners() {
             }
             if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
             if(key === 's'){
-                // if(e.target == lastClicked){
-                //     console.log('here')
-                //     console.log(lastFocused)
-                //     lastFocused?.focus() 
-                // }
                 
                 sideBarBtn?.focus()
             }

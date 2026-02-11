@@ -35,6 +35,15 @@ export function keyboardNav({e}){
 
         return
     }
+    // 
+    //**I put this here for now just to make sure it's working, not sure if it's a good ideal, but it DOES 
+    // NEED to remain global */
+    const key = e.key.toLowerCase()
+    if (key === 's') {
+        console.log('here')
+
+        sideBarBtn?.focus()
+    }
     routeKey({ e })
 }
 function routeKey({ e }) {
@@ -106,10 +115,14 @@ function handleSidebarFocus({ e, zone }) {
             } 
         }
     } else {
+        if(lastLink || lastClicked){
+            sideBarBtn.focus() 
+            return
+        }
         if(mainContainer.classList.contains('collapsed')){
-            sideBarBtn.focus()
+            sideBarBtn?.focus()
         } else {
-            lastClicked.focus()
+            lastClicked?.focus()
         }
         return
     }

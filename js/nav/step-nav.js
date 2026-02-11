@@ -51,13 +51,7 @@ export function updateSteps(){
         });
     })
     // This should not be here, this needs to get implemented into  toggle-img-sizes.js i think
-    allImgs.forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            handleImgSizes({e})
-        });
-    })
+    
     steps.forEach((el,i) => {
         if(el.hasAttribute('autofocus')){
             el.focus()
@@ -146,6 +140,7 @@ export function stepNav({ e, navState }) {
         return true
     }
 
+    console.log(key)
     if (key === 'enter' && e.target === mainTargetDiv) {
         iSteps = 0
         steps[iSteps].focus()

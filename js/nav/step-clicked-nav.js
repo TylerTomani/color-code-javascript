@@ -9,12 +9,7 @@ export function handleStepClickedNav({e,iCopyCodes}){
         
         stepCopyCodes[iCopyCodes]?.focus()
     }
-    // stepCopyCodes.forEach((el,i,arr) => {
-    //     el.addEventListener('focus', e => {
-    //         iCopyCodes = i
-    //     })
-    // })
-    
+
     if(key === 'a'){
         iCopyCodes = (iCopyCodes - 1 + stepCopyCodes.length) % stepCopyCodes.length    
     }
