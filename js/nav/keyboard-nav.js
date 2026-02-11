@@ -45,21 +45,24 @@ export function keyboardNav({e}){
 
         sideBarBtn?.focus()
     }
+    if (key === 'f' && e.target === mainTargetDiv) {
+        // I'mm sick of this not working so i added it here to always ensure that 'f' goes to first step
+        const steps = document.querySelectorAll('.step-float')
+        const el = steps[0]
+        if (steps[0]) {
+            el.focus()
+            el.scrollIntoView({behavior:'smooth', inline:'start'})
+            return
+        }
+
+
+    }
     routeKey({ e })
 }
 function routeKey({ e }) {
     const { zone, isLetterNavEnabled } = navState
     const key = e.key.toLowerCase()
-    if(key === 'f' && e.target === mainTargetDiv){
-        // I'mm sick of this not working so i added it here to always ensure that 'f' goes to first step
-        const steps = [...document.querySelectorAll('.step-float')]
-        if (steps[0]){
-            scrolToCenter(steps[0])
-            return
-        }
-
-        
-    }
+    
     if (key === 'm') {        
         handleMainFocus({ e, zone })
         return

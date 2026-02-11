@@ -46,7 +46,8 @@ export function updateSteps(){
             }
             if(key === 'enter' && !e.shiftKey){
                 handleImgSizes({e})
-                scrollToCenter({e})
+                const el = e.target
+                scrollToCenter({el})
             }
         });
     })
@@ -66,7 +67,7 @@ export function updateSteps(){
             iSteps = i
             iCopyCodes = 0
             lastStep = steps[iSteps]
-            scrollToCenter({e})
+            scrollToCenter({el})
 
         })
         el.addEventListener('click', e => {
@@ -116,8 +117,7 @@ export function getLastStep(){return lastStep}
 function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
-export function scrollToCenter({e,smooth}){
-    const el = e.target
+export function scrollToCenter({el,smooth}){
     if(smooth){
         el.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }else {
