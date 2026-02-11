@@ -74,6 +74,11 @@ export function updateSteps(){
             if(e.type != 'click') return
             changeTutorialLink(e)
         });
+        el.addEventListener('mousedown', e => {
+            lastStep = steps[iSteps]
+            // if(e.type != 'click') return
+            changeTutorialLink(e)
+        });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             const step = e.target
