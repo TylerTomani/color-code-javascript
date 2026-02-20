@@ -68,12 +68,13 @@ export function updateSteps(){
             iSteps = i
             iCopyCodes = 0
             lastStep = steps[iSteps]
-            scrollToCenter({el})
+            
 
         })
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
             if(e.type != 'click') return
+            scrollToCenter({el})
             changeTutorialLink(e)
         });
         el.addEventListener('mousedown', e => {
@@ -136,9 +137,6 @@ export function stepNav({ e, navState }) {
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
-    // if(!step.querySelector('.copy-code')){
-        //     return
-        // }
     if(e.target === mainTargetDiv){
         if(key === 'enter'){
             // step.focus()
