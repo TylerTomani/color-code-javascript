@@ -6,7 +6,7 @@ import { setLastFocusedLink,getLastFocusedLink,clearLastFocusedLink,
 import { sideBarBtn } from "../ui/toggle-sidebar.js"
 import { injectFromHref, mainTargetDiv } from "../core/inject-content.js"
 import { getSteps,getLastStep } from "./step-nav.js"
-import { changeTutorialLink } from "../ui/change-tutorial-link.js"
+import { changeTutorialLink,tutorialLink } from "../ui/change-tutorial-link.js"
 import { refreshImages } from "../ui/toggle-img-sizes.js"
 const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a')
 export const sideBarAsARRAY = Array.from(sideBarAs)
@@ -76,8 +76,13 @@ export function initSideBarListeners() {
             }
 
             if(key === 'm'){
-                console.log('here')
+                
                 mainTargetDiv?.focus()
+                document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
+            }
+            if(key === 't'){
+                
+                tutorialLink?.focus()
                 document.querySelector('body').scrollIntoView({ behavior: 'instant', block: 'start' })
             }
         })
