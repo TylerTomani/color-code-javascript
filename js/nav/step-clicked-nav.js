@@ -1,11 +1,23 @@
 // step-clicked-nav.js
 import { tutorialLink } from "../ui/change-tutorial-link.js"
+import { scrollToCenter } from "./step-nav.js"
+let allStepCopyCodes = []
 export function handleStepClickedNav({ e, iCopyCodes }) {
     const step = e.target.closest('.step-float')
     const key = e.key.toLowerCase()
-
     let stepCopyCodes = updateStepCopyCodes(step)
-
+    if(!document.allCopyCodesAdded){
+        allStepCopyCodes = document.querySelectorAll('.copy-code')
+        allStepCopyCodes.forEach(el => {
+            el.addEventListener('keydown', e => {
+                let key = e.key.toLowerCase()
+                if(e.shiftKey && key === 'enter'){
+                    scrollToCenter({el})
+                }
+            });
+        })
+        document.allCopyCodesAdded = true
+    }
     if (!isNaN(key)) {
         iCopyCodes = parseInt(key) - 1
         stepCopyCodes[iCopyCodes]?.focus()
@@ -27,7 +39,12 @@ export function handleStepClickedNav({ e, iCopyCodes }) {
         }
 
         if (key === 'enter') {
+
             if (!step) return
+            if(e.shiftKey){
+                const el = e.target
+                scrollToCenter({el})
+            }
             stepCopyCodes = getCopyCodes(step)
         
             stepCopyCodes[iCopyCodes]?.focus()

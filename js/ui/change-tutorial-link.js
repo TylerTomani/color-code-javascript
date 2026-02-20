@@ -22,7 +22,7 @@ export function changeTutorialLink(e) {
         const ts = targetLink.getAttribute("data-timestamp");
         let vidHref = vidBase;
         if (ts) {
-            vidHref += (vidBase.includes("?") ? "&" : "?") + `t=${ts}s`;
+            vidHref += (vidBase.includes("?") ? "&" : "?") + `&t=${ts}s`;
         }
         tutorialLink.href = vidHref
     }

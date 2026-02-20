@@ -90,6 +90,7 @@ export async function injectFromHref(href) {
         const response = await fetch(href)
         const html = await response.text()
         mainTargetDiv.innerHTML = html
+        mainTargetDiv.scrollTo(0,0)
         refreshImages(mainTargetDiv)       
         initCopyCode()
         updateSteps()

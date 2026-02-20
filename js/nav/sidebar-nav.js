@@ -29,7 +29,7 @@ export function initSideBarListeners() {
         return
     });
     sideBarAs.forEach((el,i,arr) => {
-        if(!document.listenerAdded){
+        // if(!document.listenerAdded){
             
             if (el.hasAttribute('autofocus')) {
                 setLastCLICKEDLink(el)
@@ -40,7 +40,7 @@ export function initSideBarListeners() {
                 document.listenerAdded = true
                 return
             }
-        }
+        // }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
             iSideBarAs = i

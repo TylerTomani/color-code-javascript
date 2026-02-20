@@ -91,6 +91,8 @@ export function updateSteps(){
                 
             }
             if (e.shiftKey && key === 'enter') {
+                const el = e.target
+                scrollToCenter({el})
                 handleImgSizes({ e })
                 return
             }
@@ -127,6 +129,8 @@ function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
 export function scrollToCenter({el,smooth}){
+    console.log(el)
+    if(!el) return
     if(smooth){
         el.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }else {
