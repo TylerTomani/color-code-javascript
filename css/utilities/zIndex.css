@@ -1,6 +1,9 @@
 .step-img img {
     z-index: 10;
 }
+.main-landing-page>nav#nxtPrevLessonsBtns {
+    z-index: 10;
+}
 #sideBarBtn {
     z-index: 10;
 }

@@ -25,9 +25,7 @@ body>nav.section-lesson-title {
 .main-landing-page>nav#nxtPrevLessonsBtns {
     position: sticky;
     bottom: 0;
-    z-index: 10;
 }
-
 #sideBarBtn {
     position: absolute;
     top: 0%;
@@ -39,9 +37,4 @@ body>nav.section-lesson-title {
 }
 .step-float {
     position: relative;
-    /* z-index: 5 */
-}
-.code-container {
-    /* This puts .copy-code in front of Image */
-    /* position: relative; */
 }
