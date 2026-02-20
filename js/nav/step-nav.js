@@ -94,7 +94,12 @@ export function updateSteps(){
                 return
             }
             if (!e.shiftKey && key === 'enter') {
-                stepClicked = true
+                const imgsContainer = step.querySelector('.imgs-container')
+
+                if (!imgsContainer) {
+                    console.log('here')
+                    stepClicked = true
+                }
                 let smooth = true
                 // handleStepClickedNav({e})
                 if(!step.classList.contains('step-float')) return
@@ -150,6 +155,7 @@ export function stepNav({ e, navState }) {
     }
     if (stepClicked) {
         if (!step) return
+        
         if (!step.classList.contains('step-clicked')) {
             step?.classList.add('step-clicked')
         }
@@ -159,7 +165,7 @@ export function stepNav({ e, navState }) {
     if (!isNaN(key)) {
         const intLet = parseInt(key)
         iSteps = steps[intLet - 1]
-        if (intLet > steps.length) iSteps = steps.length - 1
+        if (intLet >= steps.length) iSteps = steps.length - 1
 
         steps[intLet - 1].focus()
         return true
