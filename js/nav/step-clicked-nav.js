@@ -20,6 +20,12 @@ export function handleStepClickedNav({ e, iCopyCodes }) {
             step?.focus()
         }
 
+        if (key === 'enter') {
+            if (!step) return
+            stepCopyCodes = getCopyCodes(step)
+        
+            stepCopyCodes[iCopyCodes]?.focus()
+        }
         stepCopyCodes[iCopyCodes]?.focus()
         return iCopyCodes
     }
