@@ -1,4 +1,5 @@
 // step-clicked-nav.js
+import { tutorialLink } from "../ui/change-tutorial-link.js"
 export function handleStepClickedNav({ e, iCopyCodes }) {
     const step = e.target.closest('.step-float')
     const key = e.key.toLowerCase()
@@ -18,6 +19,11 @@ export function handleStepClickedNav({ e, iCopyCodes }) {
         }
         if (key === 'm') {
             step?.focus()
+        }
+        if (key === 't') {
+            console.log(tutorialLink)
+            tutorialLink?.focus()
+            return
         }
 
         if (key === 'enter') {

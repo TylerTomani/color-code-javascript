@@ -1,5 +1,5 @@
 // change-tutorial-link.js
-const tutorialLink = document.querySelector('#tutorialLink')
+export const tutorialLink = document.querySelector('#tutorialLink')
 export function changeTutorialLink(e) {
     const tutorialLink = document.querySelector('#tutorialLink')
     const targetLink = e.target
