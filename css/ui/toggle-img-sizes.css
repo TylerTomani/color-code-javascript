@@ -55,3 +55,10 @@ video.enlarge-vid {
     width: 100%;
 }
 
+.main-container.collapsed #sideBarBtn {
+    position: fixed;
+    border: 1px solid var(--bg-primary-db);
+    transform: scale(2.2);
+    left: 3%;
+    top: 90%;
+}
