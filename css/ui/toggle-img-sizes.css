@@ -20,12 +20,11 @@
     top: 20%;
     transform: scale(1.05);
 }
-.imgs-container .img-container:nth-child(odd) img.enlarge {
-    /* z-index: 10; */
-    /* min-height: 150px;
-    min-width: 200px;*/
-    /* left: 8%; */
-    /* margin-left: 20%; */
+.imgs-container .step-img:nth-child(odd) img.enlarge {
+    left: 5%;
+}
+.imgs-container .step-img:nth-child(even) img.enlarge {
+    right: 5%;
 }
 
 video.enlarge-vid {
