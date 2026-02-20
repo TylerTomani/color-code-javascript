@@ -132,10 +132,22 @@ export function stepNav({ e, navState }) {
     if (navState.zone !== 'mainTargetDiv') return false
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
-    console.log('here')
     // if(!step.querySelector('.copy-code')){
-    //     return
-    // }
+        //     return
+        // }
+    if(e.target === mainTargetDiv){
+        // console.log('here')
+        if(key === 'enter'){
+            // step.focus()
+            
+        }
+    }
+    if (key === 'enter' && e.target === mainTargetDiv) {
+        iSteps = 0
+        steps[0].focus()
+        scrollTo(0, 0)
+        return true
+    }
     if (stepClicked) {
         if (!step) return
         if (!step.classList.contains('step-clicked')) {
@@ -153,13 +165,8 @@ export function stepNav({ e, navState }) {
         return true
     }
 
-    console.log(key)
-    if (key === 'enter' && e.target === mainTargetDiv) {
-        iSteps = 0
-        steps[iSteps].focus()
-        scrollTo(0, 0)
-        return true
-    }
+    
+    
     if (key === 'm') {
         if (e.target === mainTargetDiv) {
             // lastStep?.focus()

@@ -16,6 +16,7 @@
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
+@import url('utilities/zIndex.css');
 /* ui */
 @import url('ui/toggle-side-bar.css');
 @import url('ui/toggle-img-sizes.css');

@@ -1,4 +1,5 @@
 // nav-lessons-title-nav.js
+import { mainTargetDiv } from "../core/inject-content.js"
 import { mainContainer } from "../core/main-script.js"
 export const navLessonTitle = document.querySelector('.nav-lesson-title')
 import { sideBarAsARRAY } from "./sidebar-nav.js"
@@ -12,6 +13,10 @@ export function handleNavLessonTitle({ e, navState }){
             return
     })
     if(zone != 'navLessonTitle') return
+    if(key === 'm'){
+        mainTargetDiv.focus()
+        scrollTo(0,0)
+    }
     if(key === 'f'){
         if(!mainContainer.classList.contains('collapsed')){
             sideBarAsARRAY[0].focus()

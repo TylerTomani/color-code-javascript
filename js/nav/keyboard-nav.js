@@ -75,6 +75,7 @@ function routeKey({ e }) {
         letterNav({ e })
         return
     }
+    
     if (zone === 'navLessonTitle') {
         const isHandled = handleNavLessonTitle({e,navState})
         if (isHandled )return
@@ -92,6 +93,9 @@ function routeKey({ e }) {
 function handleMainFocus({ e, zone }) {
     const key = e.key.toLowerCase()
     const lastStep = getLastStep()
+    if (zone != sideBar) {
+        mainTargetDiv.focus()
+    }
     if(zone === 'mainTargetDiv'){
         if(lastStep){
             if(e.target == lastStep ){

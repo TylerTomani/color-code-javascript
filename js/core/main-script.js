@@ -38,6 +38,5 @@ function setupGlobalKeyListener(){
 
         if (isTyping) return
         keyboardNav({ e})
-        
     });
 }

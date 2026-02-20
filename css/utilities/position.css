@@ -1,8 +1,6 @@
 /* position.css */
 
 .page-wrapper>.page-header {
-
-
     .tutorial-link-img-container {
         position: sticky;
     }
@@ -12,13 +10,13 @@ main{
 }
 main>.side-bar {
     
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 body>nav.section-lesson-title {
     position: sticky;
     top: 0;
-    z-index: 50;
+    /* z-index: 50; */
 }
 .main-landing-page {
     
@@ -30,15 +28,10 @@ body>nav.section-lesson-title {
     z-index: 10;
 }
 
-
-
 #sideBarBtn {
-    /* transform: scale(2); */
-    z-index: 10;
     position: absolute;
     top: 0%;
-    left: 5%;
-    
+    left:1%;    
 }
 /* Steps */
 .steps-container {
@@ -46,7 +39,7 @@ body>nav.section-lesson-title {
 }
 .step-float {
     position: relative;
-    z-index: 5
+    /* z-index: 5 */
 }
 .code-container {
     /* This puts .copy-code in front of Image */
