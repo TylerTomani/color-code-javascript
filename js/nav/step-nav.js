@@ -155,7 +155,8 @@ export function stepNav({ e, navState }) {
         if (!step.classList.contains('step-clicked')) {
             step?.classList.add('step-clicked')
         }
-        handleStepClickedNav({ e,iCopyCodes })
+        iCopyCodes = handleStepClickedNav({ e, iCopyCodes })
+        // handleStepClickedNav({ e })
         return true
     }
     if (!isNaN(key)) {
