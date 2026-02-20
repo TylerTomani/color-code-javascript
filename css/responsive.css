@@ -131,5 +131,14 @@
         /* max-width: 220px; */
         /* top: 20%; */
     }
+    .imgs-container img.enlarge {
+    min-width: 200px;
+    max-width: 300px;
+    max-height: 300px;
+    position: fixed !important;
+    z-index: 9999;
+    top: 20%;
+    transform: scale(1.05);
+}
 }
 

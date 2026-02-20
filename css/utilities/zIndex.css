@@ -1,3 +1,6 @@
+.step-img img {
+    z-index: 10;
+}
 #sideBarBtn {
     z-index: 10;
 }

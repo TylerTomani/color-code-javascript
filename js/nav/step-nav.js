@@ -97,7 +97,6 @@ export function updateSteps(){
                 const imgsContainer = step.querySelector('.imgs-container')
 
                 if (!imgsContainer) {
-                    console.log('here')
                     stepClicked = true
                 }
                 let smooth = true
@@ -141,7 +140,6 @@ export function stepNav({ e, navState }) {
         //     return
         // }
     if(e.target === mainTargetDiv){
-        // console.log('here')
         if(key === 'enter'){
             // step.focus()
             
