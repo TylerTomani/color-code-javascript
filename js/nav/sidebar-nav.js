@@ -20,6 +20,8 @@ let iSideBarAs = 0;
 export function setIndexSideBarAs(i) { iSideBarAs = i; }
 export function getIndexSideBarAs() { return iSideBarAs; }
 
+
+
 // Keep track of last link activated by user (click or enter)
 let lastUserActivated = null;
 
@@ -55,6 +57,8 @@ export function initSideBarListeners() {
     // Delegated click handling
     sideBarContainer.addEventListener('click', e => {
         const link = e.target.closest('a');
+        
+        // navTitleH1.innerText = [...sideBarAs].indexOf(link) + 1
         if (!link) return;
         activateLink(link);
     });
@@ -81,9 +85,11 @@ export function initSideBarListeners() {
 
         el.addEventListener('keydown', e => {
             const key = e.key.toLowerCase();
-
+            
+            console.log('here')
             if (key === 'enter') {
                 const link = e.target.closest('a');
+                // navTitleH1.innerText = [...sideBarAs].indexOf(link) + 1
                 activateLink(link);
             }
 

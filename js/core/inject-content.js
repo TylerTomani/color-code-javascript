@@ -1,5 +1,6 @@
 // inject-content.js
 export const mainTargetDiv = document.querySelector('#mainTargetDiv')
+
 import { sideBar } from "../ui/toggle-sidebar.js"
 import { getLastFocusedLink, setLastCLICKEDLink,getLastCLICKEDLink } from "../nav/sidebar-state.js";
 let lastClickedSideBarLink = null
@@ -7,6 +8,7 @@ import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
 import { initStepNav,updateSteps } from "../nav/step-nav.js";
 import { refreshImages } from "../ui/toggle-img-sizes.js";
+const navTitleH1 = document.querySelector('#navTitle h1')
 const endNxtBtn = document.querySelector('#endNxtBtn')
 const prevBtn = document.querySelector('#prevBtn')
 
@@ -90,6 +92,9 @@ export async function injectFromHref(href) {
         const response = await fetch(href)
         const html = await response.text()
         mainTargetDiv.innerHTML = html
+        const lessontitle = mainTargetDiv.querySelector('#lessonTitle')
+        console.log(lessontitle)
+        navTitleH1.innerText = lessontitle.innerText
         mainTargetDiv.scrollTo(0,0)
         refreshImages(mainTargetDiv)       
         initCopyCode()

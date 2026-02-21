@@ -107,7 +107,11 @@ export function updateSteps(){
                 changeTutorialLink(e)
             }
             if(key === 'm'){
+                denlargeAllImages()
                 mainTargetDiv.scrollTo(0,0)
+            }
+            if(key === 's'){
+                denlargeAllImages()
             }
             
         });

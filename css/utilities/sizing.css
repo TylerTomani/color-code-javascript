@@ -15,16 +15,15 @@ main.main-container {
     width: fit-content;
 
 }
-.side-bar ul {
+.side-bar ul 
     li {
         /* border: 1px solid blue; */
         width: fit-content;
-        /* min-width: 90%; */
         /* max-width: 95%; */
         a {
+            min-width: 150px;
             /* width: 100%; */
         }
-    }
 }
 
 #mainTargetDiv {
