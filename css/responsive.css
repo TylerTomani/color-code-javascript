@@ -144,17 +144,6 @@
         .side-bar {
             /* width: 10% !important; */
         }
-        .side-bar ul {
-            li {
-                /* border: 1px solid blue; */
-                width: fit-content;
-
-                /* max-width: 95%; */
-                a {
-                    min-width: 100px;
-                    width: 100%;
-                }
-            }    
-        }
+        
 }
 
