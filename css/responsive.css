@@ -144,6 +144,9 @@
         .side-bar {
             /* width: 10% !important; */
         }
+        .side-bar ul li a{
+            min-width: 100px !important;
+        }
         
 }
 
