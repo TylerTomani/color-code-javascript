@@ -12,7 +12,7 @@ export function initToggleSideBar() {
     function toggleSidebar(e) {
         if (e.type == 'click') {
             e.stopPropagation()
-            if(e.target.tagName === 'A') {
+            if(!e.target.classList.contains('side-bar')) {
                 return
             }
             mainContainer.classList.toggle('collapsed')

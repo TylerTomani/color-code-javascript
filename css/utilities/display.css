@@ -13,5 +13,5 @@ main>.side-bar::-webkit-scrollbar {
 
 .side-bar ul li a{
     display: inline-block;
-    text-wrap: wrap;
+    /* text-wrap: nowrap; */
 }

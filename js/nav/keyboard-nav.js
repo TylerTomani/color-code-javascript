@@ -41,7 +41,6 @@ export function keyboardNav({e}){
     // NEED to remain global */
     const key = e.key.toLowerCase()
     if (key === 's') {
-        console.log('here')
 
         sideBarBtn?.focus()
     }

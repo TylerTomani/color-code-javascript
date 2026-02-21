@@ -73,18 +73,17 @@ export function updateSteps(){
         })
         el.addEventListener('click', e => {
             lastStep = steps[iSteps]
-            if(e.type != 'click') return
+            // if(e.type != 'click') return
             scrollToCenter({el})
             changeTutorialLink(e)
         });
         el.addEventListener('mousedown', e => {
             lastStep = steps[iSteps]
-            // if(e.type != 'click') return
             changeTutorialLink(e)
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
-            const step = e.target
+            const step = e.target.closest('.step-float')
             if(!step.classList.contains('step-float')) return
             if(key === 'enter' && !step.querySelector('.copy-code')){
                 handleImgSizes({e})
@@ -129,7 +128,6 @@ function removeStepClicked(steps){
     steps.forEach(el => el.classList.remove('step-clicked'))
 }
 export function scrollToCenter({el,smooth}){
-    console.log(el)
     if(!el) return
     if(smooth){
         el.scrollIntoView({ behavior: 'smooth', block: 'center' })

@@ -24,10 +24,28 @@ function focusSideBarIndex(index) {
 export function initSideBarListeners() {
     sideBarBtn.addEventListener('keydown', e => {
         let key = e.key.toLowerCase()
-        const lastClicked = getLastCLICKEDLink()
         
         return
     });
+    const sideBarContainer = document.querySelector('.side-bar-links-container')
+
+    let lastUserActivated = null
+
+    sideBarContainer.addEventListener('click', e => {
+        const link = e.target.closest('a')
+        if (!link) return
+
+        changeTutorialLink({ target: link })
+
+        if (lastUserActivated === link) {
+            mainTargetDiv.focus()
+            mainTargetDiv.scrollTo(0, 0)
+            window.scrollTo(0, 0)
+        }
+
+        lastUserActivated = link
+        setLastCLICKEDLink(link)
+    })
     sideBarAs.forEach((el,i,arr) => {
         // if(!document.listenerAdded){
             
@@ -43,31 +61,58 @@ export function initSideBarListeners() {
         // }
         if (el.hasAttribute('focus')) {
             clearLastCLICKEDLink()
+            // clearLastFocusedLink()
+            setLastFocusedLink(el)
             iSideBarAs = i
             focusSideBarIndex(i)
         }
-        el.addEventListener('click', (e) => {
-            clearLastFocusedLink()
-            const lastClicked = getLastCLICKEDLink()
-            if(e.target === lastClicked){
-                mainTargetDiv.focus()
-                mainTargetDiv.scrollTo(0,0)
-                window.scrollTo(0,0)
-            }
-            changeTutorialLink(e)
-        })
+        // el.addEventListener('click', (e) => {
+        //     const link = e.target.closest('a')
+        //     if (!link) return
+
+        //     clearLastFocusedLink()
+
+        //     const lastClicked = getLastCLICKEDLink()
+
+        //     changeTutorialLink({ target: link }) // force correct target
+
+        //     if (link === lastClicked) {
+        //         mainTargetDiv.focus()
+        //         mainTargetDiv.scrollTo(0, 0)
+        //         window.scrollTo(0, 0)
+        //     }
+
+        //     setLastCLICKEDLink(link) // MUST pass link
+        // })
         el.addEventListener('keydown', (e) => {
             const key = e.key.toLowerCase()
             const lastClicked = getLastCLICKEDLink()
             const lastFocused = getLastFocusedLink()
-            if(lastClicked == e.target){
-                if (key === 'enter'){
+            
+            if (key === 'enter') {
+                const link = e.target.closest('a')
+                if (!link) return
+
+                const lastClicked = getLastCLICKEDLink()
+
+                changeTutorialLink({ target: link })
+
+                if (lastClicked === link) {
                     mainTargetDiv.focus()
+                    mainTargetDiv.scrollTo(0, 0)
+                    window.scrollTo(0, 0)
                 }
-                if(key === 'f'){
-                    iSideBarAs = sideBarAsARRAY.indexOf(e.target)
-                    setLastFocusedLink(iSideBarAs)
-                }
+
+                setLastCLICKEDLink(link)
+            }
+                
+
+            if (key === 'f') {
+                const link = e.target.closest('a')
+                if (!link) return
+
+                iSideBarAs = sideBarAsARRAY.indexOf(link)
+                // setLastFocusedLink(link)
             }
             // if(key === 'enter'){mainTargetDiv.scrollTo(0,0)}
             if(key === 's'){

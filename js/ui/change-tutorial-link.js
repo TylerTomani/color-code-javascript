@@ -1,29 +1,35 @@
 // change-tutorial-link.js
 export const tutorialLink = document.querySelector('#tutorialLink')
 export function changeTutorialLink(e) {
-    const tutorialLink = document.querySelector('#tutorialLink')
-    const targetLink = e.target
-    if(e.target.classList.contains('step-float')){
-        const step = targetLink.closest('.step-float')
-        const vidBase = step.getAttribute("data-video");
-        const ts = step.getAttribute("data-timestamp");
-        let vidHref = vidBase;
-        if (ts) { 
-            vidHref += (vidBase.includes("?") ? "&" : "?") + `&t=${ts}s`;
-        }
-        tutorialLink.href = vidHref
-        if(step){
+    const link = e.target.closest('a')
+    if (!link) return
 
-        }
-        
-    }
-    if(e.target.tagName == 'A'){
-        const vidBase = targetLink.getAttribute("data-video");
-        const ts = targetLink.getAttribute("data-timestamp");
-        let vidHref = vidBase;
+    const isSideBar = link.closest('.side-bar')
+
+    if (isSideBar) {
+        const vidBase = link.getAttribute("data-video")
+        const ts = link.getAttribute("data-timestamp")
+
+        let vidHref = vidBase
         if (ts) {
-            vidHref += (vidBase.includes("?") ? "&" : "?") + `&t=${ts}s`;
+            vidHref += (vidBase.includes("?") ? "&" : "?") + `t=${ts}s`
         }
+
+        tutorialLink.href = vidHref
+        console.log(vidHref)
+        return
+    }
+
+    const step = e.target.closest('.step-float')
+    if (step) {
+        const vidBase = step.getAttribute("data-video")
+        const ts = step.getAttribute("data-timestamp")
+
+        let vidHref = vidBase
+        if (ts) {
+            vidHref += (vidBase.includes("?") ? "&" : "?") + `t=${ts}s`
+        }
+
         tutorialLink.href = vidHref
     }
 }
