@@ -3,7 +3,7 @@
     position:relative;
 }
 .tutorial-link-img-container {
-    position: sticky;
+    position: fixed;
     right: 0;
     top: 0;
 }
