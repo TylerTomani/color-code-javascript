@@ -53,5 +53,5 @@ h4 .dark-mode p {color: whitesmoke;}
 .dark-mode #sideBarBtn:active,
 .dark-mode #sideBarBtn:focus {
     border: 2px solid black !important;
-    outline: ;
+    /* outline: ; */
 }
