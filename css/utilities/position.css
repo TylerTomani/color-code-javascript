@@ -4,13 +4,7 @@
         /* position: sticky; */
     }
 }
-main{
-    position: relative;
-}
-main>.side-bar {    
-    /* position: sticky; */
-    top: 0;
-}
+
 body>nav.section-lesson-title {
     /* position: sticky; */
     top: 0;
@@ -22,7 +16,6 @@ body>nav.section-lesson-title {
     /* position: sticky; */
     bottom: 0;
 }
-
 /* Steps */
 .steps-container {
     position: relative;
@@ -30,17 +23,26 @@ body>nav.section-lesson-title {
 .step-float {
     /* position: relative; */
 }
-#sideBarBtn {
-    /* position: fixed; */
-    sticks to viewport
-    /* top: 10px; */
-    /* wherever you want */
-    /* left: 10px; */
-    /* z-index: 9999; */
-    /* above all other elements */
-}
 .lesson-btns-container {
     position: fixed;
     bottom: 0;
     right: 0;
+}
+/* /////// */
+.main-container {
+    position: relative;
+}
+
+.main-container.collapsed>.side-bar {
+    position: static;
+    top: 0;
+}
+.main-container.collapsed #sideBarBtn {
+    position: fixed;
+}
+
+#sideBarBtn {
+    position: absolute;
+    top: 0;
+        left: 2vw;
 }

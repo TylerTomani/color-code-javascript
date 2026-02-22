@@ -25,11 +25,6 @@ a:active,
 a:focus,
 .step-float:focus,
 .step-float:active {
-    /* box-shadow: 2px 1px 10px rgb(179, 155, 95);  */
-    /* border: 2px solid rgb(140, 135, 104); */
-    /* box-shadow: 2px 1px 4px rgb(95, 168, 179); */
-    /* box-shadow: 2px 1px 3px whitesmoke; */
-    /* border: 1px solid rgb(135, 140, 104); */
     background-color: rgb(175, 191, 196);
     outline: none;
 }
@@ -37,8 +32,6 @@ a:focus,
     /* box-shadow: 2px 1px 10px blue; */
 }
 .step-float.step-clicked{
-
-    /* box-shadow: 2px 1px 10px lightblue; */
     box-shadow:none;
     border: 1px solid blue
 }
@@ -56,4 +49,7 @@ a:focus,
 #sideBarBtn:active,#sideBarBtn:focus {
     border: 1px solid white;
     outline: auto;
+}
+#sideBarBtn {
+    cursor: pointer;
 }

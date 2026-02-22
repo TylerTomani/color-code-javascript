@@ -6,7 +6,6 @@
 }
 .page-header-links a{
     border: 1px solid black;
-    /* border-bottom: none; */
     border-top: none;
 }
 .page-wrapper >nav.nav-lesson-title {
@@ -14,8 +13,6 @@
 }
 main>.side-bar {
     border-right: 1px solid black;
-    /* border-right: 1px solid blue;} */
-    /* border-top: 1px solid black; */
 }
 .code-container {
     border: 1px solid black;
