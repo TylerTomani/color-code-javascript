@@ -1,6 +1,6 @@
 /* zIndex.css */
 .tutorial-link-img-container {
-    z-index: 10;
+    z-index: 100;
 }
 .step-img img {
     z-index: 10;
