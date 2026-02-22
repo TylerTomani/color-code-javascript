@@ -12,11 +12,15 @@ export function initToggleSideBar() {
     function toggleSidebar(e) {
         if (e.type == 'click') {
             e.stopPropagation()
-            console.log('here')
-            if(!e.target.classList.contains('side-bar')) {
-                // return
+            
+            // console.log(e.target)
+            if(!e.target.classList.contains('side-bar') && e.target === sideBar) {
+                console.log('here')
+                return
+            } else {
+
+                mainContainer.classList.toggle('collapsed')
             }
-            mainContainer.classList.toggle('collapsed')
             
         }
         if (e.type == 'keydown') {

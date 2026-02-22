@@ -16,7 +16,6 @@ export function changeTutorialLink(e) {
         }
 
         tutorialLink.href = vidHref
-        console.log(vidHref)
         return
     }
 

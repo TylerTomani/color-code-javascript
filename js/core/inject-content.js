@@ -93,7 +93,6 @@ export async function injectFromHref(href) {
         const html = await response.text()
         mainTargetDiv.innerHTML = html
         const lessontitle = mainTargetDiv.querySelector('#lessonTitle')
-        console.log(lessontitle)
         navTitleH1.innerText = lessontitle.innerText
         mainTargetDiv.scrollTo(0,0)
         refreshImages(mainTargetDiv)       
