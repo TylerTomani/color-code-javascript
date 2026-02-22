@@ -44,13 +44,20 @@
 .page-wrapper > nav.section-lesson-title {
     display: flex;
 }
-main.main-container {
-    display: flex;    
-}
 .side-bar>.side-bar-links-container ul {
     display: flex;
     flex-direction: column;
 }
+main.main-container.collapsed {
+    display: static
+}
+main.main-container {
+    display: flex;    
+}
+.side-bar{
+    flex-basis: 50%;
+}
 #mainTargetDiv {
+    flex-basis: 50%;
     overflow-x: visible;
 }

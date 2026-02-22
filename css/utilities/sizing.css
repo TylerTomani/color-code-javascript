@@ -7,14 +7,7 @@
     height: fit-content;
 }
 
-main.main-container {
-    width: 100%;
-}
-.side-bar {
-    /* border: 4px solid blue; */
-    width: fit-content;
 
-}
 .side-bar ul 
     li {
         /* border: 1px solid blue; */
@@ -27,14 +20,7 @@ main.main-container {
         }
 }
 
-#mainTargetDiv {
-    height: 100vh;
-    #targetDivInjected {
-        .main-container-colorCode {
-            width: 95%;
-        }
-    }
-}
+
 
 .code-container {
     width: fit-content;
@@ -50,4 +36,28 @@ main.main-container {
 #sideBarBtn {
     /* transform: scale(1); */
     /* height: 100px; */
+}
+
+#mainTargetDiv {
+    #targetDivInjected {
+        .main-container-colorCode {
+            width: 95%;
+        }
+    }
+    
+}
+main.main-container {
+    width: 100%;
+}
+
+.side-bar {
+    /* border: 4px solid blue; */
+    width: 50%;
+    height: 100vh;
+    width: fit-content;
+    
+}
+#mainTargetDiv{
+    
+    width: 50%;
 }
