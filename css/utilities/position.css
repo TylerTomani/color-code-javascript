@@ -33,7 +33,11 @@ body>nav.section-lesson-title {
     position: relative;
 }
 
-.main-container.collapsed>.side-bar {
+.main-container > .side-bar {
+    position: sticky;
+    top: 0;
+}
+.main-container.collapsed > .side-bar {
     position: static;
     top: 0;
 }
