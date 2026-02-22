@@ -61,4 +61,6 @@ main.main-container {
     /* scrollbar-width: none; */
 }
 
-#mainTargetDiv {overflow-x: hidden;}
+#mainTargetDiv {
+    overflow-x: visible;
+}

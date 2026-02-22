@@ -1,7 +1,7 @@
 /* toggle-img-sizes.css */
 /* .enlarge {
     } */
-.step-float > .step-img img.enlarge {
+ .step-img img.enlarge {
     position: fixed;
     z-index: 9999;
     transform: scale(1.7);

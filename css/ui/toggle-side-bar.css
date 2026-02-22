@@ -19,8 +19,8 @@
 }
 #sideBarBtn {
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 17vh;
+    left: 2vw;
     /* border: 2px solid blue; */
     z-index: 99999;
     cursor: pointer;
