@@ -2,12 +2,10 @@
 .page-wrapper {
     position:relative;
 }
-.page-wrapper>.page-header {
-    .tutorial-link-img-container {
-        position: fixed;
-        right: 0;
-        top: 0;
-    }
+.tutorial-link-img-container {
+    position: sticky;
+    right: 0;
+    top: 0;
 }
 
 .page-wrapper >nav.nav-lesson-title {
@@ -30,12 +28,6 @@
 }
 #sideBarBtn {
     position: absolute;
-    /* sticks to viewport */
-    /* top: 10px; */
-    /* wherever you want */
-    /* left: 10px; */
-    /* z-index: 9999; */
-    /* above all other elements */
 }
 .lesson-btns-container {
     position: fixed;

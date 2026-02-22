@@ -1,4 +1,7 @@
 /* zIndex.css */
+.tutorial-link-img-container {
+    z-index: 10;
+}
 .step-img img {
     z-index: 10;
 }
