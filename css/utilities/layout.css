@@ -55,9 +55,8 @@ main.main-container {
     display: flex;    
 }
 .side-bar{
-    flex-basis: 50%;
 }
 #mainTargetDiv {
-    flex-basis: 50%;
+    flex-grow: 1;
     overflow-x: visible;
 }
