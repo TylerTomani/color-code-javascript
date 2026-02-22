@@ -12,14 +12,23 @@
 }
 
 .main-container.collapsed .drop {
-    position: fixed;
+    /* position: fixed; */
     /* transform: scale(1.5); */
     /* z-index: 1; */
-    bottom: 0;
+    /* bottom: 0; */
 }
-.main-container.collapsed .sideBarBtn {
+#sideBarBtn {
     position: fixed;
-    /* transform: scale(1.5); */
-    /* z-index: 1; */
-    bottom: 0;
+    top: 15px;
+    left: 15px;
+    /* border: 2px solid blue; */
+    z-index: 99999;
+    cursor: pointer;
+}
+.main-container.collapsed #sideBarBtn {
+    position: fixed;
+    /* border: 1px solid var(--bg-primary-db); */
+    transform: scale(2.2);
+    left: 3%;
+    top: 90%;
 }

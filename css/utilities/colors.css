@@ -21,11 +21,6 @@ main>.side-bar {
     color: black;
     box-shadow: 0 0 1px 1px white;
 }
-
-#sideBarBtn {
-    color: black;
-}
-
 .side-bar ul li a,
 .side-bar ul li a:visited {
     color: black;
@@ -43,5 +38,8 @@ main>.side-bar {
 }
 .code-container>.copy-code{
     background-color: var(--code-bg-primary);
+    color: black;
+}
+#sideBarBtn {
     color: black;
 }

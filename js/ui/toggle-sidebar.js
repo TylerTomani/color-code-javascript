@@ -12,8 +12,9 @@ export function initToggleSideBar() {
     function toggleSidebar(e) {
         if (e.type == 'click') {
             e.stopPropagation()
+            console.log('here')
             if(!e.target.classList.contains('side-bar')) {
-                return
+                // return
             }
             mainContainer.classList.toggle('collapsed')
             

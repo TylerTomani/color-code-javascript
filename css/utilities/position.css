@@ -7,9 +7,8 @@
 main{
     position: relative;
 }
-main>.side-bar {
-    
-    position: sticky;
+main>.side-bar {    
+    /* position: sticky; */
     top: 0;
 }
 body>nav.section-lesson-title {
@@ -32,11 +31,16 @@ body>nav.section-lesson-title {
     /* position: relative; */
 }
 #sideBarBtn {
-    position: fixed;
+    /* position: fixed; */
     /* sticks to viewport */
-    top: 10px;
+    /* top: 10px; */
     /* wherever you want */
-    left: 10px;
-    z-index: 9999;
+    /* left: 10px; */
+    /* z-index: 9999; */
     /* above all other elements */
+}
+.lesson-btns-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }

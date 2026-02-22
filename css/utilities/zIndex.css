@@ -1,3 +1,4 @@
+/* zIndex.css */
 .step-img img {
     z-index: 10;
 }
@@ -5,5 +6,8 @@
     z-index: 10;
 }
 #sideBarBtn {
-    z-index: 10;
+    /* z-index: 10; */
+}
+.lesson-btns-container {
+    z-index: 1;
 }

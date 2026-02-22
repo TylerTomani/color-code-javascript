@@ -28,29 +28,23 @@
     .side-bar {
         width: 20%;
     }
-
     .side-bar>.parts {
         margin-left: 10%;
     }
-
     .side-bar>.parts ul li {
         line-height: 1.4;
     }
-
     .parts {
         margin-left: 1.5%;
         font-size: 90%;
     }
-
     .parts h2 {
         margin-left: 2.5%;
     }
-
     body>nav.section-lesson-title>h1 {
         /* color: blue;s */
         font-size: 45%;
     }
-
     /* Gets rid of scroll bar see Chatgpt css Get rid of scroll-bar overlfow question on site */
     #mainTargetDiv {
         overflow-y: scroll;
@@ -59,7 +53,6 @@
         -ms-overflow-style: none;
         /* IE and Edge */
     }
-
     #mainTargetDiv::-webkit-scrollbar {
         display: none;
         /* Chrome, Safari, Opera */
@@ -69,19 +62,13 @@
         display: none;
         /* Chrome, Safari, Opera */
     }
-
-
-    
 }
 
 @media screen and (max-width:720px) {
-    
-
     .topic-container>.sub-topics-container,
     .topic-container ul.sub-resources-container {
         margin-top: 4%;
     }
-
     .code-container {
         min-width: 250px;
     }
@@ -99,10 +86,7 @@
         }
     }
 
-    .collapsed #sideBarBtn {
-        left: 5%;
-        top: 90%;
-    }
+    
     #darkModeBtn {
     
         font-size: 50%;
@@ -148,5 +132,9 @@
             min-width: 100px !important;
         }
         
+    .collapsed #sideBarBtn {
+        /* left: 5%; */
+        /* top: 90%; */
+    }
 }
 
