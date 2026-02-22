@@ -14,12 +14,18 @@ export function initToggleSideBar() {
             e.stopPropagation()
             
             // console.log(e.target)
-            if(!e.target.classList.contains('side-bar') && e.target === sideBar) {
-                console.log('here')
-                return
-            } else {
+            // if(!e.target.classList.contains('side-bar') && e.target != sideBar) {
+            //     console.log('here')
+            //     return
+            // } else {
 
-                mainContainer.classList.toggle('collapsed')
+            // }
+            console.log(e.target)
+            if (e.target === sideBar    || 
+                e.target === sideBarBtn ||
+                e.target.classList.contains('.side-bar-links-container') ){
+                    console.log('here')
+                    mainContainer.classList.toggle('collapsed')
             }
             
         }
