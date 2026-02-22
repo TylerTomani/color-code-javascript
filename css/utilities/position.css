@@ -31,7 +31,7 @@ body>nav.section-lesson-title {
     /* position: relative; */
 }
 #sideBarBtn {
-    /* position: fixed; */
+    position: fixed;
     /* sticks to viewport */
     /* top: 10px; */
     /* wherever you want */
