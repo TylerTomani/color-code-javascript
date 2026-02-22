@@ -17,3 +17,9 @@
     /* z-index: 1; */
     bottom: 0;
 }
+.main-container.collapsed .sideBarBtn {
+    position: fixed;
+    /* transform: scale(1.5); */
+    /* z-index: 1; */
+    bottom: 0;
+}

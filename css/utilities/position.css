@@ -5,11 +5,11 @@
     }
 }
 main{
-    /* position: relative; */
+    position: relative;
 }
 main>.side-bar {
     
-    /* position: sticky; */
+    position: sticky;
     top: 0;
 }
 body>nav.section-lesson-title {
@@ -23,15 +23,20 @@ body>nav.section-lesson-title {
     position: sticky;
     bottom: 0;
 }
-#sideBarBtn {
-    position: absolute;
-    top: 0%;
-    left:1%;    
-}
+
 /* Steps */
 .steps-container {
     position: relative;
 }
 .step-float {
     /* position: relative; */
+}
+#sideBarBtn {
+    position: fixed;
+    /* sticks to viewport */
+    top: 10px;
+    /* wherever you want */
+    left: 10px;
+    z-index: 9999;
+    /* above all other elements */
 }

@@ -47,7 +47,6 @@ export function updateSteps(){
             if(key === 'enter' && !e.shiftKey){
                 handleImgSizes({e})
                 const el = e.target
-                scrollToCenter({el})
             }
             
         });
