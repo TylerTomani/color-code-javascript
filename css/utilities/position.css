@@ -1,7 +1,7 @@
 /* position.css */
 .page-wrapper>.page-header {
     .tutorial-link-img-container {
-        position: sticky;
+        /* position: sticky; */
     }
 }
 main{
@@ -12,14 +12,14 @@ main>.side-bar {
     top: 0;
 }
 body>nav.section-lesson-title {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 .main-landing-page {
     position: relative;
 }
 .main-landing-page>nav#nxtPrevLessonsBtns {
-    position: sticky;
+    /* position: sticky; */
     bottom: 0;
 }
 
@@ -32,7 +32,7 @@ body>nav.section-lesson-title {
 }
 #sideBarBtn {
     /* position: fixed; */
-    /* sticks to viewport */
+    sticks to viewport
     /* top: 10px; */
     /* wherever you want */
     /* left: 10px; */

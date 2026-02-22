@@ -5,10 +5,8 @@
 }
 .page-wrapper > .page-header {
     display: flex;
-
     .page-header-links{
         display: flex;    
-        /* flex-direction: column; */
         flex-basis: 80%;
     }
     .page-header-links > a {
@@ -42,12 +40,9 @@
         max-height: 150px;
         max-width: 100px;
     }
-    
 }
 .page-wrapper > nav.section-lesson-title {
     display: flex;
-    /* background-color: blue; */
-    /* align-items: center; */
 }
 main.main-container {
     display: flex;    
@@ -55,12 +50,7 @@ main.main-container {
 .side-bar>.side-bar-links-container ul {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
-    /* text-wrap: wrap; */
-    /* overflow-y: scroll; */
-    /* scrollbar-width: none; */
 }
-
 #mainTargetDiv {
     overflow-x: visible;
 }
