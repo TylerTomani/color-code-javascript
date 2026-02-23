@@ -14,10 +14,13 @@ export const prevBtn = document.querySelector('#prevBtn')
 import { removeALLSideLinkChange } from "../nav/step-nav.js";
 function handleInjectContentBtnsContainer(e){
     if(e.type == 'click'){
+        e.preventDefault()
+        e.stopPropagation()
         const lastClicked = getLastCLICKEDLink()
         let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        if (e.target === prevBtn) {
-            console.log('here')
+        
+        console.log('herjeh')
+        if (e.currentTarget === prevBtn) {
             iSideBarAs = (iSideBarAs - 1 + sideBarAsARRAY.length) % sideBarAsARRAY.length
             setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
             injectFromHref(sideBarAsARRAY[iSideBarAs].href)
@@ -40,6 +43,7 @@ function handleInjectContentBtnsContainer(e){
 export function initInjectContentListeners(){
     endNxtBtn.addEventListener('click', handleInjectContentBtnsContainer)
     prevBtn.addEventListener('click', handleInjectContentBtnsContainer)
+    console.log(prevBtn)
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()
@@ -58,6 +62,10 @@ export function initInjectContentListeners(){
         if(key === 'm'){
             mainTargetDiv.focus()
             mainTargetDiv.scrollTo(0, 0)
+        }
+        if (key === 'enter') {
+            mainTargetDiv.scrollTo(0, 0)
+            // document.querySelector('body').scrollTo(0, 0)
         }
         
     })

@@ -60,3 +60,7 @@ a:focus,
 .sideLinkChange *{
     color: black !important;
 }
+
+#mainTargetDiv {
+    pointer-events: none;
+}
