@@ -39,5 +39,5 @@
 }
 .main-container>.side-bar {
     position: sticky;
-    top: 0;
+    top: 10%;
 }

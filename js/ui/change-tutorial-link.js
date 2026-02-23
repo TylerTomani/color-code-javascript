@@ -1,14 +1,14 @@
 // change-tutorial-link.js
 export const tutorialLink = document.querySelector('#tutorialLink')
 export function changeTutorialLink(e) {
-    const link = e.target.closest('a')
-    if (!link) return
+    const linkEl = e.target.closest('a') || e.target.closest('.step-float')
+    if (!linkEl) return
 
-    const isSideBar = link.closest('.side-bar')
+    const isSideBar = linkEl.closest('.side-bar')
 
     if (isSideBar) {
-        const vidBase = link.getAttribute("data-video")
-        const ts = link.getAttribute("data-timestamp")
+        const vidBase = linkEl.getAttribute("data-video")
+        const ts = linkEl.getAttribute("data-timestamp")
 
         let vidHref = vidBase
         if (ts) {
@@ -20,6 +20,7 @@ export function changeTutorialLink(e) {
     }
 
     const step = e.target.closest('.step-float')
+    console.log('here')
     if (step) {
         const vidBase = step.getAttribute("data-video")
         const ts = step.getAttribute("data-timestamp")
@@ -30,5 +31,7 @@ export function changeTutorialLink(e) {
         }
 
         tutorialLink.href = vidHref
+        
+        return
     }
 }

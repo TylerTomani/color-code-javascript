@@ -74,6 +74,7 @@ export function updateSteps(){
             lastStep = steps[iSteps]
             // if(e.type != 'click') return
             scrollToCenter({el})
+            // console.log('here')
             changeTutorialLink(e)
         });
         el.addEventListener('mousedown', e => {
