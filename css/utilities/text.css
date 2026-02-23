@@ -2,9 +2,9 @@
     /* font-size: 1rem; */
 }
 .page-header-links a {text-decoration: none;}
-.page-wrapper > nav.nav-lesson-title>h1#sideBarLinkTitle {
-    /* font-size: 95%; */
-    font-size: 1.3rem;
+.page-wrapper > nav.nav-lesson-title>h1 {
+    font-size: 1rem;
+
 }
 
 .main-landing-page>nav#nxtPrevLessonsBtns button {
