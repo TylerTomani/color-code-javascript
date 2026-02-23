@@ -37,7 +37,7 @@ h4 .dark-mode p {color: whitesmoke;}
 
 
 .dark-mode #sideBarBtn {
-    color: white;
+    /* color: white; */
 }
 .dark-mode .sidebarbtn-fallback-img {
     border: 1px solid whitesmoke !important;

@@ -5,6 +5,9 @@
 .step-img img {
     z-index: 10;
 }
+.page-wrapper>nav.nav-lesson-title {
+    /* z-index: 2 */
+}
 .main-landing-page>nav#nxtPrevLessonsBtns {
     z-index: 10;
 }

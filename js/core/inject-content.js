@@ -9,8 +9,8 @@ import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
 import { initStepNav,updateSteps } from "../nav/step-nav.js";
 import { refreshImages } from "../ui/toggle-img-sizes.js";
 const navTitleH1 = document.querySelector('#navTitle h1')
-const endNxtBtn = document.querySelector('#endNxtBtn')
-const prevBtn = document.querySelector('#prevBtn')
+export const endNxtBtn = document.querySelector('#endNxtBtn')
+export const prevBtn = document.querySelector('#prevBtn')
 
 export function initInjectContentListeners(){
     endNxtBtn.addEventListener('click', e => {
@@ -20,14 +20,16 @@ export function initInjectContentListeners(){
         setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
         injectFromHref(sideBarAsARRAY[iSideBarAs].href)
         mainTargetDiv.scrollTo(0,0)
+        document.querySelector('body').scrollTo(0,0)
     })
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()
         if(key === 'm'){
             mainTargetDiv.focus()
-            mainTargetDiv.scrollTo(0,0)
+            document.querySelector('body').scrollTo(0,0)
         }
+
     })
     prevBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()

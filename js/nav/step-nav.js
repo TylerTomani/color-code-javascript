@@ -5,7 +5,7 @@ import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
 import { changeTutorialLink } from "../ui/change-tutorial-link.js"
 import { handleStepClickedNav, } from "./step-clicked-nav.js"
 import { refreshImages } from "../ui/toggle-img-sizes.js";
-
+import { endNxtBtn,prevBtn } from "../core/inject-content.js"
 
 // nonSideBarEls is an awfule way to do this but i'm desperate right now
 let steps = []
@@ -21,7 +21,23 @@ export function initStepNav(){{
     refreshImages(mainTargetDiv)
     updateSteps()
     updateCopyCodes()
+    initLessonBtnFocusListeners()
 }}
+function initLessonBtnFocusListeners(e){
+    endNxtBtn.addEventListener('keydown', handleLessonBtnsFocus);
+    prevBtn.addEventListener('keydown', handleLessonBtnsFocus);
+}
+function handleLessonBtnsFocus(e){
+    console.log('here')
+    let key = e.key.toLowerCase()
+    if (key === 'a') {
+        console.log('ehre')
+        steps[steps.length - 1].focus()
+
+    }
+
+}
+
 export function getSteps(){
     return steps
 }

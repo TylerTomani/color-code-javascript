@@ -11,7 +11,7 @@
     width: fit-content;
     border: 2px solid orange;
 }
-.side-bar ul 
+.side-bar ul {
     li {
         /* border: 1px solid blue; */
         width: fit-content;
@@ -21,6 +21,7 @@
             width: 100%;
             /* width: 100%; */
         }
+    }
 }
 
 
@@ -36,10 +37,7 @@
 .step-float {
     
 }
-#sideBarBtn {
-    /* transform: scale(1); */
-    /* height: 100px; */
-}
+
 
 #mainTargetDiv {
     #targetDivInjected {
@@ -60,7 +58,6 @@ main.main-container {
     flex-basis: 10%;
     
 }
-#mainTargetDiv{
-    
-    width: 50%;
+#mainTargetDiv{   
+    /* width: 50%; */
 }
