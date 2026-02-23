@@ -53,3 +53,10 @@ a:focus,
 #sideBarBtn {
     cursor: pointer;
 }
+.sideLinkChange{
+    background-color: rgba(235, 232, 20, 0.5);
+    color: black !important;
+}
+.sideLinkChange *{
+    color: black !important;
+}

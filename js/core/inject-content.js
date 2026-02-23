@@ -21,6 +21,8 @@ export function initInjectContentListeners(){
         injectFromHref(sideBarAsARRAY[iSideBarAs].href)
         mainTargetDiv.scrollTo(0,0)
         document.querySelector('body').scrollTo(0,0)
+
+        sideBarAsARRAY[iSideBarAs].classList.add('sideLinkChange')
     })
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
@@ -29,7 +31,11 @@ export function initInjectContentListeners(){
             mainTargetDiv.focus()
             document.querySelector('body').scrollTo(0,0)
         }
-
+        if(key === 'enter'){
+            mainTargetDiv.scrollTo(0, 0)
+            // document.querySelector('body').scrollTo(0, 0)
+        }
+        
     })
     prevBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()

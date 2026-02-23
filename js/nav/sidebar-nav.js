@@ -13,7 +13,7 @@ import { injectFromHref, mainTargetDiv } from "../core/inject-content.js";
 import { getSteps, getLastStep } from "./step-nav.js";
 import { changeTutorialLink, tutorialLink } from "../ui/change-tutorial-link.js";
 
-const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a');
+export const sideBarAs = document.querySelectorAll('.side-bar-links-container ul a');
 export const sideBarAsARRAY = Array.from(sideBarAs);
 
 let iSideBarAs = 0;
@@ -48,6 +48,7 @@ function activateLink(link) {
 
     lastUserActivated = link;
     setLastCLICKEDLink(link);
+    
 }
 
 // Initialize all sidebar listeners

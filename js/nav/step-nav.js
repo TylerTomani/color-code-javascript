@@ -1,4 +1,5 @@
 // step-nav.js
+import { sideBarAs } from "../nav/sidebar-nav.js"
 import { getLastCLICKEDLink } from "./sidebar-state.js"
 import { mainTargetDiv } from "../core/inject-content.js"
 import { handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js"
@@ -16,6 +17,12 @@ let allImgs = []
 let stepClicked = false
 let iCopyCodes = 0
 let stepCopyCodes = []
+function removeALLSideLinkChange() {
+    console.log('here')
+    sideBarAs.forEach(el =>
+        el.classList.remove('sideLinkChange')
+    )
+}
 export function initStepNav(){{
     copyCodes = []
     refreshImages(mainTargetDiv)
@@ -28,14 +35,22 @@ function initLessonBtnFocusListeners(e){
     prevBtn.addEventListener('keydown', handleLessonBtnsFocus);
 }
 function handleLessonBtnsFocus(e){
-    console.log('here')
     let key = e.key.toLowerCase()
+    
     if (key === 'a') {
-        console.log('ehre')
         steps[steps.length - 1].focus()
 
     }
-
+    if(key === 'enter'){
+        // I can't get the view to scroll to top of mainTargetDiv content and scrollTo top of page when 
+        // lesson is changed
+        removeALLSideLinkChange() 
+        mainTargetDiv.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+        return
+    } else {
+        removeALLSideLinkChange() 
+    }
 }
 
 export function getSteps(){
@@ -90,7 +105,6 @@ export function updateSteps(){
             lastStep = steps[iSteps]
             // if(e.type != 'click') return
             scrollToCenter({el})
-            // console.log('here')
             changeTutorialLink(e)
         });
         el.addEventListener('mousedown', e => {
