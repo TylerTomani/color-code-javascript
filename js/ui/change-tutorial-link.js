@@ -20,7 +20,6 @@ export function changeTutorialLink(e) {
     }
 
     const step = e.target.closest('.step-float')
-    console.log('here')
     if (step) {
         const vidBase = step.getAttribute("data-video")
         const ts = step.getAttribute("data-timestamp")

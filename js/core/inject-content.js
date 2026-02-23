@@ -11,19 +11,35 @@ import { refreshImages } from "../ui/toggle-img-sizes.js";
 const navTitleH1 = document.querySelector('#navTitle h1')
 export const endNxtBtn = document.querySelector('#endNxtBtn')
 export const prevBtn = document.querySelector('#prevBtn')
-
-export function initInjectContentListeners(){
-    endNxtBtn.addEventListener('click', e => {
+import { removeALLSideLinkChange } from "../nav/step-nav.js";
+function handleInjectContentBtnsContainer(e){
+    if(e.type == 'click'){
         const lastClicked = getLastCLICKEDLink()
         let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        iSideBarAs = (iSideBarAs + 1) % sideBarAsARRAY.length
-        setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
-        injectFromHref(sideBarAsARRAY[iSideBarAs].href)
-        mainTargetDiv.scrollTo(0,0)
-        document.querySelector('body').scrollTo(0,0)
-
-        sideBarAsARRAY[iSideBarAs].classList.add('sideLinkChange')
-    })
+        if (e.target === prevBtn) {
+            console.log('here')
+            iSideBarAs = (iSideBarAs - 1 + sideBarAsARRAY.length) % sideBarAsARRAY.length
+            setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
+            injectFromHref(sideBarAsARRAY[iSideBarAs].href)
+            mainTargetDiv.scrollTo(0, 0)
+            return
+        }
+        if (e.target === endNxtBtn) {
+            removeALLSideLinkChange()
+            iSideBarAs = (iSideBarAs + 1) % sideBarAsARRAY.length
+            setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
+            injectFromHref(sideBarAsARRAY[iSideBarAs].href)
+            mainTargetDiv.scrollTo(0, 0)
+            document.querySelector('body').scrollTo(0, 0)
+            sideBarAsARRAY[iSideBarAs].classList.add('sideLinkChange')
+            // return
+        } 
+        
+    }
+}
+export function initInjectContentListeners(){
+    endNxtBtn.addEventListener('click', handleInjectContentBtnsContainer)
+    prevBtn.addEventListener('click', handleInjectContentBtnsContainer)
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()
@@ -45,14 +61,7 @@ export function initInjectContentListeners(){
         }
         
     })
-    prevBtn.addEventListener('click', e => {
-        const lastClicked = getLastCLICKEDLink()
-        let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
-        iSideBarAs = (iSideBarAs - 1 + sideBarAsARRAY.length) % sideBarAsARRAY.length
-        setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
-        injectFromHref(sideBarAsARRAY[iSideBarAs].href)
-        mainTargetDiv.scrollTo(0, 0)
-    })
+    
     let linkClicked = false
     initStepNav()
     sideBarAsARRAY.forEach(el =>{
