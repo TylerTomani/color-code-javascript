@@ -61,3 +61,13 @@ main.main-container {
     flex-grow: 1;
     overflow-x: visible;
 }
+.imgs-container {
+    display: flex;
+}
+
+.imgs-container .step-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

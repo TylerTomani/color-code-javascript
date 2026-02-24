@@ -65,3 +65,12 @@ main.main-container {
 #mainTargetDiv{   
     /* width: 50%; */
 }
+
+.imgs-container .step-img {
+    
+    width: 50%;
+}
+
+.imgs-container .step-img img {
+    width: 100%;
+}

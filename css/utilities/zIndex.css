@@ -5,9 +5,7 @@
 .tutorial-link-img-container {
     z-index: 10000;
 }
-.step-img img {
-    z-index: 3;
-}
+
 .page-wrapper>nav.nav-lesson-title {
     /* z-index: 2 */
 }
@@ -21,7 +19,10 @@
     z-index: 5;
 }
 
-* {
-    /* outline: 1px solid red; */
+.step-img img {
+    z-index: 12;
 }
 
+.step-img img.enlarge {
+    z-index: 9999;
+}
