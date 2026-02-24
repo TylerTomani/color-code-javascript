@@ -174,6 +174,11 @@ export function scrollToCenter({el,smooth}){
 }
 export function stepNav({ e, navState }) {
     if (navState.zone !== 'mainTargetDiv') return false
+    if(e.target.tagName === 'img'){
+        console.log('mainTargetDiv')
+        console.log('step-nav')
+
+    }
     const key = e.key.toLowerCase()
     const step = e.target.closest('.step-float')
     if(e.target === mainTargetDiv){
