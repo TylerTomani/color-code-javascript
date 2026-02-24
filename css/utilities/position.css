@@ -3,10 +3,10 @@
     position:relative;
 }
 .tutorial-link-img-container {
+
     position: fixed;
     right: 0;
     top: 0;
-    max-height: 200px;
 }
 
 .page-wrapper >nav.nav-lesson-title {
@@ -24,9 +24,7 @@
 .steps-container {
     position: relative;
 }
-.step-float {
-    /* position: relative; */
-}
+
 #sideBarBtn {
     position: absolute;
 }
@@ -36,9 +34,14 @@
     right: 0;
 }
 .main-container {
-    position: relative;
+    /* position: relative; */
+    pointer-events: none;
 }
 .main-container>.side-bar {
     position: sticky;
     top: 4%;
+}
+
+.step-float {
+    position: relative;
 }

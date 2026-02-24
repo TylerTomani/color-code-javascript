@@ -19,7 +19,6 @@ function handleInjectContentBtnsContainer(e){
         const lastClicked = getLastCLICKEDLink()
         let iSideBarAs = sideBarAsARRAY.indexOf(lastClicked)
         
-        console.log('herjeh')
         if (e.currentTarget === prevBtn) {
             iSideBarAs = (iSideBarAs - 1 + sideBarAsARRAY.length) % sideBarAsARRAY.length
             setLastCLICKEDLink(sideBarAsARRAY[iSideBarAs])
@@ -43,7 +42,6 @@ function handleInjectContentBtnsContainer(e){
 export function initInjectContentListeners(){
     endNxtBtn.addEventListener('click', handleInjectContentBtnsContainer)
     prevBtn.addEventListener('click', handleInjectContentBtnsContainer)
-    console.log(prevBtn)
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()

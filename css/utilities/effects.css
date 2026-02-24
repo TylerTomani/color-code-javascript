@@ -62,5 +62,5 @@ a:focus,
 }
 
 #mainTargetDiv {
-    pointer-events: none;
+    /* pointer-events: none; */
 }

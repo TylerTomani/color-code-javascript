@@ -1,4 +1,4 @@
-
+/* responsive.css */
 @media screen and (max-width:720px) {
     .topic-container>.sub-topics-container,
     .topic-container ul.sub-resources-container {

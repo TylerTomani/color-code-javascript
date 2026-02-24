@@ -1,19 +1,27 @@
 /* zIndex.css */
+.step-float {
+    z-index: 11
+}
 .tutorial-link-img-container {
     z-index: 10000;
 }
 .step-img img {
-    z-index: 10;
+    z-index: 3;
 }
 .page-wrapper>nav.nav-lesson-title {
     /* z-index: 2 */
 }
 .main-landing-page>nav#nxtPrevLessonsBtns {
-    z-index: 10;
+    z-index: 2;
 }
 #sideBarBtn {
-    z-index: 10;
+    z-index: 5;
 }
 .inject-content-btns-container{
-    z-index: 11;
+    z-index: 5;
 }
+
+* {
+    /* outline: 1px solid red; */
+}
+

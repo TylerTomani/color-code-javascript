@@ -17,18 +17,19 @@ let allImgs = []
 let stepClicked = false
 let iCopyCodes = 0
 let stepCopyCodes = []
-export function removeALLSideLinkChange() {
-    sideBarAs.forEach(el =>
-        el.classList.remove('sideLinkChange')
-    )
-}
 export function initStepNav(){{
     copyCodes = []
     refreshImages(mainTargetDiv)
     updateSteps()
     updateCopyCodes()
     initLessonBtnFocusListeners()
+    document.addEventListener("click", e => console.log("CLICK:", e.target))
 }}
+export function removeALLSideLinkChange() {
+    sideBarAs.forEach(el =>
+        el.classList.remove('sideLinkChange')
+    )
+}
 function initLessonBtnFocusListeners(e){
     // endNxtBtn.addEventListener('keydown', handleLessonBtnsFocus);
     // prevBtn.addEventListener('keydown', handleLessonBtnsFocus);
@@ -92,6 +93,7 @@ export function updateSteps(){
         }
         
         el.addEventListener('focus', e => {
+            scrollToCenter({el})
             denlargeAllImages(allImgs)
             removeStepClicked(steps)            
             stepClicked = false
@@ -102,6 +104,7 @@ export function updateSteps(){
 
         })
         el.addEventListener('click', e => {
+            console.log('here')
             lastStep = steps[iSteps]
             // if(e.type != 'click') return
             scrollToCenter({el})

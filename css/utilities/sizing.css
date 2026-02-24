@@ -1,4 +1,8 @@
 /* sizing.css */
+.tutorial-link-img-container {
+    max-height: 100px;
+    /* height: 200px; */
+}
 #darkModeBtn {
     width: fit-content;
     height: 4vh;

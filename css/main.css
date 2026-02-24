@@ -11,12 +11,12 @@
 @import url('utilities/colors.css');
 @import url('utilities/display.css');
 @import url('utilities/effects.css');
-@import url('utilities/layout.css');
 @import url('utilities/list.css');
-@import url('utilities/position.css');
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
+/* @import url('utilities/position.css'); */
+@import url('utilities/layout.css');
 @import url('utilities/zIndex.css');
 /* ui */
 @import url('ui/toggle-side-bar.css');
