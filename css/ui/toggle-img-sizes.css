@@ -1,6 +1,7 @@
 /* toggle-img-sizes.css */
 .step-img img.enlarge {
     position: fixed;
+    z-index: 9999;
     transform: scale(1.7);
     min-height: 150px;
     top: 30%;
@@ -32,5 +33,18 @@ video.enlarge-vid {
     right: 20%;
 }
 
+.imgs-container {
+    display: flex;
+}
 
+.imgs-container .step-img {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imgs-container  .step-img img {
+    width: 100%;
+}
 
