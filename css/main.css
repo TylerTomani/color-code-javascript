@@ -15,7 +15,7 @@
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
-/* @import url('utilities/position.css'); */
+@import url('utilities/position.css');
 @import url('utilities/layout.css');
 @import url('utilities/zIndex.css');
 /* ui */

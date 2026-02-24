@@ -28,15 +28,8 @@
 #sideBarBtn {
     position: absolute;
 }
-.inject-content-btns-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-.main-container {
-    /* position: relative; */
-    pointer-events: none;
-}
+
+
 .main-container>.side-bar {
     position: sticky;
     top: 4%;
@@ -44,4 +37,14 @@
 
 .step-float {
     position: relative;
+}
+.main-container {
+    position: relative;
+    /* pointer-events: none; */
+}
+.inject-content-btns-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: 2px solid blue;
 }
