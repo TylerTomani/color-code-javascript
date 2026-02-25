@@ -10,8 +10,7 @@ import { initInjectContentListeners } from "./inject-content.js";
 import { initSideBarListeners } from "../nav/sidebar-nav.js";
 import { initStepNav } from "../nav/step-nav.js";
 import { initCopyCode } from "../ui/copy-code.js";
-import { refreshImages,handleImgSizes } from "../ui/toggle-img-sizes.js";
-
+import { refreshImages,handleImgSizes,denlargeAllImages } from "../ui/toggle-img-sizes.js";
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
@@ -25,10 +24,14 @@ function initMain(){
     refreshImages()
 }
 function setupGlobalKeyListener(){
-    document.addEventListener('click', e =>{
-        if(e.target.tagName == 'IMG'){
-            handleImgSizes({e})
+    addEventListener('click', e =>{
+        // console.log(e.target)
+        console.log(e.target.tagName)
+        if(e.target.tagName != 'IMG'){
+
+            denlargeAllImages()
         }
+        
     })
     addEventListener('keydown', e => {
         /** The e.preventDefault to if(isTyping) means:

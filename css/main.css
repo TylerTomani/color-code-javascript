@@ -17,7 +17,7 @@
 @import url('utilities/text.css');
 @import url('utilities/position.css');
 @import url('utilities/layout.css');
-@import url('utilities/zIndex.css');
+/* @import url('utilities/zIndex.css'); */
 /* ui */
 @import url('ui/toggle-side-bar.css');
 @import url('ui/toggle-img-sizes.css');

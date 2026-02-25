@@ -1,15 +1,14 @@
 /* toggle-img-sizes.css */
 .step-img img.enlarge {
     position: fixed;
-    z-index: 9999;
-    transform: scale(1.7);
-    min-height: 150px;
+    transform: scale(1.02);
     top: 30%;
     min-width: 200px;
-    max-width: 300px ;
-    max-height: 300px ;
-    right: 12%;
-    transform: all 4s;
+    min-height: 150px;
+    /* max-width: 300px ; */
+    /* max-height: 300px ; */
+    right: 0;
+    transition: all .3s;
 }
 .imgs-container img.enlarge {
     min-width: 200px;

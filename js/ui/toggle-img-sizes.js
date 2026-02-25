@@ -9,27 +9,21 @@ export function refreshImages(root = mainTargetDiv){
     resetImageState()
 }
 function resetImageState(){
-
     activeStep = null
     activeImgIndex = -1 
     denlargeAllImages()
-    
     allImgs.forEach(el => {
         el.addEventListener('click', e => {
             e.preventDefault()
-            e.stopPropagation()
-            console.log('here')
             handleImgSizes({ e })
         });
     })
-
 }
 // export function updateImgs() {allImgs = document.querySelectorAll('.step-img img, .step-vid video')}
 // --- Image handling ---
 export function handleImgSizes({ e }) {
-    console.log(e.target)
     const step = e.target.closest('.step-float')
-    if (!step) return
+    // if (!step) return
     if (step !== activeStep) {
         denlargeAllImages()
         activeStep = step

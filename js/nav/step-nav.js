@@ -85,7 +85,6 @@ export function updateSteps(){
         });
     })
     // This should not be here, this needs to get implemented into  toggle-img-sizes.js i think
-    
     steps.forEach((el,i) => {
         if(el.hasAttribute('autofocus')){
             el.focus()

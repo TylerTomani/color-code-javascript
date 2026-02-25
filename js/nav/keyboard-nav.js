@@ -23,7 +23,6 @@ export const navState = {
 }
 export function keyboardNav({e}){
     navState.zone = getFocusZone({ e })
-    
     if (!navState.zone) return
     // if
     if (e.key === 'x' && e.shiftKey && e.metaKey) {
