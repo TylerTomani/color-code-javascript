@@ -1,28 +1,36 @@
 // toggle-img-sizes.js
+import { mainTargetDiv } from "../core/inject-content.js"
 let allImgs = []
 let activeStep = null
 let activeImgIndex = -1
 let iStepImgs = -1
-export function refreshImages(root = document){
+export function refreshImages(root = mainTargetDiv){
     allImgs = root.querySelectorAll('.step-img > img, .step-vid > vid')
     resetImageState()
 }
 function resetImageState(){
-    activeStep = null
-    activeImgIndex = -1 
-    denlargeAllImages()
-    
-    allImgs.forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            handleImgSizes({ e })
-        });
-    })
+    if(!document.imagesUpdated){
+
+        activeStep = null
+        activeImgIndex = -1 
+        denlargeAllImages()
+        
+        allImgs.forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault()
+                e.stopPropagation()
+                console.log('here')
+                handleImgSizes({ e })
+            });
+        })
+        document.imagesUpdated = true
+    }
+
 }
 // export function updateImgs() {allImgs = document.querySelectorAll('.step-img img, .step-vid video')}
 // --- Image handling ---
 export function handleImgSizes({ e }) {
+    console.log(e.target)
     const step = e.target.closest('.step-float')
     if (!step) return
     if (step !== activeStep) {

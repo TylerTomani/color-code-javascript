@@ -36,10 +36,10 @@
 }
 
 .step-float {
-    position: relative;
+    /* position: relative; */
 }
 .main-container {
-    position: relative;
+    /* position: relative; */
     /* pointer-events: none; */
 }
 .inject-content-btns-container {

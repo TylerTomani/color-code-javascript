@@ -5,8 +5,12 @@
 .tutorial-link-img-container {
     z-index: 10000;
 }
+.step-img,
 .step-img img {
     z-index: 3;
+}
+.step-img img {
+    z-index: 4;
 }
 .page-wrapper>nav.nav-lesson-title {
     /* z-index: 2 */

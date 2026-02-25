@@ -19,11 +19,12 @@ let iCopyCodes = 0
 let stepCopyCodes = []
 export function initStepNav(){{
     copyCodes = []
-    refreshImages(mainTargetDiv)
+    // refreshImages(mainTargetDiv)
+    // refreshImages()
     updateSteps()
     updateCopyCodes()
     initLessonBtnFocusListeners()
-    document.addEventListener("click", e => console.log("CLICK:", e.target))
+    
 }}
 export function removeALLSideLinkChange() {
     sideBarAs.forEach(el =>
@@ -104,7 +105,6 @@ export function updateSteps(){
 
         })
         el.addEventListener('click', e => {
-            console.log('here')
             lastStep = steps[iSteps]
             // if(e.type != 'click') return
             scrollToCenter({el})

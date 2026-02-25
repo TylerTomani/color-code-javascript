@@ -10,6 +10,8 @@ import { initInjectContentListeners } from "./inject-content.js";
 import { initSideBarListeners } from "../nav/sidebar-nav.js";
 import { initStepNav } from "../nav/step-nav.js";
 import { initCopyCode } from "../ui/copy-code.js";
+import { refreshImages,handleImgSizes } from "../ui/toggle-img-sizes.js";
+
 // No feature enters main - script unless it can survive a rewrite. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 document.addEventListener('DOMContentLoaded', initMain)
 function initMain(){
@@ -20,8 +22,14 @@ function initMain(){
     initToggleSideBar()
     initDarkMode()
     setupGlobalKeyListener()
+    refreshImages()
 }
 function setupGlobalKeyListener(){
+    document.addEventListener('click', e =>{
+        if(e.target.tagName == 'IMG'){
+            handleImgSizes({e})
+        }
+    })
     addEventListener('keydown', e => {
         /** The e.preventDefault to if(isTyping) means:
     Arrow keys:
@@ -37,6 +45,7 @@ function setupGlobalKeyListener(){
             e.target.isContentEditable
 
         if (isTyping) return
+        
         keyboardNav({ e})
     });
 }
