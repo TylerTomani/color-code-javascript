@@ -6,7 +6,7 @@ import { getLastFocusedLink, setLastCLICKEDLink,getLastCLICKEDLink } from "../na
 let lastClickedSideBarLink = null
 import { initCopyCode } from "../ui/copy-code.js";
 import { sideBarAsARRAY } from "../nav/sidebar-nav.js";
-import { initStepNav,updateSteps } from "../nav/step-nav.js";
+import { getSteps, initStepNav,updateSteps } from "../nav/step-nav.js";
 import { refreshImages } from "../ui/toggle-img-sizes.js";
 const navTitleH1 = document.querySelector('#navTitle h1')
 export const endNxtBtn = document.querySelector('#endNxtBtn')
@@ -43,33 +43,34 @@ function handleInjectContentBtnsContainer(e){
         })
     }
 }
+function handleNxtLessonBtn(key){
+    if (key === 'a') {
+        const steps = getSteps()
+        steps[steps.length - 1].focus()
+    }
+    if (key === 'f') {
+        const steps = getSteps()
+        steps[0].focus()
+    }
+    if (key === 'm') {
+        mainTargetDiv.focus()
+        document.querySelector('body').scrollTo(0, 0)
+    }
+    if (key === 'enter') {
+        mainTargetDiv.scrollTo(0, 0)
+    }
+}
 export function initInjectContentListeners(){
     endNxtBtn.addEventListener('click', handleInjectContentBtnsContainer)
     prevBtn.addEventListener('click', handleInjectContentBtnsContainer)
     // Make it so 'a' goes to steps[step.length - 1], when endNxtLesson or prevLessonBtn has focus and 'a' is pressed
     endNxtBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()
-        if(key === 'm'){
-            mainTargetDiv.focus()
-            document.querySelector('body').scrollTo(0,0)
-        }
-        if(key === 'enter'){
-            mainTargetDiv.scrollTo(0, 0)
-            // document.querySelector('body').scrollTo(0, 0)
-        }
-        
+        handleNxtLessonBtn(key)
     })
     prevBtn.addEventListener('keydown', e => {
         const key = e.key.toLowerCase()
-        if(key === 'm'){
-            mainTargetDiv.focus()
-            mainTargetDiv.scrollTo(0, 0)
-        }
-        if (key === 'enter') {
-            mainTargetDiv.scrollTo(0, 0)
-            // document.querySelector('body').scrollTo(0, 0)
-        }
-        
+        handleNxtLessonBtn(key)
     })
     
     let linkClicked = false

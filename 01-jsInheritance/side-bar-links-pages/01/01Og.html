@@ -18,19 +18,24 @@
                     </div>
                     <h4>01</h4>
                     <p>
-                       <span class="lg r">DON'T</span> <span class="md ">duplicate</span> <span class="md r">Code</span>
+                       <strong>"Inheritance"</strong> can be used with <code class="lsg">Objecs</code> and <code class="b">classes</code>
                     </p>
                     <div  class="step-txt">
-                        
+                        <p>
+                            <code class="bad">code </code> below shows inefficent code,
+                        </p>
+                        <p>
+                            <code class="bad">DON't</code> make duplicate code like the <span class="gr">talk()</span> method in both objects
+                        </p>
                         <div class="code-container ">
                             <pre tabindex="0" class="copy-code bbad">
 const <span class="lsg">me</span> = <span class="lsg">{</span>
-    <span class="line-thru r">talk(){
+    <span class="line-thru">talk(){
         return 'Talking'
     }</span>
 <span class="lsg">}</span>
 const <span class="lsg">you</span> = <span class="lsg">{</span>
-    <span class="line-thru r">talk(){
+    <span class="line-thru">talk(){
     return 'Talking'
     }</span>
 <span class="lsg">}</span></pre>
@@ -53,8 +58,9 @@ const <span class="lsg">you</span> = <span class="lsg">{</span>
                         <h4>02</h4>
                         <h5>DON'T Duplicate!</h5>
                         <p>
-                            Create <code class="gr">Classes</code> or <code class="b">objects</code> to <i>'inherit'</i>
-                            from
+                            Make a prototype (<code>object</code> or <code> class)</code> 
+                            Create <code class="gr">methods</code> and <code class="b">properties</code> and incorporate
+                            Inheritance from those prototypes into 'instances' of that classes or objects.
                         </p>
                         <h5><code class="lb">classes</code></h5>
                         <div class="code-container ">
