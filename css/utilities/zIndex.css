@@ -1,18 +1,20 @@
 /* zIndex.css */
-.step-float {
-    /* z-index: 11 */
-}
+
+.page-header,
 .tutorial-link-img-container {
-    /* z-index: 10000; */
+    z-index: 10
+}
+.imgs-container img.enlarge {
+    z-index: 6;
+}
+.step-float{
+    z-index: 4;
 }
 .step-img,
-.step-img,
 .step-img img {
-    z-index: 3;
+    z-index: 5;
 }
-.step-img img {
-    /* z-index: 9999; */
-}
+
 .page-wrapper>nav.nav-lesson-title {
     /* z-index: 2 */
 }
@@ -25,4 +27,5 @@
 .inject-content-btns-container{
     z-index: 5;
 }
+
 

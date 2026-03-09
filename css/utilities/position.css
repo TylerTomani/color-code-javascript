@@ -2,37 +2,37 @@
 .page-wrapper {
     position:relative;
 }
+.main-container>.side-bar {
+    position: sticky;
+    top: 4%;
+}
 .tutorial-link-img-container {
     position: fixed;
     right: 0;
     top: 0;
 }
-
+.inject-content-btns-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
 .page-wrapper >nav.nav-lesson-title {
-    position: sticky;
-    top: 0 !important;
+    /* position: sticky; */
+    /* top: 0 !important; */
 }
 .main-landing-page {
-    position: relative;
-}
-.main-landing-page>nav#nxtPrevLessonsBtns {
-    position: sticky;
-    bottom: 0;
+    /* position: relative; */
 }
 /* Steps */
 .steps-container {
-    position: relative;
+    /* position: relative; */
 }
 
 #sideBarBtn {
-    position: absolute;
+    /* position: absolute; */
 }
 
 
-.main-container>.side-bar {
-    position: sticky;
-    top: 4%;
-}
 
 .step-float {
     /* position: relative; */
@@ -40,10 +40,4 @@
 .main-container {
     /* position: relative; */
     /* pointer-events: none; */
-}
-.inject-content-btns-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    border: 2px solid blue;
 }

@@ -36,7 +36,11 @@ function handleInjectContentBtnsContainer(e){
             sideBarAsARRAY[iSideBarAs].classList.add('sideLinkChange')
             // return
         } 
-        
+        mainTargetDiv.scrollIntoView({
+            behavior: 'instant', 
+            block: 'start',
+
+        })
     }
 }
 export function initInjectContentListeners(){

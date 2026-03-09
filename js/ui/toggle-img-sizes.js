@@ -7,22 +7,39 @@ let iStepImgs = -1
 export function refreshImages(root = mainTargetDiv){
     allImgs = root.querySelectorAll('.step-img > img, .step-vid > vid')
     resetImageState()
+
 }
 function resetImageState(){
     activeStep = null
     activeImgIndex = -1 
     denlargeAllImages()
-    allImgs.forEach(el => {
-        el.addEventListener('click', e => {
+    allImgs.forEach(img => {
+        img.addEventListener('click', e => {
             e.preventDefault()
-            handleImgSizes({ e })
+            console.log(e.target)
+            
+            return
         });
     })
 }
 // export function updateImgs() {allImgs = document.querySelectorAll('.step-img img, .step-vid video')}
 // --- Image handling ---
+export function handleClickImgSizes({ e }) {
+    if(e.target.tagName === 'IMG'){
+        console.log('here')
+        toggleImgSize(e.target)
+    }
+
+}
 export function handleImgSizes({ e }) {
     const step = e.target.closest('.step-float')
+    if(e.type === 'click'){
+        console.log(e.target)
+        if(e.target.tagName === 'IMG'){
+            // toggleImgSize(e.target)
+        }
+        return
+    }
     // if (!step) return
     if (step !== activeStep) {
         denlargeAllImages()

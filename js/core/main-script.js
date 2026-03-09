@@ -24,15 +24,7 @@ function initMain(){
     refreshImages()
 }
 function setupGlobalKeyListener(){
-    addEventListener('click', e =>{
-        // console.log(e.target)
-        console.log(e.target.tagName)
-        if(e.target.tagName != 'IMG'){
-
-            denlargeAllImages()
-        }
-        
-    })
+    
     addEventListener('keydown', e => {
         /** The e.preventDefault to if(isTyping) means:
     Arrow keys:

@@ -14,14 +14,14 @@
         display: inline-flex;
         flex-basis: 33%;
         height: 100%;
-        border: 1px solid black;
+        flex-grow: 1;
         justify-content: center;
         align-items: center;
     }
     .page-header-links>.header-links-col {
         display: flex;
         flex-direction: column;
-        flex-basis: 33%;
+        flex-basis: 50%;
         flex-grow: 1;
     }
     .page-header-links>.header-links-col a{
@@ -32,7 +32,6 @@
 
     }
     .tutorial-link-img-container{
-        height: 100%;
         flex-basis: 20%;
         display: flex;
         flex-direction: column;

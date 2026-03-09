@@ -1,4 +1,17 @@
 /* responsive.css */
+
+@media screen and (min-width:721px) {
+    .page-header-links {
+        display: flex;
+        flex-basis: 90% !important; 
+    }
+    .page-header .page-header-links>a {
+            /* flex-basis: 40% !important; */
+        /* background-color: blue; */
+        /* flex-grow: 1; */
+    }
+
+}
 @media screen and (max-width:720px) {
 
     .topic-container>.sub-topics-container,

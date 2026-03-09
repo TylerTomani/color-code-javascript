@@ -1,7 +1,15 @@
+
 /* sizing.css */
 .tutorial-link-img-container {
-    max-height: 100px;
+    /* max-height: 100px; */
     /* height: 200px; */
+}
+/* .page-header-links>a {
+    height: 100%;
+} */
+.tutorial-link-img-container img {
+    max-height: 150px;
+    max-width: 100px;
 }
 #darkModeBtn {
     width: fit-content;
@@ -9,11 +17,6 @@
 }
 .page-wrapper>nav.section-lesson-title {
     height: fit-content;
-}
-
-.side-bar-links-container h2{
-    width: fit-content;
-    border: 2px solid orange;
 }
 .side-bar ul {
     li {
@@ -27,9 +30,6 @@
         }
     }
 }
-
-
-
 .code-container {
     width: fit-content;
 }
@@ -38,18 +38,12 @@
     height: 100%;
     transition: all .35s;
 }
-.step-float {
-    
-}
-
-
 #mainTargetDiv {
     #targetDivInjected {
         .main-container-colorCode {
-            width: 95%;
+            width: 100%;
         }
     }
-    
 }
 main.main-container {
     width: 100%;

@@ -11,9 +11,8 @@
     transition: all .3s;
 }
 .imgs-container img.enlarge {
-    min-width: 200px;
     position: fixed !important;
-    z-index: 9999;
+    min-width: 200px;
     top: 20%;
     transform: scale(1.05);
 }
