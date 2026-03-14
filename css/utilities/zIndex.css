@@ -2,17 +2,19 @@
 
 .page-header,
 .tutorial-link-img-container {
-    z-index: 10
+    z-index: 4
 }
 .imgs-container img.enlarge {
-    z-index: 6;
+    z-index: 999;
 }
 .step-float{
     z-index: 4;
 }
-.step-img,
-.step-img img {
+.step-img{
     z-index: 5;
+}
+.step-img img {
+    z-index: 6;
 }
 
 .page-wrapper>nav.nav-lesson-title {

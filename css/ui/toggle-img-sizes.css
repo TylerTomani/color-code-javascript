@@ -1,6 +1,7 @@
 /* toggle-img-sizes.css */
 .step-img img.enlarge {
     position: fixed;
+    
     transform: scale(1.02);
     top: 30%;
     min-width: 200px;

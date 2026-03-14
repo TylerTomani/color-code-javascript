@@ -14,6 +14,7 @@ export const prevBtn = document.querySelector('#prevBtn')
 import { removeALLSideLinkChange } from "../nav/step-nav.js";
 function handleInjectContentBtnsContainer(e){
     if(e.type == 'click'){
+        console.log(e.target)
         e.preventDefault()
         e.stopPropagation()
         const lastClicked = getLastCLICKEDLink()

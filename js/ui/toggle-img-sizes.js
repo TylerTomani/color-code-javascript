@@ -6,6 +6,11 @@ let activeImgIndex = -1
 let iStepImgs = -1
 export function refreshImages(root = mainTargetDiv){
     allImgs = root.querySelectorAll('.step-img > img, .step-vid > vid')
+    allImgs.forEach(el => {
+        el.addEventListener('click', e => {
+            toggleImgSize(e.target)
+        });
+    })
     resetImageState()
 
 }
