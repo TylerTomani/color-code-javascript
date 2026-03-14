@@ -12,13 +12,13 @@
     transition: all .3s;
 }
 .imgs-container img.enlarge {
-    position: fixed !important;
-    min-width: 200px;
-    top: 20%;
-    transform: scale(1.05);
+    min-width: 220px;
+    min-height: 250px;
+    /* top: 20%; */
+    transform: scale(1.5);
 }
 .imgs-container .step-img:nth-child(odd) img.enlarge {
-    left: 5%;
+    left: 10%;
 }
 .imgs-container .step-img:nth-child(even) img.enlarge {
     right: 5%;
