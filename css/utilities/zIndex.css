@@ -2,10 +2,10 @@
 
 .page-header,
 .tutorial-link-img-container {
-    z-index: 4
+    z-index: 10
 }
 .imgs-container img.enlarge {
-    z-index: 999;
+    z-index: 9;
 }
 .step-float{
     z-index: 4;
