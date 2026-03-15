@@ -11,9 +11,11 @@
 .page-wrapper >nav.nav-lesson-title {
     border: 1px solid black;
 }
-main>.side-bar {
+.main-container.collapsed>.side-bar {
     border-right: 1px solid black;
+
 }
+
 .code-container {
     border: 1px solid black;
     border-radius: 8px;
