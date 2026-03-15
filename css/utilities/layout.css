@@ -60,3 +60,6 @@ main.main-container {
     flex-grow: 1;
     overflow-x: visible;
 }
+.imgs-container {
+    display: flex;
+}
